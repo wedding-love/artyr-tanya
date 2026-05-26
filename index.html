@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <link href="https://fonts.googleapis.com/css2?family=Gabriela&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Подключение единой системы шрифтов: мягкий Gabriela и тонкий Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -63,7 +64,7 @@
             border-radius: 10px;
         }
 
-        /* Общие стили для экранов и плавной анимации появления */
+        /* Анимация плавного появления блоков */
         .screen {
             scroll-snap-align: start;
             scroll-snap-stop: always;
@@ -80,7 +81,6 @@
             transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Класс активации анимации при скролле */
         .screen.visible {
             opacity: 1;
             transform: translateY(0);
@@ -89,7 +89,7 @@
         /* ПЕРВЫЙ ЭКРАН */
         .screen-first {
             background-color: #fff9e8;
-            justify-content: space-between; /* Распределяем контент, поднимая верх */
+            justify-content: space-between;
             padding: 0;
         }
 
@@ -120,7 +120,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Поднимаем элементы выше */
+            justify-content: flex-start;
             width: 100%;
             padding: 0 24px;
         }
@@ -128,7 +128,7 @@
         .title-block {
             text-align: center;
             width: 100%;
-            padding-top: 10px; /* Минимальный отступ сверху */
+            padding-top: 10px;
             margin-bottom: 15px;
         }
 
@@ -155,12 +155,13 @@
             letter-spacing: -1px;
         }
 
+        /* Измененный блок диалога: такой же как в ленте, только курсив */
         .dialog-area {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: auto; /* Сдвигаем диалог чуть ниже к ленте */
+            margin-top: auto;
             margin-bottom: 30px;
         }
 
@@ -173,11 +174,13 @@
         }
 
         .dialog-text {
-            font-family: "Playfair Display", serif;
-            font-style: italic;
-            font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 300;
+            font-style: italic; /* Курсивное начертание */
+            font-size: clamp(0.85rem, 3.2vw, 1.05rem);
             color: #5e2129;
-            line-height: 1.4;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
         }
 
         .dialog-left {
@@ -222,30 +225,31 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* ВТОРОЙ ЭКРАН: Календарь растянут на весь экран */
+        /* ВТОРОЙ ЭКРАН */
         .screen-second {
             background-color: #fff9e8;
             justify-content: center;
             align-items: center;
-            padding: 40px 0; /* Убираем боковые отступы у самого экрана */
+            padding: 40px 0;
             width: 100%;
         }
 
+        /* Красивое сбалансированное расположение приветственного текста */
         .invitation-greeting {
             font-family: "Montserrat", sans-serif;
             font-weight: 300;
-            font-size: clamp(1.2rem, 5vw, 1.6rem);
+            font-size: clamp(1.1rem, 4.5vw, 1.45rem);
             color: #5e2129;
             text-align: center;
-            line-height: 1.7;
+            line-height: 1.8; /* Увеличенное межстрочное расстояние для изящности */
             width: 100%;
-            padding: 0 30px; /* Отступы только для текста внутри */
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            padding: 0 35px;
+            margin-bottom: 30px;
+            letter-spacing: 0.8px;
         }
 
         .invitation-greeting p {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .big-date {
@@ -260,7 +264,7 @@
 
         .calendar-image-wrapper {
             width: 100%;
-            padding: 0 24px; /* Чтобы календарь не лип к краям дисплея */
+            padding: 0 24px;
             max-width: 380px;
             margin: 0 auto;
             display: flex;
@@ -278,7 +282,7 @@
             box-shadow: 0 10px 30px rgba(94, 33, 41, 0.06);
         }
 
-        /* ТРЕТИЙ ЭКРАН */
+        /* ТРЕТИЙ ЭКРАН (Винный блок) */
         .screen-third {
             background-color: #5e2129;
             justify-content: center;
@@ -298,17 +302,17 @@
             padding: 20px 0;
         }
 
+        /* Заголовок Локация написан тем же шрифтом, что и "мы женимся" */
         .location-label {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
+            font-family: 'Gabriela', serif;
             font-weight: 400;
-            font-size: clamp(1.1rem, 4vw, 1.4rem);
-            color: rgba(255, 249, 232, 0.75);
+            font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+            color: rgba(255, 249, 232, 0.8);
             text-align: center;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
+        /* Шато Мари написан тем же шрифтом, что и "мы женимся" */
         .location-name {
             font-family: 'Gabriela', serif;
             font-weight: 400;
@@ -341,24 +345,25 @@
             transform: scale(1.03);
         }
 
+        /* Адрес написан тем же шрифтом, что и "дорогие друзья и близкие" */
         .location-address {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
-            font-size: clamp(0.85rem, 3.5vw, 1rem);
-            color: rgba(255, 249, 232, 0.85);
+            font-size: clamp(0.9rem, 3.8vw, 1.1rem);
+            color: rgba(255, 249, 232, 0.9);
             text-align: center;
-            letter-spacing: 1px;
-            line-height: 1.5;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
             max-width: 90%;
             text-decoration: none;
         }
 
-        /* Адаптивность для мобильных девайсов */
+        /* Адаптивные улучшения */
         @media (max-width: 450px) {
             .first-content { padding: 0 20px; }
             .title-block { margin-bottom: 8px; }
             .dialog-area { margin-bottom: 20px; }
-            .invitation-greeting { padding: 0 20px; margin-bottom: 20px; }
+            .invitation-greeting { padding: 0 24px; margin-bottom: 20px; }
             .big-date { margin-bottom: 20px; }
             .calendar-image-wrapper { max-width: 310px; }
             .screen-third { min-height: 440px; }
@@ -383,6 +388,7 @@
 <body>
 
     <main class="invitation-card">
+        <!-- ПЕРВЫЙ ЭКРАН -->
         <section class="screen screen-first">
             <div class="hero-image-section">
                 <div class="full-width-heart">
@@ -417,6 +423,7 @@
             </div>
         </section>
 
+        <!-- ВТОРОЙ ЭКРАН -->
         <section class="screen screen-second">
             <div class="invitation-greeting">
                 <p>Дорогие друзья и близкие,</p>
@@ -432,6 +439,7 @@
             </div>
         </section>
 
+        <!-- ТРЕТИЙ ЭКРАН -->
         <section class="screen screen-third">
             <div class="location-content">
                 <div class="location-label">Локация</div>
@@ -450,14 +458,14 @@
     </main>
 
     <script>
-        // Скрипт для плавного появления блоков при прокрутке (Scroll Animation)
+        // Инициализация плавного появления контента при скролле
         document.addEventListener('DOMContentLoaded', () => {
             const screens = document.querySelectorAll('.screen');
             
             const observerOptions = {
                 root: document.querySelector('.invitation-card'),
                 rootMargin: '0px',
-                threshold: 0.2 // Блок начнет появляться, когда 20% его площади войдет в экран
+                threshold: 0.15
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -473,7 +481,7 @@
             });
         });
 
-        // Корректная подгонка высоты под мобильные браузеры
+        // Расчет корректных высот экранов (100dvh / 50dvh)
         function setVhFix() {
             const screens = document.querySelectorAll('.screen');
             screens.forEach(screen => {
@@ -489,7 +497,7 @@
         window.addEventListener('load', setVhFix);
         setVhFix();
 
-        // Бесшовная бегущая строка
+        // Бегущая строка
         (function fixMarquee() {
             const ribbons = document.querySelectorAll('.marquee-ribbon');
             ribbons.forEach(ribbon => {
