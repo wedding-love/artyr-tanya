@@ -2,11 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Мы женимся | Приглашение</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=yes">
+    <title>Наконец-то мы женимся | Свадебное приглашение</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+    <!-- Тонкие изящные курсивные шрифты для локации -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -17,7 +20,7 @@
         }
 
         body {
-            background-color: #fff9e8;  /* более светлый, нежный кремовый фон */
+            background-color: #fff9e8;
             font-family: "Caveat", cursive;
             display: flex;
             justify-content: center;
@@ -28,18 +31,18 @@
         }
 
         .invitation-card {
-            background-color: #fff9e8;  /* такой же светлый фон */
+            background-color: #fff9e8;
             width: 100%;
             max-width: 600px;
-            min-height: 100vh;
-            min-height: 100dvh;
+            height: 100vh;
+            height: 100dvh;
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
             margin: 0 auto;
-            overflow-y: auto;
+            overflow-y: scroll;
             overflow-x: hidden;
+            scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
         }
 
@@ -54,7 +57,29 @@
             border-radius: 10px;
         }
 
-        /* Фото на всю ширину */
+        .screen {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            flex-shrink: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* ПЕРВЫЙ ЭКРАН */
+        .screen-first {
+            background-color: #fff9e8;
+            justify-content: flex-start;
+            padding: 0;
+            gap: 0;
+        }
+
         .hero-image-section {
             width: 100%;
             display: flex;
@@ -63,6 +88,7 @@
             margin: 0;
             padding: 0;
             line-height: 0;
+            flex-shrink: 0;
         }
 
         .full-width-heart {
@@ -77,13 +103,21 @@
             object-fit: cover;
         }
 
+        .first-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 20px 20px 20px;
+        }
+
         .title-block {
             text-align: center;
             width: 100%;
-            padding: 20px 20px 12px 20px;
+            padding: 12px 0 8px 0;
         }
 
-        /* "наконец-то" — шрифт Caveat, винный цвет */
         .sub-title {
             display: block;
             font-family: "Caveat", cursive;
@@ -93,7 +127,6 @@
             line-height: 1.2;
         }
 
-        /* "мы женимся" — Marck Script, самый большой, на одной строке, винный цвет */
         .primary-title {
             display: block;
             font-family: "Marck Script", cursive;
@@ -106,15 +139,13 @@
             white-space: nowrap;
         }
 
-        /* Диалог — Caveat, самый маленький, винный цвет */
         .dialog-area {
             width: 100%;
-            flex: 1 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px 0 0 0;
-            padding: 0 24px;
+            margin: 16px 0 20px 0;
+            padding: 0 20px;
         }
 
         .dialog-container {
@@ -145,19 +176,12 @@
             flex: 0.9;
         }
 
-        .spacer {
-            flex: 1;
-            min-height: 16px;
-        }
-
-        /* Бегущая лента — фон винный, текст светлый */
         .marquee-ribbon {
             background-color: #5e2129;
             width: 100%;
             overflow: hidden;
-            padding: 14px 0;
+            padding: 18px 0;
             flex-shrink: 0;
-            margin-top: auto;
         }
 
         .marquee-track {
@@ -170,7 +194,7 @@
 
         .marquee-track span {
             font-family: "Caveat", cursive;
-            color: #fff9e8;  /* светлый цвет под фон страницы */
+            color: #fff9e8;
             font-size: clamp(1.3rem, 5vw, 1.8rem);
             font-weight: 600;
             text-transform: lowercase;
@@ -181,18 +205,197 @@
         }
 
         @keyframes marqueeScroll {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-            100% {
-                transform: translate3d(-50%, 0, 0);
-            }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
+        /* ВТОРОЙ ЭКРАН */
+        .screen-second {
+            background-color: #fff9e8;
+            justify-content: center;
+            padding: 30px 24px 40px 24px;
+            gap: 18px;
+        }
+
+        .invitation-greeting {
+            font-family: "Caveat", cursive;
+            font-size: clamp(1.5rem, 5.5vw, 2rem);
+            font-weight: 500;
+            color: #5e2129;
+            text-align: center;
+            line-height: 1.5;
+            background: transparent;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            padding: 0;
+            border: none;
+        }
+
+        .invitation-greeting p {
+            margin: 0 0 4px 0;
+            padding: 0;
+        }
+
+        .big-date {
+            font-family: "Caveat", cursive;
+            font-size: clamp(2.4rem, 8vw, 3.4rem);
+            font-weight: 700;
+            color: #5e2129;
+            text-align: center;
+            margin: 6px 0 8px 0;
+            letter-spacing: 2px;
+            background: transparent;
+            padding: 0;
+            border: none;
+        }
+
+        .calendar-image-wrapper {
+            width: 100%;
+            max-width: 340px;
+            margin: 8px auto 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 28px;
+            background: transparent;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .calendar-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 26px;
+            object-fit: cover;
+            background: #ffffff;
+        }
+
+        /* ТРЕТИЙ ЭКРАН — винный блок, занимает половину экрана */
+        .screen-third {
+            background-color: #5e2129;
+            justify-content: center;
+            padding: 0 24px;
+            gap: 0;
+            height: 50vh;
+            height: 50dvh;
+            min-height: 480px;
+        }
+
+        .location-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        /* Заголовок "Локация" — элегантный курсив */
+        .location-label {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            color: rgba(255, 249, 232, 0.85);
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: transparent;
+            padding: 0;
+        }
+
+        /* Название "Шато Мари" после фото */
+        .location-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.8rem, 5.5vw, 2.6rem);
+            color: #fff9e8;
+            text-align: center;
+            letter-spacing: 0.5px;
+            background: transparent;
+            padding: 0;
+            line-height: 1.2;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Фото локации — прямоугольное (соотношение 4:3) */
+        .location-photo-wrapper {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
+            background: #fff9e8;
+            aspect-ratio: 4 / 3;
+        }
+
+        .location-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .location-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Адрес — изящный курсив, без подчеркивания */
+        .location-address {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+            color: rgba(255, 249, 232, 0.92);
+            text-align: center;
+            letter-spacing: 0.4px;
+            line-height: 1.5;
+            background: transparent;
+            padding: 6px 12px;
+            max-width: 90%;
+            margin: 0 auto;
+            text-decoration: none;
+            border: none;
+        }
+
+        /* Полностью убираем линию подчеркивания */
+        .wine-divider {
+            display: none;
+        }
+
+        /* Адаптивность */
         @media (max-width: 550px) {
             .primary-title {
                 font-size: clamp(2.8rem, 10vw, 3.8rem);
                 white-space: nowrap;
+            }
+            .screen-second {
+                padding: 25px 18px 35px 18px;
+                gap: 14px;
+            }
+            .calendar-image-wrapper {
+                max-width: 280px;
+            }
+            .screen-third {
+                padding: 0 16px;
+                min-height: 460px;
+            }
+            .location-content {
+                gap: 16px;
+            }
+            .location-photo-wrapper {
+                max-width: 280px;
+            }
+            .location-name {
+                font-size: 2rem;
+            }
+            .location-label {
+                font-size: 1.2rem;
             }
         }
 
@@ -202,43 +405,64 @@
                 white-space: nowrap;
             }
             .dialog-area {
-                padding: 0 18px;
-                margin: 12px 0 0 0;
+                padding: 0 16px;
+                margin: 12px 0 12px 0;
             }
             .dialog-container {
                 gap: 10px;
             }
             .title-block {
-                padding: 14px 16px 8px 16px;
+                padding: 6px 0 4px 0;
             }
             .marquee-ribbon {
-                padding: 10px 0;
+                padding: 12px 0;
+            }
+            .invitation-greeting {
+                font-size: 1.35rem;
+            }
+            .big-date {
+                font-size: 2rem;
+                margin: 4px 0;
+            }
+            .screen-third {
+                min-height: 440px;
+            }
+            .location-photo-wrapper {
+                max-width: 260px;
             }
         }
 
         @media (max-height: 700px) {
-            .title-block {
-                padding: 10px 20px 6px 20px;
+            .first-content {
+                padding: 6px 20px 12px 20px;
             }
             .dialog-area {
-                margin: 8px 0 0 0;
+                margin: 8px 0 8px 0;
             }
+            .screen-second {
+                padding: 20px 18px;
+            }
+            .screen-third {
+                min-height: 420px;
+            }
+            .location-content {
+                gap: 12px;
+            }
+        }
+
+        /* Убираем все рамки */
+        .screen, .screen * {
+            border: none;
+            outline: none;
         }
 
         @media (min-width: 768px) {
             .invitation-card {
                 max-width: 560px;
                 margin: 0 auto;
-                min-height: 100vh;
             }
             body {
                 background: #fff9e8;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .invitation-card {
-                max-width: 600px;
             }
         }
     </style>
@@ -246,56 +470,83 @@
 <body>
 
     <main class="invitation-card">
-        <div class="hero-image-section">
-            <div class="full-width-heart">
-                <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/800x600/f9e5d6/5e2129?text=❤️'; this.onerror=null;">
-            </div>
-        </div>
-
-        <div class="title-block">
-            <span class="sub-title">наконец-то</span>
-            <span class="primary-title">мы женимся</span>
-        </div>
-
-        <div class="dialog-area">
-            <div class="dialog-container">
-                <div class="dialog-text dialog-left">
-                    — интересно, кто будет моим мужем, когда вырасту?
-                </div>
-                <div class="dialog-text dialog-right">
-                    — им буду я!
+        <!-- ПЕРВЫЙ ЭКРАН: сердечко, текст, бегущая строка -->
+        <section class="screen screen-first">
+            <div class="hero-image-section">
+                <div class="full-width-heart">
+                    <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/800x600/f9e5d6/5e2129?text=❤️'; this.onerror=null;">
                 </div>
             </div>
-        </div>
-
-        <div class="spacer"></div>
-
-        <div class="marquee-ribbon">
-            <div class="marquee-track">
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
-                <span>вы приглашены</span>
+            
+            <div class="first-content">
+                <div class="title-block">
+                    <span class="sub-title">наконец-то</span>
+                    <span class="primary-title">мы женимся</span>
+                </div>
+                <div class="dialog-area">
+                    <div class="dialog-container">
+                        <div class="dialog-text dialog-left">
+                            — интересно, кто будет моим мужем, когда вырасту?
+                        </div>
+                        <div class="dialog-text dialog-right">
+                            — им буду я!
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            
+            <div class="marquee-ribbon">
+                <div class="marquee-track">
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                    <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ВТОРОЙ ЭКРАН: текст, дата, календарь -->
+        <section class="screen screen-second">
+            <div class="invitation-greeting">
+                <p>Дорогие друзья и близкие,</p>
+                <p>мы приглашаем вас разделить</p>
+                <p>с нами наше свадебное торжество,</p>
+                <p>которое состоится</p>
+            </div>
+            
+            <div class="big-date">26.08.2026</div>
+            
+            <div class="calendar-image-wrapper">
+                <img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/400x460/f9e5d6/5e2129?text=🗓️+Август+2026'; this.onerror=null;">
+            </div>
+        </section>
+
+        <!-- ТРЕТИЙ ЭКРАН: ВИННЫЙ БЛОК С ЛОКАЦИЕЙ (занимает 1/2 экрана) -->
+        <section class="screen screen-third">
+            <div class="location-content">
+                <!-- Слово "Локация" сверху -->
+                <div class="location-label">Локация</div>
+                
+                <!-- Фото локации (прямоугольное) -->
+                <div class="location-photo-wrapper">
+                    <img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/fff9e8/5e2129?text=🏰+Château+Marie'; this.onerror=null;">
+                </div>
+                
+                <!-- Название "Шато Мари" под фото -->
+                <div class="location-name">Шато Мари</div>
+                
+                <!-- Адрес внизу -->
+                <div class="location-address">
+                    Гродно, улица Домбровского, 58
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -340,9 +591,114 @@
                 title.style.whiteSpace = 'nowrap';
             }
         }
-        window.addEventListener('load', ensureNoWrap);
-        window.addEventListener('resize', ensureNoWrap);
+        
+        function setVhFix() {
+            const screens = document.querySelectorAll('.screen');
+            const thirdScreen = document.querySelector('.screen-third');
+            
+            screens.forEach(screen => {
+                if (screen.classList.contains('screen-third')) {
+                    // Третий экран — ровно половина высоты вьюпорта
+                    screen.style.height = `50vh`;
+                    screen.style.height = `50dvh`;
+                    screen.style.minHeight = '440px';
+                } else {
+                    screen.style.height = `${window.innerHeight}px`;
+                    screen.style.height = `100dvh`;
+                }
+            });
+            
+            // Коррекция отступов для третьего экрана на маленьких экранах
+            if (thirdScreen) {
+                const content = thirdScreen.querySelector('.location-content');
+                if (content && window.innerHeight < 700) {
+                    content.style.gap = '12px';
+                } else if (content) {
+                    content.style.gap = '20px';
+                }
+            }
+        }
+        
+        window.addEventListener('resize', () => {
+            setVhFix();
+            ensureNoWrap();
+        });
+        
+        window.addEventListener('load', () => {
+            setVhFix();
+            ensureNoWrap();
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 100);
+        });
+        
         ensureNoWrap();
+        setVhFix();
+        
+        // Обработка ошибок изображений
+        const calendarImg = document.querySelector('.calendar-img');
+        if (calendarImg) {
+            calendarImg.addEventListener('error', function() {
+                this.style.objectFit = 'contain';
+                this.style.backgroundColor = '#fdf4ea';
+                this.style.padding = '20px';
+                this.style.borderRadius = '28px';
+            });
+        }
+        
+        const locationImg = document.querySelector('.location-img');
+        if (locationImg) {
+            locationImg.addEventListener('error', function() {
+                this.style.objectFit = 'cover';
+                this.style.backgroundColor = '#fff9e8';
+                this.src = 'https://placehold.co/800x600/fff9e8/5e2129?text=🏰+Château+Marie';
+            });
+        }
+        
+        // Плавный скролл с защитой от overscroll (сохраняем нативную плавность)
+        const scrollContainer = document.querySelector('.invitation-card');
+        if (scrollContainer) {
+            let touchStartY = 0;
+            scrollContainer.addEventListener('touchstart', (e) => {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            scrollContainer.addEventListener('touchmove', (e) => {
+                const scrollTop = scrollContainer.scrollTop;
+                const scrollHeight = scrollContainer.scrollHeight;
+                const clientHeight = scrollContainer.clientHeight;
+                const isAtTop = scrollTop <= 5;
+                const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5;
+                const deltaY = e.touches[0].clientY - touchStartY;
+                
+                if ((isAtTop && deltaY > 0) || (isAtBottom && deltaY < 0)) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        }
+
+        // Дополнительные стили для курсива и устранения любых подчеркиваний
+        const styleClean = document.createElement('style');
+        styleClean.textContent = `
+            .screen-third .location-label,
+            .screen-third .location-name,
+            .screen-third .location-address {
+                background: transparent;
+                border: none;
+                text-decoration: none;
+                text-underline-offset: none;
+            }
+            .location-photo-wrapper img {
+                border: none;
+                outline: none;
+            }
+            .location-name, .location-label, .location-address {
+                text-decoration: none;
+            }
+            a, a:hover, a:focus {
+                text-decoration: none;
+            }
+        `;
+        document.head.appendChild(styleClean);
     </script>
 </body>
 </html>
