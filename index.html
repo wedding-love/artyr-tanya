@@ -17,7 +17,7 @@
         }
 
         body {
-            background-color: #f4f3ef;
+            background-color: #ffffff; /* Обновлено: Абсолютно белый фон страницы */
             font-family: "Caveat", cursive;
             display: flex;
             justify-content: center;
@@ -27,7 +27,7 @@
 
         /* Контейнер карточки (имитация экрана мобильного телефона) */
         .invitation-card {
-            background-color: #f5f5dc; /* Обновлено: Бело-бежевый сливочный цвет */
+            background-color: #faf9f6; /* Обновлено: Благородный молочно-белый сливочный цвет без серости */
             width: 100%;
             max-width: 450px;
             min-height: 100vh;
@@ -37,12 +37,12 @@
             flex-direction: column;
             align-items: center;
             padding-top: 70px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
         /* Главный заголовок */
         .main-title {
-            color: #9b2d30; /* Обновлено: Более яркий бордовый цвет */
+            color: #9b2d30; /* Насыщенный бордовый цвет */
             text-align: center;
             width: 100%;
             padding: 0 10px;
@@ -57,14 +57,14 @@
             font-weight: 400;
         }
 
-        /* "мы женимся" — в одну строку, красивый тонкий рукописный шрифт Google Fonts */
+        /* "мы женимся" — в одну строку, красивый тонкий рукописный шрифт */
         .primary-title {
             display: block;
             font-family: "Marck Script", cursive;
             font-size: 3.5rem;
-            font-weight: 400; /* Абсолютно тонкое начертание, без жирности */
-            white-space: nowrap; /* Запрет переноса на другую строку */
-            text-transform: lowercase; /* Текст строчными буквами для мягкости стиля */
+            font-weight: 400; 
+            white-space: nowrap; 
+            text-transform: lowercase; 
         }
 
         /* Блок диалогов, выстроенных в одну строку */
@@ -80,7 +80,7 @@
 
         /* Реплики диалога */
         .dialog-text {
-            color: #9b2d30; /* Обновлено: Более яркий бордовый цвет */
+            color: #9b2d30; 
             font-size: 1.6rem;
             line-height: 1.2;
             font-weight: 400;
@@ -98,13 +98,13 @@
 
         /* Движущаяся бесконечная лента «вы приглашены» */
         .marquee-ribbon {
-            background-color: #9b2d30; /* Обновлено: Более яркий бордовый фон */
+            background-color: #9b2d30; 
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
             padding: 12px 0;
             position: absolute;
-            bottom: 45px; /* Размещение в нижней части экрана */
+            bottom: 45px; 
         }
 
         .marquee-track {
@@ -114,12 +114,12 @@
 
         /* Тонкий шрифт без жирного очертания и без точек */
         .marquee-track span {
-            color: #f5f5dc; /* Обновлено: Бело-бежевый текст на бордовом фоне */
+            color: #faf9f6; /* Обновлено: Текст в тон светлого фона карточки */
             font-family: "Caveat", cursive;
-            font-weight: 400; /* Тонкое начертание */
+            font-weight: 400; 
             font-size: 1.5rem;
             text-transform: lowercase;
-            padding-right: 35px; /* Отступ между фразами вместо точек */
+            padding-right: 35px; 
         }
 
         /* Анимация плавного сдвига для бесконечной строки */
