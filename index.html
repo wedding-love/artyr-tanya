@@ -17,7 +17,7 @@
         }
 
         body {
-            background-color: #fbf9e2; /* новый фон страницы */
+            background-color: #fffdd0;
             font-family: "Caveat", cursive;
             display: flex;
             justify-content: center;
@@ -27,9 +27,8 @@
             padding: 0;
         }
 
-        /* Главная карточка */
         .invitation-card {
-            background-color: #fbf9e2; /* фон карточки такой же */
+            background-color: #fffdd0;
             width: 100%;
             max-width: 600px;
             min-height: 100vh;
@@ -44,7 +43,6 @@
             scroll-behavior: smooth;
         }
 
-        /* скролл */
         .invitation-card::-webkit-scrollbar {
             width: 3px;
         }
@@ -79,14 +77,13 @@
             object-fit: cover;
         }
 
-        /* заголовочный блок */
         .title-block {
             text-align: center;
             width: 100%;
             padding: 20px 20px 12px 20px;
         }
 
-        /* "наконец-то" — средний размер, шрифт Caveat */
+        /* "наконец-то" — шрифт Caveat, винный цвет */
         .sub-title {
             display: block;
             font-family: "Caveat", cursive;
@@ -96,7 +93,7 @@
             line-height: 1.2;
         }
 
-        /* "мы женимся" — САМЫЙ БОЛЬШОЙ ШРИФТ, НА ОДНОЙ СТРОКЕ */
+        /* "мы женимся" — Marck Script, самый большой, на одной строке, винный цвет */
         .primary-title {
             display: block;
             font-family: "Marck Script", cursive;
@@ -109,7 +106,7 @@
             white-space: nowrap;
         }
 
-        /* Диалог — САМЫЙ МАЛЕНЬКИЙ ПО РАЗМЕРУ */
+        /* Диалог — Caveat, самый маленький, винный цвет */
         .dialog-area {
             width: 100%;
             flex: 1 0 auto;
@@ -148,13 +145,12 @@
             flex: 0.9;
         }
 
-        /* спейсер */
         .spacer {
             flex: 1;
             min-height: 16px;
         }
 
-        /* Бегущая лента — фон винный, текст светлый */
+        /* Бегущая лента — фон винный, текст СВЕТЛЫЙ (чтобы читался на тёмном фоне) */
         .marquee-ribbon {
             background-color: #5e2129;
             width: 100%;
@@ -174,7 +170,7 @@
 
         .marquee-track span {
             font-family: "Caveat", cursive;
-            color: #fff2df;
+            color: #fbf9e2;  /* светлый цвет под фон страницы */
             font-size: clamp(1.3rem, 5vw, 1.8rem);
             font-weight: 600;
             text-transform: lowercase;
@@ -193,7 +189,6 @@
             }
         }
 
-        /* Адаптивность */
         @media (max-width: 550px) {
             .primary-title {
                 font-size: clamp(2.8rem, 10vw, 3.8rem);
@@ -251,20 +246,17 @@
 <body>
 
     <main class="invitation-card">
-        <!-- ФОТО СЕРДЦЕ — НА ВСЮ ШИРИНУ -->
         <div class="hero-image-section">
             <div class="full-width-heart">
                 <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/800x600/f9e5d6/5e2129?text=❤️'; this.onerror=null;">
             </div>
         </div>
 
-        <!-- ЗАГОЛОВОК -->
         <div class="title-block">
             <span class="sub-title">наконец-то</span>
             <span class="primary-title">мы женимся</span>
         </div>
 
-        <!-- ДИАЛОГ — САМЫЙ МАЛЕНЬКИЙ РАЗМЕР -->
         <div class="dialog-area">
             <div class="dialog-container">
                 <div class="dialog-text dialog-left">
@@ -278,7 +270,6 @@
 
         <div class="spacer"></div>
 
-        <!-- БЕГУЩАЯ ЛЕНТА -->
         <div class="marquee-ribbon">
             <div class="marquee-track">
                 <span>вы приглашены</span>
@@ -308,7 +299,6 @@
     </main>
 
     <script>
-        // Бесшовная бегущая строка
         (function fixMarquee() {
             const ribbons = document.querySelectorAll('.marquee-ribbon');
             if (!ribbons.length) return;
@@ -344,7 +334,6 @@
             });
         })();
 
-        // Для очень узких экранов дополнительно проверяем, чтобы "мы женимся" не переносилось
         function ensureNoWrap() {
             const title = document.querySelector('.primary-title');
             if (title) {
@@ -356,4 +345,5 @@
         ensureNoWrap();
     </script>
 </body>
+</html>
 </html>
