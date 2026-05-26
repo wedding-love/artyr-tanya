@@ -2,128 +2,221 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наконец-то мы женимся</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Наконец-то мы женимся | Приглашение</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
     
     <style>
-        /* Обнуление базовых стилей */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #ffffff; /* Абсолютно белый фон страницы */
+            background-color: #f2ebe3;
             font-family: "Caveat", cursive;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            min-height: 100dvh;
+            padding: 0;
         }
 
-        /* Контейнер карточки (имитация экрана мобильного телефона) */
+        /* Главная карточка — фото на всю ширину */
         .invitation-card {
-            background-color: #fbf9e2; /* Тот самый светлый сливочный цвет */
+            background-color: #fffdf5;
             width: 100%;
-            max-width: 450px;
+            max-width: 600px;
             min-height: 100vh;
+            min-height: 100dvh;
             position: relative;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 70px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            box-shadow: none;
         }
 
-        /* Главный заголовок */
-        .main-title {
-            color: #5e2129; /* Красивый винный цвет */
+        /* плавная прокрутка */
+        .invitation-card::-webkit-scrollbar {
+            width: 3px;
+        }
+        .invitation-card::-webkit-scrollbar-track {
+            background: #e8ddd2;
+        }
+        .invitation-card::-webkit-scrollbar-thumb {
+            background: #b17a7a;
+            border-radius: 10px;
+        }
+
+        /* Секция с фото — теперь занимает ВСЮ ширину экрана */
+        .hero-image-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #fffdf5;
+        }
+
+        /* Фото на всю ширину без отступов */
+        .full-width-heart {
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+            line-height: 0;
+        }
+
+        .heart-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* заголовочный блок — без обводок, чистый текст */
+        .title-block {
             text-align: center;
             width: 100%;
-            padding: 0 10px;
+            padding: 20px 20px 8px 20px;
+            margin-top: 4px;
+            background: transparent;
         }
 
         .sub-title {
             display: block;
             font-family: "Caveat", cursive;
-            font-size: 2.2rem;
-            text-transform: lowercase;
-            margin-bottom: -5px;
-            font-weight: 400;
+            font-size: clamp(1.8rem, 7vw, 2.5rem);
+            font-weight: 500;
+            color: #5e2129;
+            letter-spacing: -0.3px;
+            margin-bottom: 0px;
+            line-height: 1.2;
+            background: none;
+            text-shadow: none;
         }
 
-        /* "мы женимся" — в одну строку, красивый тонкий рукописный шрифт */
+        /* "мы женимся" — без обводки, без теней, просто красивый цвет */
         .primary-title {
             display: block;
             font-family: "Marck Script", cursive;
-            font-size: 3.5rem;
-            font-weight: 400; /* Абсолютно тонкое начертание, без жирности */
-            white-space: nowrap; /* Запрет переноса на другую строку */
-            text-transform: lowercase; 
+            font-size: clamp(2.6rem, 11vw, 4rem);
+            font-weight: 400;
+            color: #a33b42;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #a33b42;
+            text-shadow: none;
+            letter-spacing: 1px;
+            white-space: normal;
+            word-break: keep-all;
+            line-height: 1.2;
         }
 
-        /* Блок диалогов, выстроенных в одну строку */
+        /* Диалоговая зона — без фонов и обводок */
+        .dialog-area {
+            width: 100%;
+            flex: 1 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0 0 0;
+            padding: 0 24px;
+        }
+
         .dialog-container {
             width: 100%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 0 25px;
-            margin-top: auto;
-            margin-bottom: 160px; /* Отступ над бегущей лентой */
+            align-items: flex-end;
+            gap: 12px;
+            background: transparent;
+            padding: 0;
+            backdrop-filter: none;
+            border-radius: 0;
         }
 
-        /* Реплики диалога */
         .dialog-text {
-            color: #5e2129; /* Единый красивый винный цвет */
-            font-size: 1.6rem;
-            line-height: 1.2;
-            font-weight: 400;
+            color: #2d1a1c;
+            font-family: "Caveat", cursive;
+            font-weight: 500;
+            font-size: clamp(1.25rem, 5vw, 1.75rem);
+            line-height: 1.35;
+            background: transparent;
+            box-shadow: none;
+            border: none;
         }
 
         .dialog-left {
-            max-width: 60%;
             text-align: left;
+            flex: 1.2;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
         }
 
         .dialog-right {
-            max-width: 38%;
             text-align: right;
+            flex: 0.9;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
         }
 
-        /* Движущаяся бесконечная лента «вы приглашены» */
+        /* Гибкий спейсер */
+        .spacer {
+            flex: 1;
+            min-height: 16px;
+        }
+
+        /* Бегущая строка внизу */
         .marquee-ribbon {
-            background-color: #5e2129; /* Единый красивый винный цвет */
+            background-color: #5e2129;
             width: 100%;
             overflow: hidden;
-            white-space: nowrap;
-            padding: 12px 0;
-            position: absolute;
-            bottom: 45px; /* Размещение в нижней части экрана */
+            padding: 14px 0;
+            position: relative;
+            flex-shrink: 0;
+            margin-top: auto;
+            border-radius: 0;
+            box-shadow: none;
         }
 
         .marquee-track {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
+            display: flex;
+            white-space: nowrap;
+            will-change: transform;
+            animation: marqueeScroll 24s linear infinite;
+            width: max-content;
         }
 
-        /* Тонкий шрифт без жирного очертания и без точек */
         .marquee-track span {
-            color: #fffdd0; /* Текст в тон сливочного фона карточки */
+            color: #fff2df;
             font-family: "Caveat", cursive;
-            font-weight: 400; /* Тонкое начертание */
-            font-size: 1.5rem;
+            font-weight: 500;
+            font-size: clamp(1.2rem, 5vw, 1.7rem);
             text-transform: lowercase;
-            padding-right: 35px; /* Отступ между фразами вместо точек */
+            letter-spacing: 1px;
+            padding-right: 40px;
+            display: inline-block;
+            white-space: nowrap;
+            background: transparent;
+            border: none;
         }
 
-        /* Анимация плавного сдвига для бесконечной строки */
-        @keyframes marquee {
+        @keyframes marqueeScroll {
             0% {
                 transform: translate3d(0, 0, 0);
             }
@@ -131,29 +224,96 @@
                 transform: translate3d(-50%, 0, 0);
             }
         }
+
+        /* Адаптивность для малых экранов */
+        @media (max-width: 480px) {
+            .dialog-area {
+                padding: 0 20px;
+            }
+            .dialog-container {
+                gap: 8px;
+            }
+            .title-block {
+                padding: 16px 20px 4px 20px;
+            }
+            .marquee-ribbon {
+                padding: 10px 0;
+            }
+        }
+
+        /* для экранов с высотой менее 650px — сохраняем пропорции */
+        @media (max-height: 700px) {
+            .title-block {
+                padding: 12px 20px 4px 20px;
+            }
+            .dialog-area {
+                margin: 8px 0 0 0;
+            }
+            .marquee-ribbon {
+                padding: 8px 0;
+            }
+        }
+
+        /* планшеты и выше: карточка выглядит как открытка, фото всё ещё на всю ширину */
+        @media (min-width: 768px) {
+            .invitation-card {
+                max-width: 560px;
+                border-radius: 0;
+                margin: 0 auto;
+                min-height: 100vh;
+                box-shadow: none;
+            }
+            body {
+                background: #e4d9ce;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .invitation-card {
+                max-width: 600px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <main class="invitation-card">
-
-        <h1 class="main-title">
-            <span class="sub-title">наконец-то</span>
-            <span class="primary-title">мы женимся</span>
-        </h1>
-
-        <div class="dialog-container">
-            <div class="dialog-text dialog-left">
-                — интересно, кто будет моим мужем, когда вырасту?
-            </div>
-            
-            <div class="dialog-text dialog-right">
-                — им буду я!
+        <!-- ФОТО СЕРДЦЕ — ТЕПЕРЬ ВО ВСЮ ШИРИНУ ЭКРАНА -->
+        <div class="hero-image-section">
+            <div class="full-width-heart">
+                <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/800x600/f9e5d6/5e2129?text=❤️'; this.onerror=null;">
             </div>
         </div>
 
+        <!-- ЗАГОЛОВОК — БЕЗ ОБВОДОК И ФОНОВ -->
+        <div class="title-block">
+            <span class="sub-title">наконец-то</span>
+            <h1 class="primary-title">мы женимся</h1>
+        </div>
+
+        <!-- ДИАЛОГ — АБСОЛЮТНО ПРОЗРАЧНЫЙ, БЕЗ ОБВОДОК И ПОДЛОЖЕК -->
+        <div class="dialog-area">
+            <div class="dialog-container">
+                <div class="dialog-text dialog-left">
+                    — интересно, кто будет моим мужем, когда вырасту?
+                </div>
+                <div class="dialog-text dialog-right">
+                    — им буду я!
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <!-- БЕГУЩАЯ СТРОКА СНИЗУ -->
         <div class="marquee-ribbon">
             <div class="marquee-track">
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
                 <span>вы приглашены</span>
                 <span>вы приглашены</span>
                 <span>вы приглашены</span>
@@ -174,5 +334,67 @@
         </div>
     </main>
 
+    <script>
+        // Автоматическая корректировка бегущей строки для бесшовности
+        (function fixMarquee() {
+            const ribbons = document.querySelectorAll('.marquee-ribbon');
+            if (!ribbons.length) return;
+            
+            ribbons.forEach(ribbon => {
+                const track = ribbon.querySelector('.marquee-track');
+                if (!track) return;
+                
+                function ensureSeamless() {
+                    const trackWidth = track.scrollWidth;
+                    const containerWidth = ribbon.clientWidth;
+                    if (trackWidth < containerWidth * 1.8) {
+                        const children = Array.from(track.children);
+                        const cloneCount = Math.ceil((containerWidth * 2) / trackWidth) + 1;
+                        for (let i = 0; i < cloneCount; i++) {
+                            children.forEach(child => {
+                                const clone = child.cloneNode(true);
+                                track.appendChild(clone);
+                            });
+                        }
+                    }
+                    const updatedWidth = track.scrollWidth / 2;
+                    if (updatedWidth > 0) {
+                        track.style.animationDuration = `${Math.max(18, updatedWidth / 38)}s`;
+                    }
+                }
+                
+                window.addEventListener('load', ensureSeamless);
+                window.addEventListener('resize', () => {
+                    if (track.children.length < 20) ensureSeamless();
+                });
+                setTimeout(ensureSeamless, 100);
+            });
+        })();
+
+        // Адаптивный размер шрифта для диалога без обводок
+        function adjustDialogFont() {
+            const left = document.querySelector('.dialog-left');
+            const right = document.querySelector('.dialog-right');
+            if (!left || !right) return;
+            const container = document.querySelector('.dialog-container');
+            if (!container) return;
+            
+            const containerWidth = container.offsetWidth;
+            if (containerWidth < 280) {
+                left.style.fontSize = '1rem';
+                right.style.fontSize = '1rem';
+            } else if (containerWidth < 360) {
+                left.style.fontSize = '1.1rem';
+                right.style.fontSize = '1.1rem';
+            } else {
+                left.style.fontSize = '';
+                right.style.fontSize = '';
+            }
+        }
+        
+        window.addEventListener('resize', () => { setTimeout(adjustDialogFont, 50); });
+        window.addEventListener('load', adjustDialogFont);
+        adjustDialogFont();
+    </script>
 </body>
 </html>
