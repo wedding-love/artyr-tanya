@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Подключение единой системы шрифтов: мягкий Gabriela и тонкий Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Gabriela&family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     
     <style>
@@ -64,7 +63,24 @@
             border-radius: 10px;
         }
 
-        /* Анимация плавного появления блоков */
+        /* БАЗОВАЯ АНИМАЦИЯ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ */
+        .animate-item {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1.1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+        }
+        
+        .animate-item.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Дополнительные задержки для каскадного появления (опционально) */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.35s; }
+
+        /* СНАП-ЭКРАНЫ */
         .screen {
             scroll-snap-align: start;
             scroll-snap-stop: always;
@@ -75,17 +91,16 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow-x: hidden;
+            overflow-y: auto;
         }
-
-        .screen.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        /* Экраны с центрированием контента */
+        .screen-second, .screen-third {
+            justify-content: center;
+            align-items: center;
         }
-
+        
         /* ПЕРВЫЙ ЭКРАН */
         .screen-first {
             background-color: #fff9e8;
@@ -155,7 +170,6 @@
             letter-spacing: -1px;
         }
 
-        /* Измененный блок диалога: такой же как в ленте, только курсив */
         .dialog-area {
             width: 100%;
             display: flex;
@@ -176,7 +190,7 @@
         .dialog-text {
             font-family: "Montserrat", sans-serif;
             font-weight: 300;
-            font-style: italic; /* Курсивное начертание */
+            font-style: italic;
             font-size: clamp(0.85rem, 3.2vw, 1.05rem);
             color: #5e2129;
             line-height: 1.5;
@@ -228,23 +242,19 @@
         /* ВТОРОЙ ЭКРАН */
         .screen-second {
             background-color: #fff9e8;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 0;
-            width: 100%;
+            padding: 40px 20px;
         }
 
-        /* Красивое сбалансированное расположение приветственного текста */
         .invitation-greeting {
             font-family: "Montserrat", sans-serif;
             font-weight: 300;
             font-size: clamp(1.1rem, 4.5vw, 1.45rem);
             color: #5e2129;
             text-align: center;
-            line-height: 1.8; /* Увеличенное межстрочное расстояние для изящности */
+            line-height: 1.8;
             width: 100%;
-            padding: 0 35px;
-            margin-bottom: 30px;
+            max-width: 450px;
+            margin: 0 auto 25px auto;
             letter-spacing: 0.8px;
         }
 
@@ -258,7 +268,7 @@
             font-weight: 400;
             color: #5e2129;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             letter-spacing: 3px;
         }
 
@@ -279,17 +289,19 @@
             border-radius: 24px;
             object-fit: cover;
             background: #ffffff;
-            box-shadow: 0 10px 30px rgba(94, 33, 41, 0.06);
+            box-shadow: 0 10px 30px rgba(94, 33, 41, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .calendar-img:hover {
+            transform: scale(1.01);
         }
 
         /* ТРЕТИЙ ЭКРАН (Винный блок) */
         .screen-third {
             background-color: #5e2129;
+            padding: 40px 24px;
             justify-content: center;
-            padding: 0 24px;
-            height: 50vh;
-            height: 50dvh;
-            min-height: 480px;
         }
 
         .location-content {
@@ -299,20 +311,19 @@
             justify-content: center;
             gap: 20px;
             width: 100%;
-            padding: 20px 0;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
-        /* Заголовок Локация написан тем же шрифтом, что и "мы женимся" */
         .location-label {
             font-family: 'Gabriela', serif;
             font-weight: 400;
             font-size: clamp(1.3rem, 4.5vw, 1.7rem);
-            color: rgba(255, 249, 232, 0.8);
+            color: rgba(255, 249, 232, 0.85);
             text-align: center;
             letter-spacing: 2px;
         }
 
-        /* Шато Мари написан тем же шрифтом, что и "мы женимся" */
         .location-name {
             font-family: 'Gabriela', serif;
             font-weight: 400;
@@ -323,14 +334,24 @@
             line-height: 1.2;
         }
 
+        /* ФОТО С ГОРИЗОНТАЛЬНЫМИ ПРОПОРЦИЯМИ И СТРОГОЙ РАМКОЙ */
         .location-photo-wrapper {
+            position: relative;
             width: 100%;
-            max-width: 320px;
+            max-width: 340px;
             margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
+            border-radius: 0 !important;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
             aspect-ratio: 4 / 3;
+        }
+
+        .location-img-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 0 !important;
+            overflow: hidden;
+            background: #ffffff;
+            padding: 10px;
         }
 
         .location-img {
@@ -338,19 +359,33 @@
             height: 100%;
             display: block;
             object-fit: cover;
+            border-radius: 0 !important;
             transition: transform 0.4s ease;
         }
 
-        .location-img:hover {
-            transform: scale(1.03);
+        .location-img-container:hover .location-img {
+            transform: scale(1.02);
         }
 
-        /* Адрес написан тем же шрифтом, что и "дорогие друзья и близкие" */
+        /* СКРЕПКА — СЛЕВА, РАЗВЕРНУТА ВЛЕВО */
+        .paper-clip {
+            position: absolute;
+            top: -16px;
+            left: 12px;
+            right: auto;
+            width: 26px;
+            height: auto;
+            z-index: 10;
+            transform: rotate(-20deg) scaleY(-1);
+            filter: drop-shadow(-3px 3px 5px rgba(0, 0, 0, 0.4));
+            pointer-events: none;
+        }
+
         .location-address {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             font-size: clamp(0.9rem, 3.8vw, 1.1rem);
-            color: rgba(255, 249, 232, 0.9);
+            color: rgba(255, 249, 232, 0.92);
             text-align: center;
             letter-spacing: 0.5px;
             line-height: 1.6;
@@ -358,22 +393,26 @@
             text-decoration: none;
         }
 
-        /* Адаптивные улучшения */
+        /* Адаптивность */
         @media (max-width: 450px) {
             .first-content { padding: 0 20px; }
             .title-block { margin-bottom: 8px; }
             .dialog-area { margin-bottom: 20px; }
-            .invitation-greeting { padding: 0 24px; margin-bottom: 20px; }
+            .invitation-greeting { padding: 0 12px; margin-bottom: 20px; }
             .big-date { margin-bottom: 20px; }
             .calendar-image-wrapper { max-width: 310px; }
-            .screen-third { min-height: 440px; }
+            .paper-clip { width: 22px; top: -12px; left: 10px; }
+            .location-photo-wrapper { max-width: 290px; }
+            .location-img-container { padding: 8px; }
         }
 
-        @media (max-height: 720px) {
-            .dialog-area { margin-bottom: 15px; }
+        @media (max-height: 700px) {
+            .dialog-area { margin-bottom: 12px; }
             .invitation-greeting { margin-bottom: 15px; }
             .big-date { margin-bottom: 15px; }
-            .calendar-image-wrapper { max-width: 280px; }
+            .calendar-image-wrapper { max-width: 270px; }
+            .location-photo-wrapper { max-width: 270px; }
+            .screen-second, .screen-third { padding: 30px 20px; }
         }
 
         @media (min-width: 768px) {
@@ -388,21 +427,21 @@
 <body>
 
     <main class="invitation-card">
-        <!-- ПЕРВЫЙ ЭКРАН -->
+        <!-- ЭКРАН 1: Заставка с сердцем и диалогом -->
         <section class="screen screen-first">
-            <div class="hero-image-section">
+            <div class="hero-image-section animate-item">
                 <div class="full-width-heart">
                     <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/800x600/f9e5d6/5e2129?text=❤️'; this.onerror=null;">
                 </div>
             </div>
             
             <div class="first-content">
-                <div class="title-block">
+                <div class="title-block animate-item delay-1">
                     <span class="sub-title">наконец-то</span>
                     <span class="primary-title">мы женимся</span>
                 </div>
                 <div class="dialog-area">
-                    <div class="dialog-container">
+                    <div class="dialog-container animate-item delay-2">
                         <div class="dialog-text dialog-left">
                             — интересно, кто будет моим мужем, когда вырасту?
                         </div>
@@ -413,7 +452,7 @@
                 </div>
             </div>
             
-            <div class="marquee-ribbon">
+            <div class="marquee-ribbon animate-item delay-3">
                 <div class="marquee-track">
                     <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
                     <span>вы приглашены</span><span>вы приглашены</span><span>вы приглашены</span>
@@ -423,34 +462,42 @@
             </div>
         </section>
 
-        <!-- ВТОРОЙ ЭКРАН -->
+        <!-- ЭКРАН 2: Текст-приглашение и календарь -->
         <section class="screen screen-second">
-            <div class="invitation-greeting">
+            <div class="invitation-greeting animate-item">
                 <p>Дорогие друзья и близкие,</p>
                 <p>мы приглашаем вас разделить</p>
                 <p>с нами наше свадебное торжество,</p>
                 <p>которое состоится</p>
             </div>
             
-            <div class="big-date">26.08.2026</div>
+            <div class="big-date animate-item delay-1">26.08.2026</div>
             
-            <div class="calendar-image-wrapper">
+            <div class="calendar-image-wrapper animate-item delay-2">
                 <img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/450x500/fff/5e2129?text=🗓️+Август+2026'; this.onerror=null;">
             </div>
         </section>
 
-        <!-- ТРЕТИЙ ЭКРАН -->
+        <!-- ЭКРАН 3: Локация Шато Мари, фото, скрепка -->
         <section class="screen screen-third">
             <div class="location-content">
-                <div class="location-label">Локация</div>
+                <div class="location-label animate-item">Локация</div>
                 
-                <div class="location-photo-wrapper">
-                    <img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/fff9e8/5e2129?text=🏰+Château+Marie'; this.onerror=null;">
+                <div class="location-photo-wrapper animate-item delay-1">
+                    <!-- Скрепка: строго слева, наклон влево -->
+                    <svg class="paper-clip" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 43C16.5 43 19.5 39.5 19.5 34V12.5C19.5 7.5 16 4 11.5 4C7 4 4 7.5 4 12.5V31.5C4 35 6 37.5 9 37.5C12 37.5 14 35 14 31.5V13C14 11 12.5 9.5 11 9.5C9.5 9.5 8.5 11 8.5 13V31C8.5 32 9 32.5 9.5 32.5C10 32.5 10.5 32 10.5 31V13C10.5 12.3 10.7 11.5 11 11.5C11.3 11.5 12 12.3 12 13V31.5C12 33.5 10.8 35.5 9 35.5C7.2 35.5 6 33.5 6 31.5V12.5C6 9 8.5 6 11.5 6C14.5 6 17.5 9 17.5 12.5V34C17.5 38 15 41 12 41C9 41 6.5 38 6.5 35V17C6.5 16.2 5.9 15.6 5.2 15.6C4.5 15.6 4 16.2 4 17V35C4 40 7.5 43 12 43Z" 
+                              fill="#fff9e8" stroke="#eedfc2" stroke-width="0.6"/>
+                    </svg>
+                    
+                    <div class="location-img-container">
+                        <img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/fff9e8/5e2129?text=🏰+Château+Marie'; this.onerror=null;">
+                    </div>
                 </div>
                 
-                <div class="location-name">Шато Мари</div>
+                <div class="location-name animate-item delay-2">Шато Мари</div>
                 
-                <div class="location-address">
+                <div class="location-address animate-item delay-3">
                     Гродно, улица Домбровского, 58
                 </div>
             </div>
@@ -458,66 +505,86 @@
     </main>
 
     <script>
-        // Инициализация плавного появления контента при скролле
-        document.addEventListener('DOMContentLoaded', () => {
-            const screens = document.querySelectorAll('.screen');
+        (function() {
+            // 1. Плавное появление блоков при скролле с помощью Intersection Observer
+            const animatedElements = document.querySelectorAll('.animate-item');
             
-            const observerOptions = {
-                root: document.querySelector('.invitation-card'),
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        entry.target.classList.add('animated');
+                        // Можно продолжить наблюдать, но класс уже добавлен — отключаем наблюдение
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
-
-            screens.forEach(screen => {
-                observer.observe(screen);
+            }, {
+                threshold: 0.2,
+                rootMargin: "0px 0px -10px 0px"
             });
-        });
-
-        // Расчет корректных высот экранов (100dvh / 50dvh)
-        function setVhFix() {
-            const screens = document.querySelectorAll('.screen');
-            screens.forEach(screen => {
-                if (screen.classList.contains('screen-third')) {
-                    screen.style.height = '50dvh';
-                } else {
-                    screen.style.height = '100dvh';
-                }
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
             });
-        }
-        
-        window.addEventListener('resize', setVhFix);
-        window.addEventListener('load', setVhFix);
-        setVhFix();
-
-        // Бегущая строка
-        (function fixMarquee() {
-            const ribbons = document.querySelectorAll('.marquee-ribbon');
-            ribbons.forEach(ribbon => {
-                const track = ribbon.querySelector('.marquee-track');
-                if (!track) return;
-                
-                function ensureSeamless() {
-                    const trackWidth = track.scrollWidth;
-                    const containerWidth = ribbon.clientWidth;
-                    if (trackWidth < containerWidth * 1.8) {
-                        const children = Array.from(track.children);
-                        children.forEach(child => {
-                            const clone = child.cloneNode(true);
-                            track.appendChild(clone);
-                        });
+            
+            // Для элементов, которые уже видны при загрузке (все еще подхватываются)
+            // Дополнительно вызовем проверку при загрузке для случаев, когда observer может сработать не сразу
+            setTimeout(() => {
+                animatedElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const container = document.querySelector('.invitation-card');
+                    const containerRect = container ? container.getBoundingClientRect() : null;
+                    // Простая проверка видимости внутри карточки
+                    if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
+                        el.classList.add('animated');
+                        observer.unobserve(el);
+                    }
+                });
+            }, 200);
+            
+            // 2. Корректировка высоты экранов для vh / dvh
+            function setScreenHeights() {
+                const screens = document.querySelectorAll('.screen');
+                screens.forEach(screen => {
+                    if (screen.classList.contains('screen-third')) {
+                        screen.style.height = 'auto';
+                        screen.style.minHeight = '100dvh';
+                    } else {
+                        screen.style.height = '100dvh';
+                        screen.style.minHeight = '100dvh';
+                    }
+                });
+            }
+            
+            window.addEventListener('resize', () => {
+                setScreenHeights();
+            });
+            window.addEventListener('load', () => {
+                setScreenHeights();
+                // 3. Бегущая строка: дублирование если необходимо для бесшовности
+                const ribbon = document.querySelector('.marquee-ribbon');
+                if (ribbon) {
+                    const track = ribbon.querySelector('.marquee-track');
+                    if (track) {
+                        const ensureInfinite = () => {
+                            const trackWidth = track.scrollWidth;
+                            const ribbonWidth = ribbon.clientWidth;
+                            if (trackWidth < ribbonWidth * 1.8) {
+                                const children = Array.from(track.children);
+                                children.forEach(child => {
+                                    const clone = child.cloneNode(true);
+                                    track.appendChild(clone);
+                                });
+                            }
+                        };
+                        ensureInfinite();
+                        window.addEventListener('resize', ensureInfinite);
                     }
                 }
-                window.addEventListener('load', ensureSeamless);
-                setTimeout(ensureSeamless, 100);
             });
+            setScreenHeights();
+            
+            // 4. Дополнительная стилизация для плавного скролла при кликах (если нужна)
+            // Оставляем scroll-behavior: smooth на карточке
         })();
     </script>
 </body>
