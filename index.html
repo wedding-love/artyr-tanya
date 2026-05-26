@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наконец-то мы женимся</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Marck+Script&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Обнуление базовых стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background-color: #f4f3ef;
+            font-family: "Caveat", cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Контейнер карточки (имитация экрана мобильного телефона) */
+        .invitation-card {
+            background-color: #FFFDD0; /* Сливочный цвет */
+            width: 100%;
+            max-width: 450px;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 70px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Главный заголовок */
+        .main-title {
+            color: #722F37; /* Бордовый / Винный цвет */
+            text-align: center;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .sub-title {
+            display: block;
+            font-family: "Caveat", cursive;
+            font-size: 2.2rem;
+            text-transform: lowercase;
+            margin-bottom: -5px;
+            font-weight: 400;
+        }
+
+        /* "мы женимся" — в одну строку, красивый тонкий рукописный шрифт Google Fonts */
+        .primary-title {
+            display: block;
+            font-family: "Marck Script", cursive;
+            font-size: 3.5rem;
+            font-weight: 400; /* Абсолютно тонкое начертание, без жирности */
+            white-space: nowrap; /* Запрет переноса на другую строку */
+            text-transform: lowercase; /* Текст строчными буквами для мягкости стиля */
+        }
+
+        /* Блок диалогов, выстроенных в одну строку */
+        .dialog-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            margin-top: auto;
+            margin-bottom: 160px; /* Отступ над бегущей лентой */
+        }
+
+        /* Реплики диалога */
+        .dialog-text {
+            color: #722F37;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        .dialog-left {
+            max-width: 60%;
+            text-align: left;
+        }
+
+        .dialog-right {
+            max-width: 38%;
+            text-align: right;
+        }
+
+        /* Движущаяся бесконечная лента «вы приглашены» */
+        .marquee-ribbon {
+            background-color: #722F37;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 12px 0;
+            position: absolute;
+            bottom: 45px; /* Размещение в нижней части экрана */
+        }
+
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        /* Тонкий шрифт без жирного очертания и без точек */
+        .marquee-track span {
+            color: #FFFDD0; /* Сливочный текст на бордовом фоне */
+            font-family: "Caveat", cursive;
+            font-weight: 400; /* Тонкое начертание */
+            font-size: 1.5rem;
+            text-transform: lowercase;
+            padding-right: 35px; /* Отступ между фразами вместо точек */
+        }
+
+        /* Анимация плавного сдвига для бесконечной строки */
+        @keyframes marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="invitation-card">
+
+        <h1 class="main-title">
+            <span class="sub-title">наконец-то</span>
+            <span class="primary-title">мы женимся</span>
+        </h1>
+
+        <div class="dialog-container">
+            <div class="dialog-text dialog-left">
+                — интересно, кто будет моим мужем, когда вырасту?
+            </div>
+            
+            <div class="dialog-text dialog-right">
+                — им буду я!
+            </div>
+        </div>
+
+        <div class="marquee-ribbon">
+            <div class="marquee-track">
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+                <span>вы приглашены</span>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
