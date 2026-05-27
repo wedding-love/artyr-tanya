@@ -1,4 +1,5 @@
-
+Вот обновленный блок тайминга: убрано текстовое описание, изображение «тайминг.png» растянуто по ширине и увеличено по длине.
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Элегантные шрифты: Playfair Display и Cormorant Garamond -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
     
     <style>
@@ -20,7 +20,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Глобальная плавная прокрутка */
         html {
             scroll-behavior: smooth;
         }
@@ -65,7 +64,6 @@
             border-radius: 20px;
         }
 
-        /* ПЛАВНОЕ ПОЯВЛЕНИЕ */
         .fade-up-item {
             opacity: 0;
             transform: translateY(24px);
@@ -109,6 +107,13 @@
         .screen-third {
             background: linear-gradient(145deg, #6A1E2C 0%, #52131f 100%);
             padding: 80px 28px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .screen-fourth {
+            background-color: #fbf9e2;
+            padding: 60px 24px 80px;
             justify-content: center;
             align-items: center;
         }
@@ -278,7 +283,6 @@
             text-shadow: 0 2px 6px rgba(106, 30, 44, 0.1);
         }
 
-        /* КАЛЕНДАРЬ — АБСОЛЮТНО БЕЗ ОБВОДОК И ТЕНЕЙ: чистый фон + картинка */
         .calendar-image-wrapper {
             width: 100%;
             padding: 0;
@@ -294,17 +298,14 @@
             width: 100%;
             height: auto;
             display: block;
-            /* Убираем скругление, чтобы не было намека на рамку */
             border-radius: 0;
             object-fit: contain;
             background: transparent;
-            /* Удаляем тень и любую обводку */
             box-shadow: none;
             border: none;
             outline: none;
         }
         
-        /* Никаких эффектов при наведении, чтобы не создавать видимость обводки */
         .calendar-img:hover {
             transform: none;
             box-shadow: none;
@@ -345,14 +346,12 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        /* ФОТО ЛОКАЦИИ: БОЛЕЕ ЗАМЕТНАЯ РАМКА (чуть жирнее, шире), острые углы */
         .location-photo-wrapper {
             position: relative;
             width: 100%;
             max-width: 390px;
             margin: 16px auto 0;
             border-radius: 0;
-            /* Тень только внешняя, чтобы фото не сливалось, но она не влияет на обводку */
             box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
             background: transparent;
             padding: 0;
@@ -372,7 +371,6 @@
             border: none;
         }
 
-        /* БОЛЕЕ ЖИРНАЯ И ЗАМЕТНАЯ БЕЛАЯ РАМКА (3px вместо 1.5px) */
         .location-img {
             width: 100%;
             height: auto;
@@ -381,7 +379,6 @@
             aspect-ratio: 4 / 3;
             transition: transform 0.5s ease;
             border-radius: 0;
-            /* Увеличили толщину обводки до 3px, делаем рамку более выраженной */
             border: 3px solid rgba(255, 249, 239, 0.95);
             outline: none;
             box-sizing: border-box;
@@ -391,7 +388,6 @@
             transform: scale(1.02);
         }
 
-        /* Скрепка-декор */
         .paper-clip {
             position: absolute;
             top: -12px;
@@ -418,6 +414,43 @@
             padding: 0;
         }
 
+        /* ============ ЧЕТВЕРТЫЙ ЭКРАН: ТАЙМИНГ ============ */
+        .timing-section-title {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .timing-main-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.6rem, 6vw, 2.2rem);
+            color: #6A1E2C;
+            letter-spacing: 6px;
+            font-weight: 500;
+            display: inline-block;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Контейнер для увеличенного фото тайминга */
+        .timing-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Фото растянуто по ширине, увеличено по длине */
+        .timing-schedule-img {
+            width: 100%;
+            max-width: 560px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            /* Увеличиваем немного за счет max-width и позволяем занять больше места */
+            margin: 0 auto;
+        }
+
         /* Адаптивность */
         @media (max-width: 520px) {
             .first-content {
@@ -439,7 +472,10 @@
                 padding: 60px 20px;
             }
             .location-img {
-                border-width: 2.5px; /* на мобильных чуть тоньше, но все равно заметно */
+                border-width: 2.5px;
+            }
+            .screen-fourth {
+                padding: 50px 20px 60px;
             }
         }
 
@@ -475,6 +511,9 @@
                 border-radius: 32px;
                 overflow-y: auto;
                 height: 95vh;
+            }
+            .timing-schedule-img {
+                max-width: 540px;
             }
         }
     </style>
@@ -517,7 +556,7 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 2: Календарь без единой обводки и тени -->
+    <!-- ЭКРАН 2: Приглашение -->
     <section class="screen screen-second">
         <div class="invitation-greeting fade-up-item">
             <p>Дорогие друзья и близкие,</p>
@@ -533,7 +572,7 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 3: Локация с увеличенной рамкой (3px) -->
+    <!-- ЭКРАН 3: Локация -->
     <section class="screen screen-third">
         <div class="location-content">
             <div class="location-label fade-up-item">Локация</div>
@@ -554,6 +593,17 @@
             <div class="location-address fade-up-item delay-3">
                 Гродно, улица Домбровского, 58
             </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 4: ТАЙМИНГ (только фото, растянутое по ширине, без текстовых описаний) -->
+    <section class="screen screen-fourth">
+        <div class="timing-section-title fade-up-item">
+            <div class="timing-main-title">ТАЙМИНГ</div>
+        </div>
+        
+        <div class="timing-image-container fade-up-item delay-1">
+            <img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/6A1E2C/fbf9e2?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;">
         </div>
     </section>
 </main>
@@ -638,3 +688,4 @@
 </script>
 </body>
 </html>
+```
