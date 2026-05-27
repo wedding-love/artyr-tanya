@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -119,23 +120,36 @@
 
     .screen-fifth {
       background: linear-gradient(145deg, #6A1E2C 0%, #52131f 100%);
-      padding: 70px 0 70px 0;
+      padding: 70px 0 0 0; /* Убрали нижний отступ */
       justify-content: center;
       align-items: center;
     }
 
     .screen-sixth {
       background-color: #fbf9e2;
-      padding: 70px 28px 80px 28px;
+      padding: 0; /* Убрали все отступы, чтобы примкнуть к предыдущему экрану */
       justify-content: center;
       align-items: center;
     }
+    
+    /* Новый контейнер для контента шестого экрана, чтобы сохранить внутренние отступы */
+    .wishes-inner {
+      padding: 60px 28px 70px 28px;
+      width: 100%;
+    }
 
-    /* Седьмой экран: убраны боковые паддинги, чтобы лента шла от края до края */
     .screen-seventh {
       background: linear-gradient(145deg, #6A1E2C 0%, #52131f 100%);
-      padding: 60px 0 70px 0;
+      padding: 0; /* Убираем все отступы, чтобы лента шла от края до края */
       justify-content: center;
+      align-items: center;
+    }
+    
+    .guestbook-inner {
+      padding: 60px 24px 30px 24px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
@@ -524,6 +538,7 @@
     .references-wrapper {
       width: 100%;
       margin-top: 4px;
+      padding: 0; /* Убираем возможные отступы */
     }
 
     .ref-subtitle {
@@ -556,9 +571,10 @@
       width: max-content;
     }
 
+    /* Увеличенные и расширенные изображения референсов */
     .ref-image {
-      width: 160px;
-      height: 240px;
+      width: 200px;
+      height: 280px;
       object-fit: cover;
       flex-shrink: 0;
       display: block;
@@ -628,8 +644,6 @@
       flex-direction: column;
       align-items: center;
       gap: 28px;
-      padding-left: 24px;
-      padding-right: 24px;
     }
 
     .guestbook-title {
@@ -806,8 +820,7 @@
       position: relative;
       left: 0;
       right: 0;
-      margin-top: 15px;
-      margin-bottom: 10px;
+      margin: 0; /* Убрали отступы */
       overflow: hidden;
     }
 
@@ -841,8 +854,7 @@
       text-align: center;
       margin-top: 15px;
       width: 100%;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding: 0 24px 40px 24px;
       box-sizing: border-box;
     }
 
@@ -871,27 +883,28 @@
       .screen-second { padding: 40px 18px; }
       .screen-third { padding: 60px 20px; }
       .screen-fourth { padding: 40px 20px 60px; }
-      .screen-fifth { padding: 60px 0 55px 0; }
-      .screen-sixth { padding: 60px 20px 70px 20px; }
-      .screen-seventh { padding: 50px 0 60px 0; }
+      .screen-fifth { padding: 60px 0 0 0; }
+      .screen-sixth { padding: 0; }
+      .wishes-inner { padding: 50px 20px 60px 20px; }
+      .screen-seventh { padding: 0; }
+      .guestbook-inner { padding: 50px 20px 30px 20px; }
       .location-img { border-width: 2.5px; }
       .timing-section-title { margin-bottom: 12px; }
       .white-rectangle { width: 90%; padding: 36px 20px 32px 20px; }
       .tape-sticker { width: 70px; top: -35px; }
-      .ref-image { width: 130px; height: 195px; }
+      .ref-image { width: 150px; height: 210px; }
       .dresscode-container { gap: 30px; }
       .envelope-image { width: 220px; }
       .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
       .submit-btn { min-width: 160px; padding: 10px 24px; }
-      .guestbook-container { padding-left: 20px; padding-right: 20px; }
-      .final-wishes { padding-left: 20px; padding-right: 20px; }
+      .final-wishes { padding: 0 20px 30px 20px; }
     }
 
     @media (min-width: 768px) {
       .invitation-card { max-width: 600px; box-shadow: 0 0 50px rgba(106, 30, 44, 0.05); border-radius: 32px; }
       body { background: #fbf9e2; padding: 20px 0; }
       .invitation-card { border-radius: 32px; overflow-y: auto; height: 95vh; }
-      .ref-image { width: 170px; height: 255px; }
+      .ref-image { width: 210px; height: 290px; }
       .envelope-image { width: 320px; }
     }
   </style>
@@ -949,79 +962,83 @@
     <div class="timing-image-container fade-up-item delay-1"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/6A1E2C/fbf9e2?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 5: ДРЕСС-КОД -->
+  <!-- ЭКРАН 5: ДРЕСС-КОД (теперь без нижнего отступа) -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title fade-up-item delay-1">ДРЕСС-КОД</div>
       <div class="white-rectangle fade-up-item delay-2"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="dresscode-text">Мы стараемся сделать праздник красивым и стильным! Будем очень рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div></div>
-      <div class="references-wrapper fade-up-item delay-3"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/222222/ffffff?text=DRESS';"></div></div></div>
+      <div class="references-wrapper fade-up-item delay-3"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x280/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x280/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x280/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x280/222222/ffffff?text=DRESS';"></div></div></div>
     </div>
   </section>
 
-  <!-- ЭКРАН 6: ПОЖЕЛАНИЯ -->
+  <!-- ЭКРАН 6: ПОЖЕЛАНИЯ (теперь без отступа от бордового фона) -->
   <section class="screen screen-sixth">
-    <div class="wishes-container">
-      <div class="wishes-title fade-up-item delay-1">ПОЖЕЛАНИЯ</div>
-      <div class="wishes-text fade-up-item delay-2">Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах! Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). И помните, самый ценный подарок для нас – ваше присутствие!</div>
-      <div class="wishes-important fade-up-item delay-3"><strong>Важно:</strong> Дорогие гости, вы знаете, что мы очень любим детей, но нашу свадьбу мы видим в формате «для взрослых»: с бокалом игристого и не детскими развлечениями! Пожалуйста, оставьте малышей в надежных руках на время нашего торжества. Ведь любому родителю иногда следует отдыхать, забыв на время о повседневных заботах!</div>
-      <div class="fade-up-item delay-4"><img src="конверт.png" alt="Конверт для пожеланий" class="envelope-image" onerror="this.src='https://placehold.co/400x300/6A1E2C/fbf9e2?text=✉️';"></div>
+    <div class="wishes-inner">
+      <div class="wishes-container">
+        <div class="wishes-title fade-up-item delay-1">ПОЖЕЛАНИЯ</div>
+        <div class="wishes-text fade-up-item delay-2">Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах! Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). И помните, самый ценный подарок для нас – ваше присутствие!</div>
+        <div class="wishes-important fade-up-item delay-3"><strong>Важно:</strong> Дорогие гости, вы знаете, что мы очень любим детей, но нашу свадьбу мы видим в формате «для взрослых»: с бокалом игристого и не детскими развлечениями! Пожалуйста, оставьте малышей в надежных руках на время нашего торжества. Ведь любому родителю иногда следует отдыхать, забыв на время о повседневных заботах!</div>
+        <div class="fade-up-item delay-4"><img src="конверт.png" alt="Конверт для пожеланий" class="envelope-image" onerror="this.src='https://placehold.co/400x300/6A1E2C/fbf9e2?text=✉️';"></div>
+      </div>
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ -->
+  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ (лента даты на всю ширину) -->
   <section class="screen screen-seventh">
-    <div class="guestbook-container">
-      <div class="guestbook-title fade-up-item delay-1">АНКЕТА ГОСТЯ</div>
-      <div class="guestbook-subtitle fade-up-item delay-2">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
+    <div class="guestbook-inner">
+      <div class="guestbook-container">
+        <div class="guestbook-title fade-up-item delay-1">АНКЕТА ГОСТЯ</div>
+        <div class="guestbook-subtitle fade-up-item delay-2">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
-      <form class="guest-form fade-up-item delay-3" id="guestForm">
-        <div class="form-group">
-          <label class="form-label">Имя и фамилия</label>
-          <input type="text" class="form-input" placeholder="" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Планируете ли присутствовать на торжестве?</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="attendance" value="yes" required> Да, буду</label>
-            <label class="radio-label"><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
+        <form class="guest-form fade-up-item delay-3" id="guestForm">
+          <div class="form-group">
+            <label class="form-label">Имя и фамилия</label>
+            <input type="text" class="form-input" placeholder="" required>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="form-label">Меню напитков (выберите предпочтения)</label>
-          <div class="drinks-grid">
-            <label class="drink-check"><input type="checkbox" value="игристое"> Игристое</label>
-            <label class="drink-check"><input type="checkbox" value="вино белое"> Вино белое</label>
-            <label class="drink-check"><input type="checkbox" value="вино красное"> Вино красное</label>
-            <label class="drink-check"><input type="checkbox" value="коньяк"> Коньяк</label>
-            <label class="drink-check"><input type="checkbox" value="виски"> Виски</label>
-            <label class="drink-check"><input type="checkbox" value="водка"> Водка</label>
-            <label class="drink-check"><input type="checkbox" value="не пью алкоголь"> Не пью алкоголь</label>
+          <div class="form-group">
+            <label class="form-label">Планируете ли присутствовать на торжестве?</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="attendance" value="yes" required> Да, буду</label>
+              <label class="radio-label"><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
-          <textarea class="form-textarea" placeholder=""></textarea>
-        </div>
-
-        <button type="button" class="submit-btn" onclick="submitForm()">ОТПРАВИТЬ</button>
-      </form>
-
-      <!-- Лента с датой на всю ширину -->
-      <div class="date-marquee-wrapper fade-up-item delay-4">
-        <div class="date-marquee">
-          <div class="date-marquee-track">
-            <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
+          <div class="form-group">
+            <label class="form-label">Меню напитков (выберите предпочтения)</label>
+            <div class="drinks-grid">
+              <label class="drink-check"><input type="checkbox" value="игристое"> Игристое</label>
+              <label class="drink-check"><input type="checkbox" value="вино белое"> Вино белое</label>
+              <label class="drink-check"><input type="checkbox" value="вино красное"> Вино красное</label>
+              <label class="drink-check"><input type="checkbox" value="коньяк"> Коньяк</label>
+              <label class="drink-check"><input type="checkbox" value="виски"> Виски</label>
+              <label class="drink-check"><input type="checkbox" value="водка"> Водка</label>
+              <label class="drink-check"><input type="checkbox" value="не пью алкоголь"> Не пью алкоголь</label>
+            </div>
           </div>
+
+          <div class="form-group">
+            <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
+            <textarea class="form-textarea" placeholder=""></textarea>
+          </div>
+
+          <button type="button" class="submit-btn" onclick="submitForm()">ОТПРАВИТЬ</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Лента с датой на всю ширину (без внутренних отступов) -->
+    <div class="date-marquee-wrapper fade-up-item delay-4">
+      <div class="date-marquee">
+        <div class="date-marquee-track">
+          <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
         </div>
       </div>
+    </div>
 
-      <div class="final-wishes fade-up-item delay-5">
-        <div class="final-big">Мы вас очень ждём</div>
-        <div class="final-small">Ваши Артур и Таня</div>
-      </div>
+    <div class="final-wishes fade-up-item delay-5">
+      <div class="final-big">Мы вас очень ждём</div>
+      <div class="final-small">Ваши Артур и Таня</div>
     </div>
   </section>
 </main>
