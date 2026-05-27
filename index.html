@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -120,19 +119,19 @@
 
     .screen-fifth {
       background: linear-gradient(145deg, #6A1E2C 0%, #52131f 100%);
-      padding: 70px 0 0 0; /* Убрали нижний отступ */
+      padding: 70px 0 0 0; /* Убираем нижний паддинг, чтобы фото примкнули к следующему экрану */
       justify-content: center;
       align-items: center;
     }
 
     .screen-sixth {
       background-color: #fbf9e2;
-      padding: 0; /* Убрали все отступы, чтобы примкнуть к предыдущему экрану */
+      padding: 0; /* Убираем все отступы, чтобы примкнуть к предыдущему экрану */
       justify-content: center;
       align-items: center;
     }
-    
-    /* Новый контейнер для контента шестого экрана, чтобы сохранить внутренние отступы */
+
+    /* Внутренний контейнер для контента шестого экрана, чтобы сохранить отступы */
     .wishes-inner {
       padding: 60px 28px 70px 28px;
       width: 100%;
@@ -144,7 +143,7 @@
       justify-content: center;
       align-items: center;
     }
-    
+
     .guestbook-inner {
       padding: 60px 24px 30px 24px;
       width: 100%;
@@ -255,6 +254,7 @@
       flex: 0.9;
     }
 
+    /* Общий стиль для бегущих лент */
     .marquee-ribbon {
       background-color: #6A1E2C;
       width: 100%;
@@ -814,28 +814,20 @@
       transform: scale(1.02);
     }
 
-    /* Лента с датой — на всю ширину экрана, без отступов */
-    .date-marquee-wrapper {
-      width: 100%;
-      position: relative;
-      left: 0;
-      right: 0;
-      margin: 0; /* Убрали отступы */
-      overflow: hidden;
-    }
-
-    .date-marquee {
+    /* Лента с датой — ТОЧНО ТАКАЯ ЖЕ, КАК ВЕРХНЯЯ, НО ДРУГОЙ ЦВЕТ */
+    .date-marquee-ribbon {
       background-color: #FDEBD8;
       width: 100%;
       overflow: hidden;
-      padding: 14px 0;
+      padding: 18px 0;
+      flex-shrink: 0;
     }
 
     .date-marquee-track {
       display: flex;
       white-space: nowrap;
       will-change: transform;
-      animation: marqueeScroll 20s linear infinite;
+      animation: marqueeScroll 24s linear infinite;
       width: max-content;
     }
 
@@ -843,10 +835,10 @@
       font-family: "Cormorant Garamond", serif;
       font-weight: 500;
       color: #6A1E2C;
-      font-size: clamp(0.9rem, 3.2vw, 1.1rem);
+      font-size: clamp(0.9rem, 3.2vw, 1.15rem);
       text-transform: uppercase;
       letter-spacing: 4px;
-      padding-right: 50px;
+      padding-right: 48px;
       display: inline-block;
     }
 
@@ -962,7 +954,7 @@
     <div class="timing-image-container fade-up-item delay-1"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/6A1E2C/fbf9e2?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 5: ДРЕСС-КОД (теперь без нижнего отступа) -->
+  <!-- ЭКРАН 5: ДРЕСС-КОД (фото в самом конце, сразу за ними начинается блок пожеланий) -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title fade-up-item delay-1">ДРЕСС-КОД</div>
@@ -971,7 +963,7 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 6: ПОЖЕЛАНИЯ (теперь без отступа от бордового фона) -->
+  <!-- ЭКРАН 6: ПОЖЕЛАНИЯ (начинается сразу после фото дресс-кода) -->
   <section class="screen screen-sixth">
     <div class="wishes-inner">
       <div class="wishes-container">
@@ -983,7 +975,7 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ (лента даты на всю ширину) -->
+  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ (лента даты теперь как верхняя, на всю ширину) -->
   <section class="screen screen-seventh">
     <div class="guestbook-inner">
       <div class="guestbook-container">
@@ -1027,12 +1019,10 @@
       </div>
     </div>
 
-    <!-- Лента с датой на всю ширину (без внутренних отступов) -->
-    <div class="date-marquee-wrapper fade-up-item delay-4">
-      <div class="date-marquee">
-        <div class="date-marquee-track">
-          <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
-        </div>
+    <!-- Лента с датой — ТОЧНО ТАКАЯ ЖЕ КАК "ВЫ ПРИГЛАШЕНЫ", НО ДРУГОЙ ТЕКСТ И ЦВЕТ -->
+    <div class="date-marquee-ribbon fade-up-item delay-4">
+      <div class="date-marquee-track">
+        <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
       </div>
     </div>
 
@@ -1052,41 +1042,29 @@
     revealItems.forEach(el => observer.observe(el));
     setTimeout(() => { revealItems.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 70 && rect.bottom > 60) { el.classList.add('revealed'); observer.unobserve(el); } }); }, 180);
 
-    const marqueeRibbon = document.querySelector('.marquee-ribbon');
-    if (marqueeRibbon) {
-      const track = marqueeRibbon.querySelector('.marquee-track');
-      if (track) {
-        const ensureInfiniteLoop = () => {
-          const trackWidth = track.scrollWidth;
-          const containerWidth = marqueeRibbon.clientWidth;
-          if (trackWidth < containerWidth * 1.8) {
-            const children = Array.from(track.children);
-            const clonesNeeded = Math.ceil((containerWidth * 2) / trackWidth);
-            for (let i = 0; i < clonesNeeded; i++) children.forEach(child => { const clone = child.cloneNode(true); track.appendChild(clone); });
-          }
-        };
-        ensureInfiniteLoop();
-        window.addEventListener('resize', () => { if (track.children.length < 12) ensureInfiniteLoop(); });
-      }
+    // Функция для обеспечения бесконечной прокрутки
+    function ensureMarqueeLoop(ribbonSelector, trackSelector, minClones = 12) {
+      const ribbon = document.querySelector(ribbonSelector);
+      if (!ribbon) return;
+      const track = ribbon.querySelector(trackSelector);
+      if (!track) return;
+
+      const ensureLoop = () => {
+        const trackWidth = track.scrollWidth;
+        const containerWidth = ribbon.clientWidth;
+        if (trackWidth < containerWidth * 1.8) {
+          const children = Array.from(track.children);
+          const clonesNeeded = Math.ceil((containerWidth * 2) / trackWidth);
+          for (let i = 0; i < clonesNeeded; i++) children.forEach(child => { const clone = child.cloneNode(true); track.appendChild(clone); });
+        }
+      };
+      ensureLoop();
+      window.addEventListener('resize', () => { if (track.children.length < minClones) ensureLoop(); });
     }
 
-    const dateMarquee = document.querySelector('.date-marquee');
-    if (dateMarquee) {
-      const dateTrack = dateMarquee.querySelector('.date-marquee-track');
-      if (dateTrack) {
-        const ensureDateLoop = () => {
-          const trackWidth = dateTrack.scrollWidth;
-          const containerWidth = dateMarquee.clientWidth;
-          if (trackWidth < containerWidth * 1.8) {
-            const children = Array.from(dateTrack.children);
-            const clonesNeeded = Math.ceil((containerWidth * 2) / trackWidth);
-            for (let i = 0; i < clonesNeeded; i++) children.forEach(child => { const clone = child.cloneNode(true); dateTrack.appendChild(clone); });
-          }
-        };
-        ensureDateLoop();
-        window.addEventListener('resize', ensureDateLoop);
-      }
-    }
+    // Применяем к обеим лентам
+    ensureMarqueeLoop('.marquee-ribbon', '.marquee-track');
+    ensureMarqueeLoop('.date-marquee-ribbon', '.date-marquee-track');
 
     function fixMinHeights() {
       const first = document.querySelector('.screen-first');
