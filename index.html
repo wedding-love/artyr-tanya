@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -25,7 +26,6 @@
         }
 
         body {
-            /* Основной фон: гармоничный сливочный оттенок #fbf9e2 */
             background-color: #fbf9e2;
             font-family: "Cormorant Garamond", "Georgia", serif;
             font-weight: 400;
@@ -35,10 +35,9 @@
             min-height: 100vh;
             min-height: 100dvh;
             padding: 0;
-            color: #6A1E2C;  /* глубокий благородный бордовый */
+            color: #6A1E2C;
         }
 
-        /* Основная карточка-контейнер с плавной прокруткой */
         .invitation-card {
             background-color: #fbf9e2;
             width: 100%;
@@ -55,7 +54,6 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Красивый скроллбар в бордовом тоне */
         .invitation-card::-webkit-scrollbar {
             width: 4px;
         }
@@ -67,8 +65,7 @@
             border-radius: 20px;
         }
 
-        /* -------------------------------
-           ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ (без резкости) */
+        /* ПЛАВНОЕ ПОЯВЛЕНИЕ */
         .fade-up-item {
             opacity: 0;
             transform: translateY(24px);
@@ -81,13 +78,11 @@
             transform: translateY(0);
         }
         
-        /* изящные задержки */
         .delay-1 { transition-delay: 0.08s; }
         .delay-2 { transition-delay: 0.18s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.42s; }
 
-        /* Экранные блоки — без привязок snap, только плавность */
         .screen {
             width: 100%;
             display: flex;
@@ -95,7 +90,6 @@
             position: relative;
         }
         
-        /* Первый экран: на всю высоту */
         .screen-first {
             min-height: 100vh;
             min-height: 100dvh;
@@ -103,7 +97,6 @@
             background-color: #fbf9e2;
         }
         
-        /* Второй экран: полная высота для воздушности */
         .screen-second {
             min-height: 100vh;
             min-height: 100dvh;
@@ -113,7 +106,6 @@
             padding: 50px 28px;
         }
         
-        /* Третий экран: бордово-сливочная секция (контрастный фон) */
         .screen-third {
             background: linear-gradient(145deg, #6A1E2C 0%, #52131f 100%);
             padding: 80px 28px;
@@ -184,7 +176,6 @@
             letter-spacing: -0.5px;
         }
 
-        /* Диалог — чистый текст, без обводок */
         .dialog-area {
             width: 100%;
             display: flex;
@@ -212,7 +203,6 @@
             letter-spacing: 0.3px;
             background: none;
             padding: 0;
-            border-radius: 0;
         }
 
         .dialog-left {
@@ -225,7 +215,6 @@
             flex: 0.9;
         }
 
-        /* Бегущая строка (акцент) */
         .marquee-ribbon {
             background-color: #6A1E2C;
             width: 100%;
@@ -289,33 +278,36 @@
             text-shadow: 0 2px 6px rgba(106, 30, 44, 0.1);
         }
 
-        /* УВЕЛИЧЕННОЕ ФОТО КАЛЕНДАРЯ - БЕЗ ОБВОДКИ (убрали border) */
+        /* КАЛЕНДАРЬ — АБСОЛЮТНО БЕЗ ОБВОДОК И ТЕНЕЙ: чистый фон + картинка */
         .calendar-image-wrapper {
             width: 100%;
-            padding: 0 12px;
+            padding: 0;
             max-width: 460px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            background: transparent;
         }
 
         .calendar-img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 32px;
-            object-fit: cover;
-            background: #FFF6EA;
-            box-shadow: 0 20px 32px -12px rgba(106, 30, 44, 0.2);
-            transition: transform 0.4s ease, box-shadow 0.3s;
-            /* Убрана обводка (border) */
+            /* Убираем скругление, чтобы не было намека на рамку */
+            border-radius: 0;
+            object-fit: contain;
+            background: transparent;
+            /* Удаляем тень и любую обводку */
+            box-shadow: none;
             border: none;
+            outline: none;
         }
         
+        /* Никаких эффектов при наведении, чтобы не создавать видимость обводки */
         .calendar-img:hover {
-            transform: scale(1.01);
-            box-shadow: 0 28px 38px -14px rgba(106, 30, 44, 0.28);
+            transform: none;
+            box-shadow: none;
         }
 
         /* ============ ТРЕТИЙ ЭКРАН (ЛОКАЦИЯ) ============ */
@@ -330,7 +322,6 @@
             margin: 0 auto;
         }
 
-        /* Лейбл "Локация" — без подчеркивания, только текст */
         .location-label {
             font-family: "Playfair Display", serif;
             font-weight: 400;
@@ -338,7 +329,6 @@
             color: #FDEBD8;
             text-align: center;
             letter-spacing: 3px;
-            /* Убрали border-bottom (подчеркивание) */
             border-bottom: none;
             display: inline-block;
             padding-bottom: 0;
@@ -355,33 +345,34 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        /* Фото локации — острые углы (убрали border-radius) */
+        /* ФОТО ЛОКАЦИИ: БОЛЕЕ ЗАМЕТНАЯ РАМКА (чуть жирнее, шире), острые углы */
         .location-photo-wrapper {
             position: relative;
             width: 100%;
             max-width: 390px;
             margin: 16px auto 0;
-            /* Убрали скругление — острые углы */
             border-radius: 0;
-            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.35);
-            background: #fbf9e2;
-            padding: 10px;
+            /* Тень только внешняя, чтобы фото не сливалось, но она не влияет на обводку */
+            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
+            background: transparent;
+            padding: 0;
             transition: transform 0.3s ease;
+            border: none;
         }
         
         .location-photo-wrapper:hover {
             transform: translateY(-4px);
         }
 
-        /* Контейнер изображения — также острые углы */
         .location-img-container {
             width: 100%;
-            /* Убираем скругление у контейнера */
             border-radius: 0;
             overflow: hidden;
-            background: #FFF2E3;
+            background: transparent;
+            border: none;
         }
 
+        /* БОЛЕЕ ЖИРНАЯ И ЗАМЕТНАЯ БЕЛАЯ РАМКА (3px вместо 1.5px) */
         .location-img {
             width: 100%;
             height: auto;
@@ -389,19 +380,22 @@
             object-fit: cover;
             aspect-ratio: 4 / 3;
             transition: transform 0.5s ease;
-            /* углы острые */
             border-radius: 0;
+            /* Увеличили толщину обводки до 3px, делаем рамку более выраженной */
+            border: 3px solid rgba(255, 249, 239, 0.95);
+            outline: none;
+            box-sizing: border-box;
         }
 
         .location-img-container:hover .location-img {
             transform: scale(1.02);
         }
 
-        /* Стильная скрепка (декор) — оставляем */
+        /* Скрепка-декор */
         .paper-clip {
             position: absolute;
-            top: -14px;
-            left: 18px;
+            top: -12px;
+            left: 16px;
             right: auto;
             width: 28px;
             height: auto;
@@ -411,7 +405,6 @@
             pointer-events: none;
         }
 
-        /* Адрес — без обводок */
         .location-address {
             font-family: "Cormorant Garamond", serif;
             font-weight: 500;
@@ -423,7 +416,6 @@
             max-width: 90%;
             background: none;
             padding: 0;
-            border-radius: 0;
         }
 
         /* Адаптивность */
@@ -445,6 +437,9 @@
             }
             .screen-third {
                 padding: 60px 20px;
+            }
+            .location-img {
+                border-width: 2.5px; /* на мобильных чуть тоньше, но все равно заметно */
             }
         }
 
@@ -487,7 +482,7 @@
 <body>
 
 <main class="invitation-card">
-    <!-- ЭКРАН 1: с плавными элементами появления -->
+    <!-- ЭКРАН 1 -->
     <section class="screen screen-first">
         <div class="hero-image-section fade-up-item">
             <div class="full-width-heart">
@@ -522,7 +517,7 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 2: Дорогие друзья + увеличенный календарь (без обводок текста, у календаря убрана обводка) -->
+    <!-- ЭКРАН 2: Календарь без единой обводки и тени -->
     <section class="screen screen-second">
         <div class="invitation-greeting fade-up-item">
             <p>Дорогие друзья и близкие,</p>
@@ -538,16 +533,15 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 3: Локация (заголовок "Локация", без подчеркивания, рамка фото с острыми углами) -->
+    <!-- ЭКРАН 3: Локация с увеличенной рамкой (3px) -->
     <section class="screen screen-third">
         <div class="location-content">
-            <!-- Текст теперь "Локация" вместо "Место проведения", убрано подчеркивание -->
             <div class="location-label fade-up-item">Локация</div>
             
             <div class="location-photo-wrapper fade-up-item delay-1">
                 <svg class="paper-clip" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 43C16.5 43 19.5 39.5 19.5 34V12.5C19.5 7.5 16 4 11.5 4C7 4 4 7.5 4 12.5V31.5C4 35 6 37.5 9 37.5C12 37.5 14 35 14 31.5V13C14 11 12.5 9.5 11 9.5C9.5 9.5 8.5 11 8.5 13V31C8.5 32 9 32.5 9.5 32.5C10 32.5 10.5 32 10.5 31V13C10.5 12.3 10.7 11.5 11 11.5C11.3 11.5 12 12.3 12 13V31.5C12 33.5 10.8 35.5 9 35.5C7.2 35.5 6 33.5 6 31.5V12.5C6 9 8.5 6 11.5 6C14.5 6 17.5 9 17.5 12.5V34C17.5 38 15 41 12 41C9 41 6.5 38 6.5 35V17C6.5 16.2 5.9 15.6 5.2 15.6C4.5 15.6 4 16.2 4 17V35C4 40 7.5 43 12 43Z" 
-                          fill="#fbf9e2" stroke="#DBC5B0" stroke-width="0.8"/>
+                          fill="#fbf9e2" stroke="#DBC5B0" stroke-width="0.6"/>
                 </svg>
                 
                 <div class="location-img-container">
@@ -566,7 +560,6 @@
 
 <script>
     (function() {
-        // ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ (без резкости)
         const revealItems = document.querySelectorAll('.fade-up-item');
         
         const observer = new IntersectionObserver((entries) => {
@@ -585,7 +578,6 @@
             observer.observe(el);
         });
         
-        // Доп. проверка для уже видимых элементов при загрузке
         setTimeout(() => {
             revealItems.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -597,7 +589,6 @@
             });
         }, 180);
         
-        // Бегущая строка: бесконечный цикл
         const marqueeRibbon = document.querySelector('.marquee-ribbon');
         if (marqueeRibbon) {
             const track = marqueeRibbon.querySelector('.marquee-track');
@@ -623,7 +614,6 @@
             }
         }
         
-        // Корректировка минимальной высоты экранов (100dvh)
         function fixMinHeights() {
             const first = document.querySelector('.screen-first');
             const second = document.querySelector('.screen-second');
@@ -633,7 +623,6 @@
         window.addEventListener('resize', fixMinHeights);
         fixMinHeights();
         
-        // Плавный скролл для любых внутренних якорей (на будущее)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
