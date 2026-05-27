@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=yes">
   <title>Наконец-то мы женимся | Свадебное приглашение</title>
 
-  <!-- Единая система шрифтов -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Playfair Display — для всех заголовков (курсив) -->
-  <!-- Cormorant Garamond — для основного текста -->
-  <!-- Caveat — для акцентных надписей (маркер) -->
-  <!-- Marck Script — для рукописных элементов -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <!-- Шрифты: Playfair Display (заголовки), Cormorant Garamond (текст), Caveat (маркер), Marck Script (рукописный), Bad Script (нечёткий рукописный) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -29,7 +25,7 @@
 
     body {
       background-color: #FFF8E7;
-      font-family: "Cormorant Garamond", "Georgia", serif; /* Основной шрифт */
+      font-family: "Cormorant Garamond", "Georgia", serif;
       font-weight: 400;
       display: flex;
       justify-content: center;
@@ -56,7 +52,6 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Тонкая полоса прокрутки */
     .invitation-card::-webkit-scrollbar {
       width: 2px;
     }
@@ -106,7 +101,8 @@
       justify-content: center;
       align-items: center;
       background-color: #FFF8E7;
-      padding: 50px 28px;
+      padding: 60px 28px 50px;
+      gap: 24px;
     }
 
     .screen-third {
@@ -118,14 +114,14 @@
 
     .screen-fourth {
       background-color: #FFF8E7;
-      padding: 50px 24px 80px;
+      padding: 50px 24px 0;
       justify-content: center;
       align-items: center;
     }
 
     .screen-fifth {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 70px 0 70px 0;
+      padding: 70px 0 0 0;
       justify-content: center;
       align-items: center;
     }
@@ -182,19 +178,6 @@
       color: #8B1A2B;
     }
 
-    /* РУКОПИСНЫЙ ТЕКСТ — Marck Script */
-    .handwritten {
-      font-family: "Marck Script", "Brush Script MT", cursive;
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    /* МАРКЕРНЫЙ ТЕКСТ — Caveat */
-    .marker-text {
-      font-family: "Caveat", "Comic Sans MS", cursive;
-      font-weight: 400;
-    }
-
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-image-section {
       width: 100%;
@@ -236,16 +219,15 @@
       margin: 8px 0 18px;
     }
 
-    /* "наконец-то" — Playfair Display курсив */
+    /* "наконец-то" — Bad Script (нечёткий рукописный) */
     .sub-title {
       display: block;
-      font-family: "Playfair Display", serif;
+      font-family: "Bad Script", "Marck Script", cursive;
       font-weight: 400;
-      font-style: italic;
-      font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
       color: #8B1A2B;
-      text-transform: uppercase;
-      letter-spacing: 6px;
+      text-transform: none;
+      letter-spacing: 2px;
       margin-bottom: -4px;
       line-height: 1;
     }
@@ -281,7 +263,6 @@
       flex-wrap: wrap;
     }
 
-    /* Реплики — рукописный Marck Script */
     .dialog-text {
       font-family: "Marck Script", "Brush Script MT", cursive;
       font-weight: 400;
@@ -304,10 +285,15 @@
       flex: 0.9;
     }
 
-    /* Лента */
+    /* Лента — на всю ширину без отступов */
     .marquee-ribbon {
       background-color: #8B1A2B;
-      width: 100%;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       overflow: hidden;
       padding: 12px 0;
       flex-shrink: 0;
@@ -338,13 +324,18 @@
     }
 
     /* ============ ВТОРОЙ ЭКРАН: ПРИГЛАШЕНИЕ ============ */
-    .screen-second {
-      padding: 55px 28px 45px;
-      gap: 22px;
+    .invitation-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 28px;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding-top: 30px; /* ОТСТУП ОТ ЛЕНТЫ */
     }
 
-    /* "Дорогие друзья" — рукописный */
     .invitation-greeting {
       font-family: "Marck Script", "Brush Script MT", cursive;
       font-weight: 400;
@@ -354,29 +345,27 @@
       text-align: center;
       line-height: 1.6;
       width: 100%;
-      max-width: 520px;
-      margin: 0 auto 18px auto;
       letter-spacing: 1px;
       background: none;
       padding: 0;
+      margin: 0;
     }
 
     .invitation-greeting p {
       margin-bottom: 5px;
     }
 
-    /* Дата — Caveat (как "мы женимся") */
     .big-date {
       font-family: "Caveat", "Comic Sans MS", cursive;
       font-weight: 400;
       font-size: clamp(3.2rem, 12vw, 5rem);
       color: #8B1A2B;
       text-align: center;
-      margin: 8px 0 26px;
       letter-spacing: 4px;
       line-height: 1;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
       transform: rotate(-0.3deg);
+      margin: 0;
     }
 
     .calendar-image-wrapper {
@@ -397,7 +386,7 @@
       border-radius: 0;
       object-fit: contain;
       background: transparent;
-      box-shadow: 0 8px 20px rgba(139, 26, 43, 0.1);
+      box-shadow: none;
       border: none;
       outline: none;
     }
@@ -539,12 +528,18 @@
     }
 
     /* ============ ПЯТЫЙ ЭКРАН: ДРЕСС-КОД ============ */
-    .dresscode-container {
+    .dresscode-wrapper {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 34px;
+      padding: 0;
+    }
+
+    .dresscode-header {
+      padding: 70px 0 34px 0;
+      width: 100%;
+      text-align: center;
     }
 
     .dresscode-title {
@@ -563,7 +558,7 @@
       background-color: #ffffff;
       width: 86%;
       max-width: 480px;
-      margin: 0 auto;
+      margin: 0 auto 28px;
       padding: 40px 28px 36px 28px;
       border-radius: 0;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
@@ -593,7 +588,7 @@
 
     .references-wrapper {
       width: 100%;
-      margin-top: 4px;
+      margin-top: 0;
     }
 
     .ref-subtitle {
@@ -604,7 +599,8 @@
       color: #FDEBD8;
       text-align: center;
       letter-spacing: 1.5px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
+      padding: 0 24px;
     }
 
     .scroll-container {
@@ -628,8 +624,8 @@
     }
 
     .ref-image {
-      width: 160px;
-      height: 240px;
+      width: 200px;
+      height: 300px;
       object-fit: cover;
       flex-shrink: 0;
       display: block;
@@ -877,11 +873,14 @@
       transform: scale(1.02);
     }
 
+    /* Лента с датой — на всю ширину без отступов */
     .date-marquee-wrapper {
-      width: 100%;
+      width: 100vw;
       position: relative;
-      left: 0;
-      right: 0;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       margin-top: 12px;
       margin-bottom: 8px;
       overflow: hidden;
@@ -948,18 +947,19 @@
       .dialog-container { gap: 12px; }
       .calendar-image-wrapper { max-width: 320px; }
       .location-photo-wrapper { max-width: 300px; }
-      .screen-second { padding: 45px 18px 38px; gap: 18px; }
+      .screen-second { padding: 50px 18px 38px; }
+      .invitation-content { padding-top: 20px; gap: 22px; }
       .screen-third { padding: 55px 18px; }
-      .screen-fourth { padding: 38px 18px 55px; }
-      .screen-fifth { padding: 55px 0 50px 0; }
+      .screen-fourth { padding: 38px 18px 0; }
+      .screen-fifth { padding: 55px 0 0 0; }
+      .dresscode-header { padding: 55px 0 28px 0; }
       .screen-sixth { padding: 55px 18px 65px 18px; }
       .screen-seventh { padding: 45px 0 55px 0; }
       .location-img { border-width: 2.5px; }
       .timing-section-title { margin-bottom: 10px; }
-      .white-rectangle { width: 90%; padding: 34px 18px 30px 18px; }
+      .white-rectangle { width: 90%; padding: 34px 18px 30px 18px; margin-bottom: 22px; }
       .tape-sticker { width: 65px; top: -32px; }
-      .ref-image { width: 125px; height: 188px; }
-      .dresscode-container { gap: 28px; }
+      .ref-image { width: 150px; height: 225px; }
       .envelope-image { width: 200px; }
       .drinks-grid { grid-template-columns: 1fr; gap: 8px; }
       .submit-btn { min-width: 150px; padding: 10px 22px; font-size: 0.9rem; }
@@ -972,20 +972,23 @@
     }
 
     @media (min-width: 521px) and (max-width: 767px) {
-      .screen-second { padding: 50px 24px 42px; }
+      .screen-second { padding: 55px 24px 42px; }
+      .invitation-content { padding-top: 25px; }
       .screen-third { padding: 65px 24px; }
-      .screen-fourth { padding: 45px 22px 65px; }
-      .screen-fifth { padding: 65px 0 60px 0; }
+      .screen-fourth { padding: 45px 22px 0; }
+      .screen-fifth { padding: 65px 0 0 0; }
+      .dresscode-header { padding: 65px 0 30px 0; }
       .screen-sixth { padding: 65px 24px 75px 24px; }
       .screen-seventh { padding: 55px 0 65px 0; }
       .location-photo-wrapper { max-width: 350px; }
+      .ref-image { width: 175px; height: 263px; }
     }
 
     @media (min-width: 768px) {
       .invitation-card { 
         max-width: 600px; 
         box-shadow: 0 0 50px rgba(139, 26, 43, 0.05); 
-        border-radius: 32px; 
+        border-radius: 32px;
       }
       body { 
         background: #FFF8E7; 
@@ -996,12 +999,14 @@
         overflow-y: auto; 
         height: 95vh; 
       }
-      .ref-image { width: 170px; height: 255px; }
+      .ref-image { width: 200px; height: 300px; }
       .envelope-image { width: 300px; }
-      .screen-second { padding: 60px 28px 50px; gap: 24px; }
+      .screen-second { padding: 60px 28px 50px; }
+      .invitation-content { padding-top: 30px; gap: 28px; }
       .screen-third { padding: 75px 28px; }
-      .screen-fourth { padding: 55px 28px 80px; }
-      .screen-fifth { padding: 75px 0 70px 0; }
+      .screen-fourth { padding: 55px 28px 0; }
+      .screen-fifth { padding: 75px 0 0 0; }
+      .dresscode-header { padding: 75px 0 34px 0; }
       .screen-sixth { padding: 75px 28px 85px 28px; }
       .screen-seventh { padding: 65px 0 75px 0; }
       .location-content { gap: 30px; }
@@ -1015,7 +1020,7 @@
   <section class="screen screen-first">
     <div class="hero-image-section fade-up-item">
       <div class="full-width-heart">
-        <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FCF9E6/8B1A2B?text=❤️'; this.onerror=null;">
+        <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FFF8E7/8B1A2B?text=❤️'; this.onerror=null;">
       </div>
     </div>
     <div class="first-content">
@@ -1037,14 +1042,16 @@
 
   <!-- ЭКРАН 2: Приглашение -->
   <section class="screen screen-second">
-    <div class="invitation-greeting fade-up-item">
-      <p>Дорогие друзья и близкие,</p>
-      <p>мы приглашаем вас разделить</p>
-      <p>с нами наше свадебное торжество,</p>
-      <p>которое состоится</p>
+    <div class="invitation-content fade-up-item">
+      <div class="invitation-greeting">
+        <p>Дорогие друзья и близкие,</p>
+        <p>мы приглашаем вас разделить</p>
+        <p>с нами наше свадебное торжество,</p>
+        <p>которое состоится</p>
+      </div>
+      <div class="big-date fade-up-item delay-1">26.08.2026</div>
     </div>
-    <div class="big-date fade-up-item delay-1">26.08.2026</div>
-    <div class="calendar-image-wrapper fade-up-item delay-2"><img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FCF9E6/8B1A2B?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;"></div>
+    <div class="calendar-image-wrapper fade-up-item delay-2"><img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FFF8E7/8B1A2B?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;"></div>
   </section>
 
   <!-- ЭКРАН 3: Локация -->
@@ -1053,7 +1060,7 @@
       <div class="location-label fade-up-item">Локация</div>
       <div class="location-photo-wrapper fade-up-item delay-1">
         <svg class="paper-clip" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 43C16.5 43 19.5 39.5 19.5 34V12.5C19.5 7.5 16 4 11.5 4C7 4 4 7.5 4 12.5V31.5C4 35 6 37.5 9 37.5C12 37.5 14 35 14 31.5V13C14 11 12.5 9.5 11 9.5C9.5 9.5 8.5 11 8.5 13V31C8.5 32 9 32.5 9.5 32.5C10 32.5 10.5 32 10.5 31V13C10.5 12.3 10.7 11.5 11 11.5C11.3 11.5 12 12.3 12 13V31.5C12 33.5 10.8 35.5 9 35.5C7.2 35.5 6 33.5 6 31.5V12.5C6 9 8.5 6 11.5 6C14.5 6 17.5 9 17.5 12.5V34C17.5 38 15 41 12 41C9 41 6.5 38 6.5 35V17C6.5 16.2 5.9 15.6 5.2 15.6C4.5 15.6 4 16.2 4 17V35C4 40 7.5 43 12 43Z" fill="#FFF8E7" stroke="#DBC5B0" stroke-width="0.6"/></svg>
-        <div class="location-img-container"><img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/FCF9E6/8B1A2B?text=🏰+Château+Marie'; this.onerror=null;"></div>
+        <div class="location-img-container"><img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/FFF8E7/8B1A2B?text=🏰+Château+Marie'; this.onerror=null;"></div>
       </div>
       <div class="location-name fade-up-item delay-2">Шато Мари</div>
       <div class="location-address fade-up-item delay-3">Гродно, улица Домбровского, 58</div>
@@ -1068,10 +1075,12 @@
 
   <!-- ЭКРАН 5: ДРЕСС-КОД -->
   <section class="screen screen-fifth">
-    <div class="dresscode-container">
-      <div class="dresscode-title fade-up-item delay-1">Дресс-код</div>
+    <div class="dresscode-wrapper">
+      <div class="dresscode-header">
+        <div class="dresscode-title fade-up-item delay-1">Дресс-код</div>
+      </div>
       <div class="white-rectangle fade-up-item delay-2"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="dresscode-text">Мы стараемся сделать праздник красивым и стильным! Будем очень рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div></div>
-      <div class="references-wrapper fade-up-item delay-3"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/160x240/222222/ffffff?text=DRESS';"></div></div></div>
+      <div class="references-wrapper fade-up-item delay-3"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/222222/ffffff?text=DRESS';"></div></div></div>
     </div>
   </section>
 
