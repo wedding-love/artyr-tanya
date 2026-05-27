@@ -25,8 +25,8 @@
         }
 
         body {
-            /* Гармоничный сливочный светлый фон (creamy white) */
-            background-color: #FFF9EF;
+            /* Основной фон: гармоничный сливочный оттенок #fbf9e2 */
+            background-color: #fbf9e2;
             font-family: "Cormorant Garamond", "Georgia", serif;
             font-weight: 400;
             display: flex;
@@ -40,7 +40,7 @@
 
         /* Основная карточка-контейнер с плавной прокруткой */
         .invitation-card {
-            background-color: #FFF9EF;
+            background-color: #fbf9e2;
             width: 100%;
             max-width: 620px;
             height: 100vh;
@@ -60,7 +60,7 @@
             width: 4px;
         }
         .invitation-card::-webkit-scrollbar-track {
-            background: #F5EDE0;
+            background: #e9e4cf;
         }
         .invitation-card::-webkit-scrollbar-thumb {
             background: #6A1E2C;
@@ -100,7 +100,7 @@
             min-height: 100vh;
             min-height: 100dvh;
             justify-content: space-between;
-            background-color: #FFF9EF;
+            background-color: #fbf9e2;
         }
         
         /* Второй экран: полная высота для воздушности */
@@ -109,13 +109,13 @@
             min-height: 100dvh;
             justify-content: center;
             align-items: center;
-            background-color: #FFF9EF;
+            background-color: #fbf9e2;
             padding: 50px 28px;
         }
         
-        /* Третий экран: бордово-сливочная секция */
+        /* Третий экран: бордово-сливочная секция (контрастный фон) */
         .screen-third {
-            background: linear-gradient(145deg, #6A1E2C 0%, #5A1825 100%);
+            background: linear-gradient(145deg, #6A1E2C 0%, #52131f 100%);
             padding: 80px 28px;
             justify-content: center;
             align-items: center;
@@ -184,7 +184,7 @@
             letter-spacing: -0.5px;
         }
 
-        /* Диалог — убраны все обводки, фоны, паддинги (только чистый текст) */
+        /* Диалог — чистый текст, без обводок */
         .dialog-area {
             width: 100%;
             display: flex;
@@ -210,7 +210,6 @@
             color: #6A1E2C;
             line-height: 1.45;
             letter-spacing: 0.3px;
-            /* Убраны фоны, обводки, скругления, паддинги */
             background: none;
             padding: 0;
             border-radius: 0;
@@ -246,7 +245,7 @@
         .marquee-track span {
             font-family: "Cormorant Garamond", serif;
             font-weight: 400;
-            color: #FFF9EF;
+            color: #fbf9e2;
             font-size: clamp(0.9rem, 3.2vw, 1.15rem);
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -260,7 +259,6 @@
         }
 
         /* ============ ВТОРОЙ ЭКРАН ============ */
-        /* Приглашение — полностью убраны обводки, фон, скругления, только текст */
         .invitation-greeting {
             font-family: "Cormorant Garamond", serif;
             font-weight: 400;
@@ -272,7 +270,6 @@
             max-width: 520px;
             margin: 0 auto 32px auto;
             letter-spacing: 0.5px;
-            /* убрали background, padding, border-radius */
             background: none;
             padding: 0;
         }
@@ -292,7 +289,7 @@
             text-shadow: 0 2px 6px rgba(106, 30, 44, 0.1);
         }
 
-        /* УВЕЛИЧЕННОЕ ФОТО КАЛЕНДАРЯ */
+        /* УВЕЛИЧЕННОЕ ФОТО КАЛЕНДАРЯ - БЕЗ ОБВОДКИ (убрали border) */
         .calendar-image-wrapper {
             width: 100%;
             padding: 0 12px;
@@ -312,7 +309,8 @@
             background: #FFF6EA;
             box-shadow: 0 20px 32px -12px rgba(106, 30, 44, 0.2);
             transition: transform 0.4s ease, box-shadow 0.3s;
-            border: 1px solid rgba(106, 30, 44, 0.12);
+            /* Убрана обводка (border) */
+            border: none;
         }
         
         .calendar-img:hover {
@@ -332,6 +330,7 @@
             margin: 0 auto;
         }
 
+        /* Лейбл "Локация" — без подчеркивания, только текст */
         .location-label {
             font-family: "Playfair Display", serif;
             font-weight: 400;
@@ -339,31 +338,33 @@
             color: #FDEBD8;
             text-align: center;
             letter-spacing: 3px;
-            border-bottom: 1px solid rgba(253, 235, 216, 0.4);
+            /* Убрали border-bottom (подчеркивание) */
+            border-bottom: none;
             display: inline-block;
-            padding-bottom: 6px;
+            padding-bottom: 0;
         }
 
         .location-name {
             font-family: "Playfair Display", serif;
             font-weight: 500;
             font-size: clamp(1.9rem, 7vw, 2.8rem);
-            color: #FFF9EF;
+            color: #fbf9e2;
             text-align: center;
             letter-spacing: 1px;
             line-height: 1.2;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        /* Фото локации с рамкой-паспарту */
+        /* Фото локации — острые углы (убрали border-radius) */
         .location-photo-wrapper {
             position: relative;
             width: 100%;
             max-width: 390px;
             margin: 16px auto 0;
-            border-radius: 20px;
+            /* Убрали скругление — острые углы */
+            border-radius: 0;
             box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.35);
-            background: #FFF9EF;
+            background: #fbf9e2;
             padding: 10px;
             transition: transform 0.3s ease;
         }
@@ -372,9 +373,11 @@
             transform: translateY(-4px);
         }
 
+        /* Контейнер изображения — также острые углы */
         .location-img-container {
             width: 100%;
-            border-radius: 16px;
+            /* Убираем скругление у контейнера */
+            border-radius: 0;
             overflow: hidden;
             background: #FFF2E3;
         }
@@ -386,13 +389,15 @@
             object-fit: cover;
             aspect-ratio: 4 / 3;
             transition: transform 0.5s ease;
+            /* углы острые */
+            border-radius: 0;
         }
 
         .location-img-container:hover .location-img {
             transform: scale(1.02);
         }
 
-        /* Стильная скрепка (декор) */
+        /* Стильная скрепка (декор) — оставляем */
         .paper-clip {
             position: absolute;
             top: -14px;
@@ -402,11 +407,11 @@
             height: auto;
             z-index: 12;
             transform: rotate(-15deg);
-            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.25));
             pointer-events: none;
         }
 
-        /* Адрес — убраны любые обводки, фоны, паддинги, скругления */
+        /* Адрес — без обводок */
         .location-address {
             font-family: "Cormorant Garamond", serif;
             font-weight: 500;
@@ -419,7 +424,6 @@
             background: none;
             padding: 0;
             border-radius: 0;
-            backdrop-filter: none;
         }
 
         /* Адаптивность */
@@ -469,7 +473,7 @@
                 border-radius: 32px;
             }
             body {
-                background: #f3ede3;
+                background: #fbf9e2;
                 padding: 20px 0;
             }
             .invitation-card {
@@ -487,7 +491,7 @@
     <section class="screen screen-first">
         <div class="hero-image-section fade-up-item">
             <div class="full-width-heart">
-                <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FFF3E6/6A1E2C?text=❤️'; this.onerror=null;">
+                <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FCF9E6/6A1E2C?text=❤️'; this.onerror=null;">
             </div>
         </div>
         
@@ -518,7 +522,7 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 2: Дорогие друзья + увеличенный календарь (без обводок текста) -->
+    <!-- ЭКРАН 2: Дорогие друзья + увеличенный календарь (без обводок текста, у календаря убрана обводка) -->
     <section class="screen screen-second">
         <div class="invitation-greeting fade-up-item">
             <p>Дорогие друзья и близкие,</p>
@@ -530,23 +534,24 @@
         <div class="big-date fade-up-item delay-1">26.08.2026</div>
         
         <div class="calendar-image-wrapper fade-up-item delay-2">
-            <img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FFF9EF/6A1E2C?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;">
+            <img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FCF9E6/6A1E2C?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;">
         </div>
     </section>
 
-    <!-- ЭКРАН 3: Локация с бордовым фоном и сливочными акцентами, текст без обводок -->
+    <!-- ЭКРАН 3: Локация (заголовок "Локация", без подчеркивания, рамка фото с острыми углами) -->
     <section class="screen screen-third">
         <div class="location-content">
-            <div class="location-label fade-up-item">Место проведения</div>
+            <!-- Текст теперь "Локация" вместо "Место проведения", убрано подчеркивание -->
+            <div class="location-label fade-up-item">Локация</div>
             
             <div class="location-photo-wrapper fade-up-item delay-1">
                 <svg class="paper-clip" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 43C16.5 43 19.5 39.5 19.5 34V12.5C19.5 7.5 16 4 11.5 4C7 4 4 7.5 4 12.5V31.5C4 35 6 37.5 9 37.5C12 37.5 14 35 14 31.5V13C14 11 12.5 9.5 11 9.5C9.5 9.5 8.5 11 8.5 13V31C8.5 32 9 32.5 9.5 32.5C10 32.5 10.5 32 10.5 31V13C10.5 12.3 10.7 11.5 11 11.5C11.3 11.5 12 12.3 12 13V31.5C12 33.5 10.8 35.5 9 35.5C7.2 35.5 6 33.5 6 31.5V12.5C6 9 8.5 6 11.5 6C14.5 6 17.5 9 17.5 12.5V34C17.5 38 15 41 12 41C9 41 6.5 38 6.5 35V17C6.5 16.2 5.9 15.6 5.2 15.6C4.5 15.6 4 16.2 4 17V35C4 40 7.5 43 12 43Z" 
-                          fill="#FFF9EF" stroke="#DBC5B0" stroke-width="0.8"/>
+                          fill="#fbf9e2" stroke="#DBC5B0" stroke-width="0.8"/>
                 </svg>
                 
                 <div class="location-img-container">
-                    <img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/FDF4E8/6A1E2C?text=🏰+Château+Marie'; this.onerror=null;">
+                    <img src="локация.png" alt="Шато Мари, Гродно" class="location-img" onerror="this.src='https://placehold.co/800x600/FCF9E6/6A1E2C?text=🏰+Château+Marie'; this.onerror=null;">
                 </div>
             </div>
             
