@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Основные шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
@@ -95,17 +93,22 @@
     }
 
     /* Порядок блоков */
-    .screen-second { background-color: #FFFDF0; padding: 36px 20px 44px; gap: 12px; } /* приветствие+дата */
-    .screen-third { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 20px; } /* локация */
-    .screen-fourth { background-color: #FFFDF0; padding: 40px 16px 50px; } /* тайминг */
-    .screen-fifth { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 0 0 0; } /* дресс-код */
-    .screen-sixth { background-color: #FFFDF0; padding: 40px 20px 45px 20px; } /* пожелания */
-    .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; } /* важно (бордовый) */
-    .screen-timer { background-color: #FFFDF0; padding: 50px 20px; text-align: center; } /* таймер (светлый) */
-    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 45px 20px 50px 20px; } /* анкета (бордовый) */
-    .screen-contacts { background-color: #FFFDF0; padding: 45px 20px 50px 20px; } /* контакты (светлый) */
+    .screen-second { background-color: #FFFDF0; padding: 36px 20px 44px; gap: 12px; }
+    .screen-third { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 20px; }
+    .screen-fourth { background-color: #FFFDF0; padding: 40px 16px 50px; }
+    .screen-fifth { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 0 0 0; }
+    .screen-sixth { background-color: #FFFDF0; padding: 40px 20px 45px 20px; }
+    .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; }
+    .screen-timer { background-color: #FFFDF0; padding: 50px 20px; text-align: center; }
+    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 45px 20px 50px 20px; }
+    .screen-contacts { background-color: #FFFDF0; padding: 45px 20px 50px 20px; }
 
-    /* Общие стили для улучшенной читаемости */
+    /* Общие стили для читаемости и адаптивности */
+    p, .invitation-greeting, .dresscode-text, .wishes-text, .important-text, .timer-text, .contacts-text, .form-label, .radio-label, .drink-check {
+      word-break: break-word;
+      hyphens: auto;
+    }
+
     .invitation-greeting, .dresscode-text, .wishes-text, .important-text, .timer-text, .contacts-text {
       font-size: clamp(1.2rem, 4.5vw, 1.6rem);
       line-height: 1.65;
@@ -114,7 +117,7 @@
       letter-spacing: 0.4px;
     }
 
-    /* ============ ПЕРВЫЙ ЭКРАН (без изменений) ============ */
+    /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
     .hero-image-section { width: 100%; display: flex; justify-content: center; padding-top: max(30px, 6vh); }
     .full-width-heart { max-width: 360px; margin: 0 auto; padding: 0 16px; }
@@ -131,72 +134,72 @@
     .marquee-track span { font-family: "Marck Script", cursive; color: #FFFDF0; font-size: clamp(0.95rem, 3.2vw, 1.25rem); padding-right: 48px; }
     @keyframes marqueeScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
-    /* ============ ВТОРОЙ ЭКРАН (приветствие и дата) ============ */
+    /* ============ ВТОРОЙ ЭКРАН ============ */
     .invitation-content { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 540px; margin: 0 auto; }
     .invitation-greeting p { margin-bottom: 6px; }
-    .big-date { font-family: "Caveat", cursive; font-size: clamp(4rem, 15vw, 6.5rem); color: #8B1A2B; letter-spacing: 8px; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.3deg); }
-    .calendar-image-wrapper { max-width: 450px; margin: 8px auto 0; }
-    .calendar-img { width: 100%; height: auto; max-height: 45vh; }
+    .big-date { font-family: "Caveat", cursive; font-size: clamp(4rem, 15vw, 6.5rem); color: #8B1A2B; letter-spacing: 8px; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.3deg); word-break: break-word; text-align: center; }
+    .calendar-image-wrapper { max-width: 450px; margin: 8px auto 0; width: 100%; padding: 0 12px; }
+    .calendar-img { width: 100%; height: auto; max-height: 45vh; object-fit: contain; }
 
     /* ============ ТРЕТИЙ ЭКРАН (локация) ============ */
-    .location-content { display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 460px; margin: 0 auto; }
-    .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2.2rem, 7.5vw, 2.8rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-    .location-photo-wrapper { position: relative; max-width: 420px; margin: 8px auto 0; box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3); }
-    .location-img { width: 100%; display: block; aspect-ratio: 4/3; border: 5px solid #ffffff; filter: grayscale(100%); transition: filter 0.7s ease-in-out; }
+    .location-content { display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 460px; margin: 0 auto; width: 100%; }
+    .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2.2rem, 7.5vw, 2.8rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; word-break: break-word; }
+    .location-photo-wrapper { position: relative; max-width: 420px; margin: 8px auto 0; width: 100%; box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3); }
+    .location-img { width: 100%; display: block; aspect-ratio: 4/3; border: 5px solid #ffffff; filter: grayscale(100%); transition: filter 0.7s ease-in-out; object-fit: cover; }
     .location-img.colored { filter: grayscale(0%); }
     .paper-clip { position: absolute; top: -12px; left: 12px; width: 40px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
-    .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #FDEBD8; text-align: center; margin-top: 6px; }
+    .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #FDEBD8; text-align: center; margin-top: 6px; word-break: break-word; }
 
     /* ============ ЧЕТВЕРТЫЙ ЭКРАН (тайминг) ============ */
     .timing-section-title { text-align: center; margin-bottom: 18px; }
     .timing-main-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #8B1A2B; letter-spacing: 5px; text-transform: uppercase; }
-    .timing-image-container { text-align: center; margin-top: 10px; }
-    .timing-schedule-img { width: 100%; max-width: 660px; height: auto; margin: 0 auto; max-height: 72vh; }
+    .timing-image-container { text-align: center; margin-top: 10px; width: 100%; padding: 0 8px; }
+    .timing-schedule-img { width: 100%; max-width: 660px; height: auto; margin: 0 auto; max-height: 72vh; object-fit: contain; }
 
     /* ============ ПЯТЫЙ ЭКРАН (дресс-код) ============ */
-    .dresscode-container { display: flex; flex-direction: column; align-items: center; gap: 28px; }
-    .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; text-align: center; }
-    .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+    .dresscode-container { display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; }
+    .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; text-align: center; padding: 0 20px; }
+    .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); width: auto; }
     .tape-sticker { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); width: 90px; opacity: 0.92; pointer-events: none; }
     .dresscode-text { text-align: justify; text-align-last: center; }
     .references-wrapper { width: 100%; }
     .ref-subtitle { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #FDEBD8; text-align: center; margin-bottom: 16px; }
-    .scroll-container { overflow-x: auto; scrollbar-width: none; }
+    .scroll-container { overflow-x: auto; scrollbar-width: none; width: 100%; }
     .scroll-container::-webkit-scrollbar { display: none; }
-    .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: 380px; }
-    .ref-image { width: 240px; height: 380px; object-fit: cover; flex-shrink: 0; }
+    .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: auto; gap: 0; }
+    .ref-image { width: 220px; height: 360px; object-fit: cover; flex-shrink: 0; }
 
     /* ============ ШЕСТОЙ ЭКРАН (пожелания) ============ */
-    .wishes-container { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #8B1A2B; letter-spacing: 5px; text-transform: uppercase; }
+    .wishes-container { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
+    .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #8B1A2B; letter-spacing: 5px; text-transform: uppercase; text-align: center; }
     .wishes-text { text-align: justify; text-align-last: center; }
     .envelope-image { width: 260px; max-width: 70%; height: auto; margin: 8px auto 0; }
 
-    /* ============ БЛОК ВАЖНО (бордовый) ============ */
-    .important-container { text-align: center; }
+    /* ============ ВАЖНО ============ */
+    .important-container { text-align: center; width: 100%; }
     .important-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 24px; }
-    .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+    .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); width: auto; }
     .important-text { color: #8B1A2B; text-align: justify; text-align-last: center; }
 
-    /* ============ ТАЙМЕР (светлый) ============ */
-    .timer-container { text-align: center; }
-    .timer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6vw, 2.4rem); color: #8B1A2B; letter-spacing: 3px; margin-bottom: 20px; white-space: nowrap; }
-    .countdown { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; row-gap: 15px; }
+    /* ============ ТАЙМЕР ============ */
+    .timer-container { text-align: center; width: 100%; }
+    .timer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.6rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 3px; margin-bottom: 20px; word-break: break-word; hyphens: auto; }
+    .countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; row-gap: 15px; }
     .countdown-item { background: none; border: none; padding: 0 8px; text-align: center; }
     .countdown-number { font-family: "Bad Script", cursive; font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 400; color: #8B1A2B; line-height: 1; display: block; margin-bottom: 5px; }
     .countdown-label { font-family: "Bad Script", cursive; font-size: clamp(0.9rem, 3.5vw, 1.2rem); color: #8B1A2B; text-transform: lowercase; letter-spacing: 1px; }
 
-    /* ============ АНКЕТА (бордовый) ============ */
-    .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px; }
+    /* ============ АНКЕТА ============ */
+    .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; }
     .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; text-align: center; }
-    .guestbook-subtitle { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.35rem); color: #FDEBD8; text-align: center; max-width: 460px; }
+    .guestbook-subtitle { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.35rem); color: #FDEBD8; text-align: center; max-width: 460px; word-break: break-word; }
     .guest-form { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
     .form-group { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 8px; }
     .form-label { font-family: "Bad Script", cursive; font-size: 1.1rem; color: #FDEBD8; text-align: left; }
     .form-input, .form-select, .form-textarea { background: transparent; border: none; border-bottom: 1px solid rgba(253,235,216,0.8); padding: 6px 4px 8px; font-family: "Bad Script", cursive; font-size: 1.1rem; color: #FDEBD8; outline: none; width: 100%; transition: 0.2s; }
     .form-input:focus, .form-textarea:focus { border-bottom-color: #FFFDF0; transform: translateY(-1px); }
     .form-textarea { resize: vertical; min-height: 70px; }
-    .radio-group { display: flex; flex-direction: column; gap: 14px; }
+    .radio-group { display: flex; flex-direction: column; gap: 14px; width: 100%; }
     .radio-label { display: flex; align-items: center; gap: 14px; font-family: "Bad Script", cursive; font-size: 1.1rem; color: #FDEBD8; cursor: pointer; }
     .radio-label input, .drink-check input { appearance: none; width: 20px; height: 20px; border: 1.5px solid #FDEBD8; background: transparent; cursor: pointer; flex-shrink: 0; }
     .radio-label input { border-radius: 50%; }
@@ -204,43 +207,50 @@
     .drink-check input { border-radius: 3px; }
     .drink-check input:checked::after { content: '✓'; display: block; font-size: 14px; color: #FDEBD8; text-align: center; line-height: 16px; }
     .drinks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 14px 18px; width: 100%; }
-    .drink-check { display: flex; align-items: center; gap: 12px; font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; cursor: pointer; }
+    .drink-check { display: flex; align-items: center; gap: 12px; font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; cursor: pointer; word-break: break-word; }
     .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 12px 32px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1.15rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
     .date-marquee-wrapper { width: 100vw; margin-left: calc(-50vw + 50%); margin: 24px 0; overflow: hidden; background: #FFFDF0; }
     .date-marquee { background: #FFFDF0; padding: 10px 0; overflow: hidden; }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 600; color: #8B1A2B; font-size: clamp(1rem,3.5vw,1.2rem); text-transform: uppercase; letter-spacing: 6px; padding-right: 50px; }
-    .final-wishes { text-align: center; margin-top: 12px; }
-    .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem,6vw,2.4rem); color: #FDEBD8; letter-spacing: 3px; }
-    .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #FDEBD8; margin-top: 12px; }
+    .final-wishes { text-align: center; margin-top: 12px; width: 100%; }
+    .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem,6vw,2.4rem); color: #FDEBD8; letter-spacing: 3px; word-break: break-word; }
+    .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #FDEBD8; margin-top: 12px; word-break: break-word; }
 
-    /* ============ КОНТАКТЫ (светлый) ============ */
-    .contacts-container { text-align: center; max-width: 480px; margin: 0 auto; }
+    /* ============ КОНТАКТЫ ============ */
+    .contacts-container { text-align: center; max-width: 480px; margin: 0 auto; width: 100%; }
     .contacts-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem,6vw,2.4rem); color: #8B1A2B; letter-spacing: 4px; margin-bottom: 24px; }
-    .contacts-info { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #8B1A2B; line-height: 1.8; }
+    .contacts-info { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #8B1A2B; line-height: 1.8; word-break: break-word; }
     .contacts-info a { color: #8B1A2B; text-decoration: none; border-bottom: 1px dashed #8B1A2B; transition: 0.2s; }
-    .contacts-info a:hover { border-bottom-style: solid; }
 
-    /* Адаптивность */
-    @media (max-width: 480px) {
-      .screen-second, .screen-sixth, .screen-timer, .screen-contacts { padding: 30px 16px 36px; }
-      .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
-      .white-rectangle, .important-white-rectangle { margin: 0 12px; padding: 32px 18px 28px; }
+    /* Адаптивность для маленьких экранов */
+    @media (max-width: 560px) {
+      .white-rectangle, .important-white-rectangle { margin: 0 12px; padding: 36px 20px 32px; }
       .tape-sticker { width: 70px; top: -30px; }
-      .ref-image { width: 170px; height: 280px; }
-      .images-row { height: 280px; }
+      .ref-image { width: 160px; height: 260px; }
+      .images-row { height: auto; }
       .countdown { gap: 12px; }
       .countdown-number { font-size: 2rem; }
       .envelope-image { width: 200px; }
       .timing-schedule-img { max-width: 100%; }
       .form-group { max-width: 100%; }
+      .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
+      .submit-btn { min-width: 180px; padding: 8px 24px; font-size: 1rem; }
+      .calendar-image-wrapper { padding: 0; }
+      .big-date { letter-spacing: 4px; }
+      .screen-second, .screen-sixth, .screen-timer, .screen-contacts { padding: 30px 16px 36px; }
+      .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
     }
+
+    @media (min-width: 561px) and (max-width: 767px) {
+      .ref-image { width: 190px; height: 300px; }
+    }
+
     @media (min-width: 768px) {
       .invitation-card { max-width: 640px; border-radius: 32px; height: 95vh; }
       body { padding: 20px 0; }
-      .ref-image { width: 260px; height: 420px; }
-      .images-row { height: 420px; }
+      .ref-image { width: 240px; height: 380px; }
     }
   </style>
 </head>
@@ -315,16 +325,20 @@
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания (светлый) -->
+  <!-- Экран 6: Пожелания (светлый) с красивыми абзацами -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
-      <div class="wishes-text">Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах! Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). И помните, самый ценный подарок для нас – ваше присутствие!</div>
+      <div class="wishes-text">
+        <p>Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах!</p>
+        <p>Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию).</p>
+        <p>И помните, самый ценный подарок для нас – ваше присутствие!</p>
+      </div>
       <div><img src="конверт.png" alt="Конверт" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFFDF0?text=✉️';"></div>
     </div>
   </section>
 
-  <!-- Экран 7: Важно (бордовый фон, белый прямоугольник) -->
+  <!-- Экран 7: Важно (бордовый) -->
   <section class="screen screen-important">
     <div class="important-container">
       <div class="important-title">Важно</div>
@@ -332,7 +346,7 @@
     </div>
   </section>
 
-  <!-- Экран 8: Таймер до свадьбы (светлый) -->
+  <!-- Экран 8: Таймер (светлый) -->
   <section class="screen screen-timer">
     <div class="timer-container">
       <div class="timer-title">до нашей свадьбы</div>
@@ -345,7 +359,7 @@
     </div>
   </section>
 
-  <!-- Экран 9: Анкета гостя (бордовый) -->
+  <!-- Экран 9: Анкета (бордовый) -->
   <section class="screen screen-seventh">
     <div class="guestbook-container">
       <div class="guestbook-title">Анкета гостя</div>
@@ -393,7 +407,6 @@
 </main>
 
 <script>
-  // Анимация появления и обесцвечивание фото локации
   (function() {
     const screens = document.querySelectorAll('.screen:not(.screen-first)');
     const observer = new IntersectionObserver((entries) => {
@@ -409,7 +422,6 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
     screens.forEach(screen => observer.observe(screen));
 
-    // Бегущие строки
     function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
       const container = document.querySelector(containerSelector);
       if (!container) return;
@@ -432,7 +444,6 @@
     ensureMarquee('.marquee-ribbon', '.marquee-track');
     ensureMarquee('.date-marquee', '.date-marquee-track', 8);
 
-    // Высота окна
     function setAppHeight() {
       document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
     }
@@ -446,7 +457,7 @@
 
   // Таймер обратного отсчёта до 26 августа 2026
   function updateTimer() {
-    const weddingDate = new Date(2026, 7, 26, 0, 0, 0); // август = 7
+    const weddingDate = new Date(2026, 7, 26, 0, 0, 0);
     const now = new Date();
     const diff = weddingDate - now;
     if (diff <= 0) {
@@ -468,7 +479,6 @@
   updateTimer();
   setInterval(updateTimer, 1000);
 
-  // Отправка формы
   function submitForm(event) {
     event.preventDefault();
     const name = document.querySelector('.guest-form .form-input')?.value.trim();
