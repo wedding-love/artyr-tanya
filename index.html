@@ -7,7 +7,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
@@ -65,8 +64,8 @@
     /* Анимация для блоков, кроме первого */
     .screen:not(.screen-first) {
       opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s ease;
     }
 
     .screen.visible {
@@ -83,6 +82,7 @@
       flex-shrink: 0;
     }
 
+    /* Первый экран (без анимации) */
     .screen-first {
       min-height: 100vh;
       min-height: 100dvh;
@@ -93,53 +93,46 @@
       transform: none !important;
     }
 
+    /* Второй экран */
     .screen-second {
       min-height: auto;
       justify-content: center;
       align-items: center;
       background-color: #FFFDF0;
-      padding: 32px 20px 40px;
-      gap: 8px;
+      padding: 5vh 20px 6vh;
+      gap: 12px;
     }
 
+    /* Третий экран (локация) */
     .screen-third {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 55px 20px;
+      padding: 8vh 20px;
       justify-content: center;
       align-items: center;
-      min-height: auto;
     }
 
+    /* Четвёртый экран (тайминг) */
     .screen-fourth {
       background-color: #FFFDF0;
-      padding: 35px 16px 45px;
-      justify-content: center;
-      align-items: center;
-      min-height: auto;
+      padding: 6vh 16px 7vh;
     }
 
+    /* Пятый экран (дресс-код) */
     .screen-fifth {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 55px 0 0 0;
-      justify-content: center;
-      align-items: center;
-      min-height: auto;
+      padding: 7vh 0 0 0;
     }
 
+    /* Шестой экран (пожелания) */
     .screen-sixth {
       background-color: #FFFDF0;
-      padding: 35px 20px 40px 20px;
-      justify-content: center;
-      align-items: center;
-      min-height: auto;
+      padding: 6vh 20px;
     }
 
+    /* Седьмой экран (анкета) */
     .screen-seventh {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 40px 20px 45px 20px;
-      justify-content: center;
-      align-items: center;
-      min-height: auto;
+      padding: 6vh 20px 7vh;
     }
 
     /* ============ ПЕРВЫЙ ЭКРАН (шрифты без изменений) ============ */
@@ -155,16 +148,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
-      padding: 0;
-      line-height: 0;
-      padding-top: max(30px, 6vh);
-      flex-shrink: 0;
+      padding-top: max(20px, 5vh);
     }
 
     .full-width-heart {
       width: 100%;
-      max-width: 360px;
+      max-width: 320px;
       margin: 0 auto;
       padding: 0 16px;
     }
@@ -174,7 +163,7 @@
       height: auto;
       display: block;
       object-fit: contain;
-      max-height: 32vh;
+      max-height: 28vh;
       filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12));
     }
 
@@ -184,566 +173,536 @@
       justify-content: center;
       width: 100%;
       padding: 0 20px;
-      margin-top: -8px;
+      margin-top: -10px;
     }
 
     .title-block {
       text-align: center;
-      width: 100%;
       margin: 0 0 2vh;
     }
 
     .sub-title {
-      display: block;
       font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      font-size: clamp(1.6rem, 5vw, 2rem);
       color: #8B1A2B;
-      text-transform: none;
       letter-spacing: 2px;
-      margin-bottom: -2px;
-      line-height: 1;
     }
 
     .primary-title {
-      display: block;
-      font-family: "Caveat", "Comic Sans MS", cursive;
-      font-weight: 400;
-      font-size: clamp(5rem, 18vw, 8rem);
+      font-family: "Caveat", cursive;
+      font-size: clamp(4rem, 15vw, 7rem);
       color: #8B1A2B;
-      line-height: 0.9;
+      line-height: 0.95;
       letter-spacing: 1px;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
-      transform: rotate(-0.5deg);
-      margin-top: -8px;
-      word-break: break-word;
+      margin-top: -5px;
     }
 
     .dialog-area {
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 2vh 0;
+      margin: 1.5vh 0 2vh;
     }
 
     .dialog-container {
-      width: 100%;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
       gap: 16px;
       flex-wrap: wrap;
       padding: 0 4px;
     }
 
     .dialog-text {
-      font-family: "Marck Script", "Brush Script MT", cursive;
-      font-weight: 400;
+      font-family: "Marck Script", cursive;
       font-style: italic;
-      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      font-size: clamp(1rem, 4.5vw, 1.5rem);
       color: #8B1A2B;
-      line-height: 1.45;
-      letter-spacing: 0.3px;
-      background: none;
-      padding: 0;
-    }
-
-    /* ============ ОСТАЛЬНЫЕ БЛОКИ — УВЕЛИЧЕННЫЕ ШРИФТЫ ============ */
-    .screen-second .invitation-greeting {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 5.2vw, 2.2rem);
-      color: #8B1A2B;
-      text-align: center;
       line-height: 1.4;
-      letter-spacing: 1.5px;
     }
 
-    .big-date {
-      font-family: "Caveat", "Comic Sans MS", cursive;
-      font-weight: 400;
-      font-size: clamp(4rem, 16vw, 7rem);
-      color: #8B1A2B;
-      text-align: center;
-      letter-spacing: 6px;
-      line-height: 1;
+    .dialog-left {
+      text-align: left;
+      flex: 1.2;
+    }
+    .dialog-right {
+      text-align: right;
+      flex: 0.9;
     }
 
-    .location-label, .location-name {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(2.2rem, 8vw, 2.9rem);
-      color: #FDEBD8;
-      letter-spacing: 3px;
-    }
-
-    .location-address {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.3rem, 5vw, 1.7rem);
-      color: #FDEBD8;
-    }
-
-    .timing-main-title {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(2.1rem, 7.5vw, 2.7rem);
-      color: #8B1A2B;
-      letter-spacing: 4px;
-    }
-
-    .dresscode-title {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(2.1rem, 7.5vw, 2.7rem);
-      color: #FDEBD8;
-    }
-
-    .dresscode-text {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.15rem, 4.5vw, 1.6rem);
-      color: #8B1A2B;
-      line-height: 1.65;
-    }
-
-    .ref-subtitle {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.05rem, 4.2vw, 1.5rem);
-      color: #FDEBD8;
-    }
-
-    .wishes-title {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(2.1rem, 7.5vw, 2.7rem);
-      color: #8B1A2B;
-    }
-
-    .wishes-text {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.1rem, 4.5vw, 1.55rem);
-      color: #8B1A2B;
-      line-height: 1.65;
-    }
-
-    .guestbook-title {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(2rem, 7vw, 2.6rem);
-      color: #FDEBD8;
-    }
-
-    .guestbook-subtitle {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1rem, 4.2vw, 1.45rem);
-      color: #FDEBD8;
-    }
-
-    .form-label, .radio-label, .drink-check {
-      font-size: 1.05rem;
-    }
-
-    .submit-btn {
-      font-size: 1.15rem;
-      padding: 10px 70px;
-      letter-spacing: 5px;
-    }
-
-    .final-big {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: clamp(1.8rem, 7vw, 2.5rem);
-      color: #FDEBD8;
-    }
-
-    .final-small {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(1.3rem, 5vw, 1.7rem);
-      color: #FDEBD8;
-    }
-
-    /* Остальные стили (ленты, кнопки, формы) с учётом увеличенных шрифтов и отступов */
+    /* Бегущая лента (первый экран) */
     .marquee-ribbon {
       background-color: #8B1A2B;
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       overflow: hidden;
-      padding: 13px 0;
-      flex-shrink: 0;
+      padding: 12px 0;
     }
-
     .marquee-track {
       display: flex;
       white-space: nowrap;
-      will-change: transform;
       animation: marqueeScroll 24s linear infinite;
       width: max-content;
     }
-
     .marquee-track span {
-      font-family: "Marck Script", "Brush Script MT", cursive;
-      font-weight: 400;
+      font-family: "Marck Script", cursive;
       color: #FFFDF0;
-      font-size: clamp(0.85rem, 2.8vw, 1.1rem);
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
       padding-right: 48px;
     }
-
     @keyframes marqueeScroll {
       0% { transform: translate3d(0, 0, 0); }
       100% { transform: translate3d(-50%, 0, 0); }
     }
 
-    /* Второй экран: приглашение */
+    /* ============ ВТОРОЙ ЭКРАН ============ */
     .invitation-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      gap: 12px;
       width: 100%;
-      max-width: 520px;
+      max-width: 500px;
       margin: 0 auto;
-      padding: 0 10px;
     }
-
+    .invitation-greeting {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.2rem, 4vw, 1.7rem);
+      color: #8B1A2B;
+      text-align: center;
+      line-height: 1.4;
+    }
     .invitation-greeting p {
       margin-bottom: 2px;
     }
-
+    .big-date {
+      font-family: "Caveat", cursive;
+      font-size: clamp(3rem, 12vw, 5.5rem);
+      color: #8B1A2B;
+      letter-spacing: 4px;
+      line-height: 1;
+    }
     .calendar-image-wrapper {
       width: 100%;
-      padding: 0 12px;
-      max-width: 420px;
+      max-width: 380px;
       margin: 0 auto;
+      padding: 0 12px;
     }
-
     .calendar-img {
       width: 100%;
       height: auto;
       display: block;
-      max-height: 42vh;
+      max-height: 38vh;
     }
 
-    /* Третий экран: локация со скрепкой поверх фото */
+    /* ============ ТРЕТИЙ ЭКРАН (ЛОКАЦИЯ) ============ */
     .location-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 28px;
+      gap: 20px;
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
       margin: 0 auto;
     }
-
+    .location-label, .location-name {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: #FDEBD8;
+      letter-spacing: 2px;
+      text-align: center;
+    }
     .location-photo-wrapper {
       position: relative;
       width: 100%;
-      max-width: 390px;
-      margin: 6px auto 0;
-      padding: 0;
+      max-width: 360px;
+      margin: 0 auto;
     }
-
     .location-img-container {
       width: 100%;
       overflow: hidden;
     }
-
     .location-img {
       width: 100%;
       height: auto;
       display: block;
-      object-fit: cover;
       aspect-ratio: 4 / 3;
-      border: 4px solid rgba(255, 245, 230, 0.95);
+      object-fit: cover;
+      border: 3px solid rgba(255, 245, 230, 0.95);
     }
-
+    /* Скрепка поверх фото */
     .paper-clip {
       position: absolute;
-      top: -12px;
+      top: -10px;
       left: 12px;
-      width: 36px;
+      width: 32px;
       height: auto;
       z-index: 12;
       transform: rotate(-15deg);
       filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.25));
       pointer-events: none;
     }
+    .location-address {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      color: #FDEBD8;
+      text-align: center;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
 
-    /* Четвёртый экран: тайминг */
+    /* ============ ЧЕТВЁРТЫЙ ЭКРАН (ТАЙМИНГ) ============ */
+    .timing-section-title {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .timing-main-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: #8B1A2B;
+      letter-spacing: 3px;
+    }
     .timing-image-container {
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: 6px;
       padding: 0 8px;
     }
-
     .timing-schedule-img {
       width: 100%;
-      max-width: 560px;
+      max-width: 540px;
       height: auto;
       display: block;
-      max-height: 65vh;
+      max-height: 60vh;
     }
 
-    /* Пятый экран: дресс-код — увеличены боковые отступы белого блока */
+    /* ============ ПЯТЫЙ ЭКРАН (ДРЕСС-КОД) ============ */
     .dresscode-container {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 28px;
-      margin: 0 auto;
-      padding: 0;
+      gap: 24px;
     }
-
+    .dresscode-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: #FDEBD8;
+      text-align: center;
+      padding: 0 20px;
+    }
+    /* Белый блок — увеличенные боковые отступы (больше бордового фона) */
     .white-rectangle {
       position: relative;
       background-color: #ffffff;
-      width: auto;
-      margin: 0 36px;           /* больше бордового фона по бокам */
-      padding: 42px 32px 38px 32px;
+      margin: 0 24px;
+      padding: 32px 24px 30px;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
     }
-
     .tape-sticker {
       position: absolute;
-      top: -35px;
+      top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      width: 85px;
+      width: 70px;
       height: auto;
       z-index: 10;
       pointer-events: none;
       opacity: 0.92;
     }
-
-    .references-wrapper {
-      width: 100%;
-      margin: 0;
-      padding: 0;
+    .dresscode-text {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(0.95rem, 3.8vw, 1.35rem);
+      color: #8B1A2B;
+      line-height: 1.6;
+      text-align: center;
     }
-
+    .ref-subtitle {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+      color: #FDEBD8;
+      text-align: center;
+      margin-bottom: 12px;
+      padding: 0 20px;
+    }
     .scroll-container {
       width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      scroll-behavior: smooth;
     }
-
     .scroll-container::-webkit-scrollbar {
       display: none;
     }
-
     .images-row {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       width: max-content;
       gap: 0;
-      margin: 0;
-      height: 360px;
+      height: 280px;
     }
-
     .ref-image {
-      width: 220px;
-      height: 360px;
+      width: 180px;
+      height: 280px;
       object-fit: cover;
       flex-shrink: 0;
     }
 
-    /* Шестой экран: пожелания */
+    /* ============ ШЕСТОЙ ЭКРАН (ПОЖЕЛАНИЯ) ============ */
     .wishes-container {
       width: 100%;
-      max-width: 520px;
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .wishes-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: #8B1A2B;
+      text-align: center;
+    }
+    .wishes-text {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(0.95rem, 3.8vw, 1.4rem);
+      color: #8B1A2B;
+      line-height: 1.6;
+      text-align: center;
+      padding: 0 12px;
+    }
+    .envelope-image {
+      width: 180px;
+      max-width: 55%;
+      height: auto;
+      margin: 8px auto 0;
+    }
+
+    /* ============ СЕДЬМОЙ ЭКРАН (АНКЕТА) ============ */
+    .guestbook-container {
+      width: 100%;
+      max-width: 500px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
     }
-
-    .envelope-image {
-      width: 220px;
-      max-width: 62%;
-      height: auto;
-      margin: 6px auto 0;
+    .guestbook-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.7rem, 5.5vw, 2.2rem);
+      color: #FDEBD8;
+      text-align: center;
     }
-
-    /* Седьмой экран: анкета */
-    .guestbook-container {
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 22px;
+    .guestbook-subtitle {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(0.85rem, 3.2vw, 1.2rem);
+      color: #FDEBD8;
+      text-align: center;
+      line-height: 1.5;
+      padding: 0 8px;
     }
-
     .guest-form {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;               /* увеличен общий gap между полями */
-      padding: 0 4px;
+      gap: 18px;
     }
-
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;                /* увеличен отступ между лейблом и полем */
+      gap: 6px;
     }
-
+    .form-label {
+      font-family: "Bad Script", cursive;
+      font-size: 0.95rem;
+      color: #FDEBD8;
+    }
     .form-input, .form-select, .form-textarea {
       background: transparent;
       border: none;
       border-bottom: 1px solid rgba(253, 235, 216, 0.6);
       padding: 8px 4px;
       font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #FDEBD8;
       outline: none;
       width: 100%;
     }
-
-    /* Поле аллергии стало компактнее */
+    .form-input:focus, .form-textarea:focus {
+      border-bottom-color: #FDEBD8;
+    }
     .form-textarea {
       resize: vertical;
-      min-height: 45px;        /* было 60px — уменьшили */
-      padding: 6px 4px;
+      min-height: 50px; /* компактное поле */
     }
-
     .radio-group {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
-
     .radio-label, .drink-check {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-family: "Bad Script", cursive;
+      font-size: 0.95rem;
+      color: #FDEBD8;
       cursor: pointer;
     }
-
+    .radio-label input[type="radio"], .drink-check input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid #FDEBD8;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+    }
+    .radio-label input[type="radio"] {
+      border-radius: 50%;
+    }
+    .radio-label input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 10px;
+      height: 10px;
+      background-color: #FDEBD8;
+      border-radius: 50%;
+    }
+    .drink-check input[type="checkbox"] {
+      border-radius: 2px;
+    }
+    .drink-check input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 0px;
+      left: 3px;
+      font-size: 13px;
+      color: #FDEBD8;
+    }
     .drinks-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
-
+    /* Кнопка */
     .submit-btn {
       background: #FFFDF0;
       border: 2px solid #FDEBD8;
+      padding: 10px 50px;
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
+      font-size: 1rem;
+      letter-spacing: 3px;
       color: #8B1A2B;
       cursor: pointer;
       transition: all 0.3s ease;
       width: auto;
-      min-width: 260px;
-      max-width: 360px;
-      margin: 10px auto 30px auto;
+      min-width: 220px;
+      margin: 8px auto 28px auto;
       border-radius: 40px;
-      display: block;
     }
-
     .submit-btn:hover {
       background: #ffffff;
       transform: scale(1.02);
     }
 
-    /* Лента с датой: на всю ширину, без отступов */
+    /* Лента с датой на всю ширину экрана */
     .date-marquee-wrapper {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      margin-top: 0;
-      margin-bottom: 0;
       overflow: hidden;
       background-color: #FFFDF0;
     }
-
     .date-marquee {
       background-color: #FFFDF0;
       width: 100%;
       overflow: hidden;
       padding: 8px 0;
     }
-
     .date-marquee-track {
       display: flex;
       white-space: nowrap;
-      will-change: transform;
       animation: marqueeScroll 20s linear infinite;
       width: max-content;
     }
-
     .date-marquee-track span {
       font-family: "Cormorant Garamond", serif;
       font-weight: 500;
       color: #8B1A2B;
-      font-size: clamp(0.9rem, 3.2vw, 1.1rem);
+      font-size: clamp(0.8rem, 3vw, 1rem);
       text-transform: uppercase;
-      letter-spacing: 5px;
-      padding-right: 50px;
+      letter-spacing: 4px;
+      padding-right: 40px;
     }
 
     .final-wishes {
       text-align: center;
-      margin-top: 30px;
-      width: 100%;
+      margin-top: 28px;
+    }
+    .final-big {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.5rem, 5.5vw, 2rem);
+      color: #FDEBD8;
+    }
+    .final-small {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      color: #FDEBD8;
+      margin-top: 6px;
     }
 
-    /* Адаптивные поправки */
+    /* ============ АДАПТИВНОСТЬ (ДОПОЛНИТЕЛЬНЫЕ ПРАВКИ) ============ */
     @media (max-width: 480px) {
-      .screen-second { padding: 20px 14px 28px; }
-      .white-rectangle { margin: 0 20px; padding: 32px 18px 30px; }
-      .ref-image { width: 160px; height: 260px; }
-      .images-row { height: 260px; }
-      .submit-btn { min-width: 220px; padding: 8px 50px; margin-bottom: 25px; font-size: 1rem; }
-      .guest-form { gap: 16px; }
-      .form-group { gap: 6px; }
-      .form-textarea { min-height: 40px; }
+      .screen-second { padding: 4vh 16px 5vh; gap: 10px; }
+      .screen-third { padding: 6vh 16px; }
+      .screen-fourth { padding: 5vh 12px 6vh; }
+      .screen-fifth { padding: 6vh 0 0; }
+      .screen-sixth { padding: 5vh 16px; }
+      .screen-seventh { padding: 5vh 16px 6vh; }
+      .white-rectangle { margin: 0 16px; padding: 28px 18px 24px; }
+      .tape-sticker { width: 60px; top: -25px; }
+      .ref-image { width: 150px; height: 230px; }
+      .images-row { height: 230px; }
+      .drinks-grid { grid-template-columns: 1fr; gap: 8px; }
+      .submit-btn { min-width: 200px; padding: 8px 40px; margin-bottom: 24px; }
+      .final-wishes { margin-top: 24px; }
       .paper-clip { width: 28px; top: -8px; left: 8px; }
-      .location-content { gap: 20px; }
-      .final-wishes { margin-top: 25px; }
+      .location-photo-wrapper { max-width: 300px; }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
-      .white-rectangle { margin: 0 28px; padding: 38px 24px 34px; }
-      .ref-image { width: 180px; height: 290px; }
-      .images-row { height: 290px; }
-      .submit-btn { min-width: 240px; padding: 9px 60px; margin-bottom: 28px; }
-      .final-wishes { margin-top: 28px; }
+      .white-rectangle { margin: 0 20px; padding: 32px 22px 28px; }
+      .ref-image { width: 170px; height: 260px; }
+      .images-row { height: 260px; }
+      .submit-btn { min-width: 230px; padding: 9px 50px; }
     }
 
     @media (min-width: 768px) {
       .invitation-card { max-width: 620px; box-shadow: 0 0 50px rgba(139, 26, 43, 0.05); border-radius: 32px; height: 95vh; }
       body { background: #FFFDF0; padding: 20px 0; }
-      .white-rectangle { margin: 0 40px; padding: 44px 36px 40px; }  /* ещё больше бордового фона */
-      .ref-image { width: 240px; height: 380px; }
-      .images-row { height: 380px; }
-      .submit-btn { min-width: 280px; padding: 10px 80px; margin-bottom: 32px; font-size: 1.2rem; }
-      .final-wishes { margin-top: 32px; }
-      .paper-clip { width: 42px; }
+      .white-rectangle { margin: 0 32px; padding: 36px 32px 32px; }
+      .ref-image { width: 200px; height: 320px; }
+      .images-row { height: 320px; }
+      .submit-btn { min-width: 260px; padding: 10px 70px; margin-bottom: 32px; }
+      .paper-clip { width: 36px; top: -10px; left: 12px; }
     }
   </style>
 </head>
@@ -809,12 +768,12 @@
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 5: ДРЕСС-КОД (белый блок с большими отступами по бокам) -->
+  <!-- ЭКРАН 5: ДРЕСС-КОД (белый блок с большими боковыми отступами) -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
       <div class="white-rectangle"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="dresscode-text">Мы стараемся сделать праздник красивым и стильным! Будем очень рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div></div>
-      <div class="references-wrapper"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/222222/ffffff?text=DRESS';"></div></div></div>
+      <div class="references-wrapper"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/200x300/222222/ffffff?text=DRESS';"></div></div></div>
     </div>
   </section>
 
@@ -887,7 +846,7 @@
 
 <script>
   (function() {
-    // Анимация для всех экранов, кроме первого
+    // Анимация появления для всех блоков, кроме первого
     const screens = document.querySelectorAll('.screen:not(.screen-first)');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -895,17 +854,16 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     
     screens.forEach(screen => observer.observe(screen));
     
-    // Дублирование контента для бегущих строк
+    // Дублирование для бегущих строк
     function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
       const container = document.querySelector(containerSelector);
       if (!container) return;
       const track = container.querySelector(trackSelector);
       if (!track) return;
-      
       const checkAndClone = () => {
         const trackWidth = track.scrollWidth;
         const containerWidth = container.clientWidth;
@@ -920,28 +878,26 @@
           }
         }
       };
-      
       checkAndClone();
       window.addEventListener('resize', checkAndClone);
     }
-
     ensureMarquee('.marquee-ribbon', '.marquee-track');
     ensureMarquee('.date-marquee', '.date-marquee-track', 8);
-
+    
+    // Высота экрана для первого блока
     function setAppHeight() {
       document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
     }
     window.addEventListener('resize', setAppHeight);
     window.addEventListener('orientationchange', setAppHeight);
     setAppHeight();
-    
     const style = document.createElement('style');
     style.textContent = `.screen-first { min-height: var(--app-height, 100vh); }`;
     document.head.appendChild(style);
   })();
-
+  
   function submitForm() {
-    const name = document.querySelector('.guest-form .form-input')?.value;
+    const name = document.querySelector('.guest-form .form-input')?.value.trim();
     const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
     if (!name || !attendance) {
       alert('Пожалуйста, заполните имя и выберите вариант присутствия');
