@@ -99,7 +99,6 @@
     .screen-sixth { background-color: #FFFDF0; padding: 35px 20px 40px 20px; }
     .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; }
     .screen-organizer { background-color: #FFFDF0; padding: 40px 20px; }
-    /* Убираем горизонтальные паддинги, чтобы бегущая строка была от края до края */
     .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 0 45px 0; }
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
@@ -109,9 +108,15 @@
     .heart-image { width: 100%; height: auto; max-height: 32vh; filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); }
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
-    .sub-title { font-family: "Bad Script", cursive; font-size: clamp(1.7rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 2px; }
+    .sub-title {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      color: #8B1A2B;
+      letter-spacing: 2px;
+      margin-bottom: 0.3em; /* отступ перед «мы женимся» */
+      display: block;
+    }
 
-    /* «Мы женимся» — всегда в одну строку, без разрыва слов */
     .primary-title {
       font-family: "Caveat", cursive;
       font-size: clamp(4.5rem, 18vw, 10rem);
@@ -122,26 +127,37 @@
       max-width: 100%;
       display: inline-block;
       white-space: nowrap;
+      margin-top: 0.1em; /* небольшой дополнительный отступ */
     }
 
     .dialog-area { margin: 2vh 0; }
 
-    /* Диалог — разрешён перенос текста, не вылезает */
+    /* Диалог в две строки: левая часть — две строки, правая — на нижней строке */
     .dialog-container {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 32px;
+      justify-content: space-between;
+      align-items: flex-end; /* правый блок прижат к низу левого */
+      gap: 20px;
       flex-wrap: wrap;
     }
 
-    .dialog-text {
+    .dialog-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dialog-left-top,
+    .dialog-left-bottom,
+    .dialog-right {
       font-family: "Marck Script", cursive;
       font-size: clamp(1.2rem, 5vw, 1.6rem);
       color: #8B1A2B;
-      max-width: 45%;
-      min-width: 0;
-      word-break: break-word;
+      white-space: nowrap; /* фразы не переносятся внутри себя */
+    }
+
+    .dialog-right {
+      text-align: right;
+      flex-shrink: 0;
     }
 
     /* Бегущая строка «вы приглашены» */
@@ -163,11 +179,25 @@
     .calendar-image-wrapper { max-width: 420px; margin: 0 auto; padding: 0 12px; }
     .calendar-img { width: 100%; height: auto; max-height: 42vh; object-fit: contain; }
 
-    /* ============ ТРЕТИЙ ЭКРАН ============ */
+    /* ============ ТРЕТИЙ ЭКРАН (локация — фото уменьшено) ============ */
     .location-content { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 440px; margin: 0 auto; }
     .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.9rem, 7vw, 2.5rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; }
-    .location-photo-wrapper { position: relative; max-width: 390px; margin: 6px auto 0; box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3); }
-    .location-img { width: 100%; display: block; aspect-ratio: 4/3; border: 5px solid #ffffff; filter: grayscale(100%); transition: filter 0.7s ease-in-out; object-fit: cover; }
+    .location-photo-wrapper {
+      position: relative;
+      max-width: 280px; /* было 390px — уменьшено */
+      margin: 6px auto 0;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3);
+    }
+    .location-img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4/3;
+      border: 5px solid #ffffff;
+      filter: grayscale(100%);
+      transition: filter 0.7s ease-in-out;
+      object-fit: cover;
+      max-height: 250px; /* дополнительное ограничение высоты */
+    }
     .location-img.colored { filter: grayscale(0%); }
     .paper-clip { position: absolute; top: -12px; left: 12px; width: 36px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
     .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; text-align: center; margin-top: 4px; }
@@ -214,7 +244,7 @@
     .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: none; transition: opacity 0.2s; }
     .organizer-info a:hover { opacity: 0.7; }
 
-    /* ============ АНКЕТА (обёртка с отступами) ============ */
+    /* ============ АНКЕТА ============ */
     .guestbook-inner {
       padding: 0 20px;
       display: flex;
@@ -256,7 +286,20 @@
     .drink-check input:checked::after { content: '✓'; display: block; font-size: 13px; color: #FDEBD8; text-align: center; line-height: 15px; }
     .drinks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 12px 16px; width: 100%; }
     .drink-check { display: flex; align-items: center; gap: 10px; font-family: "Bad Script", cursive; font-size: 0.95rem; color: #FDEBD8; cursor: pointer; }
-    .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 10px 28px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
+    .submit-btn {
+      background: #FFFDF0;
+      border: 2px solid #FDEBD8;
+      padding: 10px 28px;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 4px;
+      color: #8B1A2B;
+      cursor: pointer;
+      border-radius: 48px;
+      transition: 0.3s;
+      margin-top: 24px; /* увеличен отступ сверху, чтобы отодвинуть от ленты */
+    }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
     /* Бегущая строка с датой — от края до края */
@@ -265,12 +308,12 @@
       overflow: hidden;
       background: #FFFDF0;
       padding: 8px 0;
-      margin: 20px 0;
+      margin-top: 40px; /* увеличен отступ от кнопки */
+      margin-bottom: 20px;
     }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
 
-    /* Финальные пожелания */
     .final-wishes { text-align: center; margin-top: 12px; padding: 0 20px; }
     .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
@@ -278,10 +321,24 @@
     /* Адаптивность */
     @media (max-width: 560px) {
       .dialog-container {
-        gap: 16px;
+        gap: 12px;
+        justify-content: center;
+        align-items: flex-end;
       }
-      .dialog-text {
-        max-width: 100%;
+      .dialog-left-top,
+      .dialog-left-bottom,
+      .dialog-right {
+        font-size: clamp(1rem, 4.5vw, 1.4rem);
+        white-space: normal; /* разрешаем перенос на маленьких экранах, если не влезает */
+      }
+      .dialog-right {
+        text-align: right;
+      }
+      .location-photo-wrapper {
+        max-width: 240px; /* ещё меньше на мобильных */
+      }
+      .location-img {
+        max-height: 200px;
       }
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -290,12 +347,13 @@
       .envelope-image { width: 170px; }
       .timing-schedule-img { max-width: 100%; }
       .drinks-grid { grid-template-columns: 1fr; }
-      .submit-btn { min-width: 180px; padding: 8px 24px; }
+      .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 20px; }
       .organizer-info { flex-direction: column; gap: 6px; align-items: center; }
       .organizer-info span, .organizer-info a { white-space: normal; }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 0; }
       .guestbook-inner { padding: 0 16px; }
+      .date-marquee { margin-top: 32px; }
     }
 
     @media (min-width: 768px) {
@@ -323,8 +381,11 @@
         </div>
         <div class="dialog-area">
           <div class="dialog-container">
-            <div class="dialog-text">— интересно, кто будет моим мужем, когда вырасту?</div>
-            <div class="dialog-text">— им буду я!</div>
+            <div class="dialog-left">
+              <div class="dialog-left-top">— интересно, кто будет моим</div>
+              <div class="dialog-left-bottom">мужем, когда вырасту?</div>
+            </div>
+            <div class="dialog-right">— им буду я!</div>
           </div>
         </div>
       </div>
@@ -413,7 +474,6 @@
 
   <!-- Экран 9: Анкета (бордовый) -->
   <section class="screen screen-seventh">
-    <!-- Обёртка с отступами для всего, кроме бегущей строки -->
     <div class="guestbook-inner">
       <div class="guestbook-title">Анкета гостя</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
@@ -440,7 +500,7 @@
       </form>
     </div>
 
-    <!-- Бегущая строка с датой — от края до края экрана (без отступов) -->
+    <!-- Бегущая строка с датой — от края до края -->
     <div class="date-marquee">
       <div class="date-marquee-track">
         <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
