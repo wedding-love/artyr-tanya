@@ -104,7 +104,6 @@
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
 
-    /* Фото сердца — растянуто на всю ширину, красные линии от края до края */
     .hero-image-section { 
       width: 100%; 
       display: flex; 
@@ -113,8 +112,8 @@
     }
 
     .full-width-heart { 
-      width: 100%;          /* на всю ширину */
-      max-width: 100%;      /* без ограничений */
+      width: 100%;
+      max-width: 100%;
       margin: 0; 
       padding: 0; 
     }
@@ -122,12 +121,11 @@
     .heart-image { 
       width: 100%; 
       height: auto; 
-      max-height: 40vh;     /* немного увеличена высота */
+      max-height: 40vh;
       display: block;
       filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); 
     }
 
-    /* Текстовый блок опущен ближе к центру */
     .first-content { padding: 0 20px; margin-top: clamp(4vh, 10vh, 12vh); }
     .title-block { text-align: center; margin: 0 0 2vh; }
 
@@ -358,7 +356,7 @@
       cursor: pointer;
       border-radius: 48px;
       transition: 0.3s;
-      margin-top: 24px;
+      margin-top: 40px; /* Увеличен отступ от последнего поля */
     }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
@@ -367,8 +365,8 @@
       overflow: hidden;
       background: #FFFDF0;
       padding: 8px 0;
-      margin-top: 40px;
-      margin-bottom: 20px;
+      margin-top: 56px;  /* Увеличен отступ от кнопки */
+      margin-bottom: 32px; /* Увеличен отступ до текста */
     }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
@@ -392,12 +390,12 @@
       .envelope-image { width: 170px; }
       .timing-schedule-img { max-width: 100%; }
       .drinks-grid { grid-template-columns: 1fr; }
-      .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 20px; }
+      .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 32px; }
       .organizer-info { font-size: clamp(1.1rem, 4vw, 1.4rem); }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 0; }
       .guestbook-inner { padding: 0 16px; }
-      .date-marquee { margin-top: 32px; }
+      .date-marquee { margin-top: 48px; margin-bottom: 28px; }
     }
 
     @media (min-width: 768px) {
