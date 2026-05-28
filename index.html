@@ -360,7 +360,7 @@
       max-height: 42vh;
     }
 
-    /* ============ ТРЕТИЙ ЭКРАН (ЛОКАЦИЯ) — скрепка поверх фото ============ */
+    /* ============ ТРЕТИЙ ЭКРАН ============ */
     .location-content {
       display: flex;
       flex-direction: column;
@@ -417,7 +417,6 @@
       max-height: 40vh;
     }
 
-    /* Скрепка теперь поверх фото, небольшого размера */
     .paper-clip {
       position: absolute;
       top: -12px;
@@ -478,7 +477,7 @@
       max-height: 65vh;
     }
 
-    /* ============ ПЯТЫЙ ЭКРАН: ДРЕСС-КОД (белый блок уже, больше отступов) ============ */
+    /* ============ ПЯТЫЙ ЭКРАН ============ */
     .dresscode-container {
       width: 100%;
       display: flex;
@@ -507,7 +506,7 @@
       position: relative;
       background-color: #ffffff;
       width: auto;
-      margin: 0 24px;           /* увеличены боковые отступы → больше бордового фона */
+      margin: 0 24px;
       padding: 40px 30px 36px 30px;
       border-radius: 0;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
@@ -673,7 +672,8 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      align-items: center;
+      gap: 20px;
       padding: 0 4px;
     }
 
@@ -681,6 +681,14 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* Специальный класс для поля аллергии — делаем его уже */
+    .allergy-group {
+      max-width: 280px;
+      margin: 0 auto;
     }
 
     .form-label {
@@ -797,7 +805,6 @@
       cursor: pointer;
     }
 
-    /* Кнопка: уже по вертикали, длиннее, плюс отступ снизу для увеличения расстояния до ленты */
     .submit-btn {
       background: #FFFDF0;
       border: 2px solid #FDEBD8;
@@ -813,7 +820,7 @@
       width: auto;
       min-width: 260px;
       max-width: 360px;
-      margin: 10px auto 30px auto;   /* увеличен нижний отступ (30px) */
+      margin: 10px auto 30px auto;
       border-radius: 40px;
       display: block;
     }
@@ -824,7 +831,6 @@
       transform: scale(1.02);
     }
 
-    /* Лента с датой: на всю ширину экрана, без отступов */
     .date-marquee-wrapper {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
@@ -860,10 +866,9 @@
       display: inline-block;
     }
 
-    /* Отступ после ленты такой же, как перед финальными словами */
     .final-wishes {
       text-align: center;
-      margin-top: 30px;    /* такой же отступ, как от кнопки до ленты */
+      margin-top: 30px;
       width: 100%;
     }
 
@@ -926,6 +931,7 @@
       .full-width-heart { max-width: 300px; }
       .calendar-img { max-height: 38vh; }
       .paper-clip { width: 28px; top: -8px; left: 8px; }
+      .allergy-group { max-width: 240px; }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
@@ -965,7 +971,7 @@
 <body>
 
 <main class="invitation-card">
-  <!-- ЭКРАН 1 (без анимации) -->
+  <!-- ЭКРАН 1 -->
   <section class="screen screen-first">
     <div class="hero-top-wrapper">
       <div class="hero-image-section">
@@ -1005,7 +1011,7 @@
     <div class="calendar-image-wrapper"><img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FFFDF0/8B1A2B?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 3: Локация (скрепка поверх фото) -->
+  <!-- ЭКРАН 3 -->
   <section class="screen screen-third">
     <div class="location-content">
       <div class="location-label">Локация</div>
@@ -1018,13 +1024,13 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 4: ТАЙМИНГ -->
+  <!-- ЭКРАН 4 -->
   <section class="screen screen-fourth">
     <div class="timing-section-title"><div class="timing-main-title">Тайминг</div></div>
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 5: ДРЕСС-КОД (белый блок уже по бокам) -->
+  <!-- ЭКРАН 5 -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
@@ -1033,7 +1039,7 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 6: ПОЖЕЛАНИЯ -->
+  <!-- ЭКРАН 6 -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
@@ -1042,7 +1048,7 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ -->
+  <!-- ЭКРАН 7: АНКЕТА с изменённым порядком и суженным полем аллергии -->
   <section class="screen screen-seventh">
     <div class="guestbook-container">
       <div class="guestbook-title">Анкета гостя</div>
@@ -1062,6 +1068,12 @@
           </div>
         </div>
 
+        <!-- Поле аллергии перенесено выше и сделано уже -->
+        <div class="form-group allergy-group">
+          <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
+          <textarea class="form-textarea" placeholder=""></textarea>
+        </div>
+
         <div class="form-group">
           <label class="form-label">Меню напитков (выберите предпочтения)</label>
           <div class="drinks-grid">
@@ -1075,15 +1087,9 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
-          <textarea class="form-textarea" placeholder=""></textarea>
-        </div>
-
         <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
       </form>
 
-      <!-- Лента с датой на всю ширину, без отступов -->
       <div class="date-marquee-wrapper">
         <div class="date-marquee">
           <div class="date-marquee-track">
@@ -1102,14 +1108,12 @@
 
 <script>
   (function() {
-    // Анимация для всех экранов, кроме первого
     const screens = document.querySelectorAll('.screen:not(.screen-first)');
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // Можно продолжить наблюдение или отключить: оставляем, чтобы не убирать класс
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
@@ -1118,7 +1122,6 @@
       observer.observe(screen);
     });
     
-    // Для лент бегущей строки, если нужно дублирование
     function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
       const container = document.querySelector(containerSelector);
       if (!container) return;
