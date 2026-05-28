@@ -109,13 +109,13 @@
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
 
-    /* «наконец‑то» и «мы женимся» – максимально близко, без отступов */
+    /* «наконец‑то» и «мы женимся» – единый блок, минимальный зазор */
     .sub-title {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.7rem, 6vw, 2.2rem);
       color: #8B1A2B;
       letter-spacing: 2px;
-      margin-bottom: 0;
+      margin-bottom: -0.1em; /* почти вплотную */
       display: block;
       line-height: 1;
     }
@@ -135,30 +135,23 @@
 
     .dialog-area { margin: 2vh 0; }
 
-    /* Диалог: левая часть в две строки, правая – на нижней строке */
+    /* Диалог строго в одну строку */
     .dialog-container {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      gap: 20px;
-      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: nowrap; /* ни за что не переносить */
     }
 
-    .dialog-left {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .dialog-left-top,
-    .dialog-left-bottom,
-    .dialog-right {
+    .dialog-text {
       font-family: "Marck Script", cursive;
-      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      font-size: clamp(0.95rem, 3.8vw, 1.3rem); /* уменьшен, чтобы влезало */
       color: #8B1A2B;
       white-space: nowrap;
     }
 
-    .dialog-right {
+    .dialog-text:last-child {
       text-align: right;
       flex-shrink: 0;
     }
@@ -193,7 +186,7 @@
     .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.9rem, 7vw, 2.5rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; }
     .location-photo-wrapper {
       position: relative;
-      max-width: 320px; /* немного увеличено */
+      max-width: 320px;
       margin: 6px auto 0;
       box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3);
     }
@@ -205,7 +198,7 @@
       filter: grayscale(100%);
       transition: filter 0.7s ease-in-out;
       object-fit: cover;
-      max-height: 280px; /* немного увеличено */
+      max-height: 280px;
     }
     .location-img.colored { filter: grayscale(0%); }
     .paper-clip { position: absolute; top: -12px; left: 12px; width: 36px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
@@ -217,12 +210,19 @@
     .timing-image-container { text-align: center; margin-top: 6px; padding: 0 8px; }
     .timing-schedule-img { width: 100%; max-width: 560px; height: auto; margin: 0 auto; max-height: 65vh; object-fit: contain; }
 
-    /* ============ ПЯТЫЙ ЭКРАН ============ */
+    /* ============ ПЯТЫЙ ЭКРАН (дресс-код) ============ */
     .dresscode-container { display: flex; flex-direction: column; align-items: center; gap: 24px; }
     .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
     .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
     .tape-sticker { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); width: 85px; opacity: 0.92; pointer-events: none; }
-    .dresscode-text { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
+    /* Теперь текст дресс-кода как приветствие */
+    .dresscode-text {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+      color: #8B1A2B;
+      text-align: center;
+      line-height: 1.35;
+    }
     .references-wrapper { width: 100%; }
     .ref-subtitle { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #FDEBD8; text-align: center; margin-bottom: 14px; }
     .scroll-container { overflow-x: auto; scrollbar-width: none; width: 100%; }
@@ -242,7 +242,6 @@
       text-align: center;
       line-height: 1.35;
     }
-    .wishes-text p { margin-bottom: 1px; }
 
     .envelope-wrapper { width: 100%; text-align: center; }
     .envelope-image { display: block; width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
@@ -251,7 +250,14 @@
     .important-container { text-align: center; }
     .important-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 24px; }
     .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
-    .important-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
+    /* Текст «Важно» теперь как приветствие */
+    .important-text {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+      color: #8B1A2B;
+      text-align: center;
+      line-height: 1.35;
+    }
 
     /* ============ ОРГАНИЗАТОР ============ */
     .organizer-container { text-align: center; max-width: 500px; margin: 0 auto; }
@@ -337,25 +343,9 @@
 
     /* Адаптивность */
     @media (max-width: 560px) {
-      /* Диалог: уменьшаем шрифт, чтобы «им буду я» влезла на одной строке */
-      .dialog-left-top,
-      .dialog-left-bottom,
-      .dialog-right {
-        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
-        white-space: normal; /* разрешаем перенос, если экран очень узкий */
+      .dialog-text {
+        font-size: clamp(0.8rem, 3.5vw, 1.1rem); /* еще меньше для мобильных */
       }
-      .dialog-container {
-        gap: 12px;
-        justify-content: center;
-      }
-
-      .location-photo-wrapper {
-        max-width: 280px; /* чуть меньше, чем на десктопе */
-      }
-      .location-img {
-        max-height: 240px;
-      }
-
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
@@ -397,11 +387,8 @@
         </div>
         <div class="dialog-area">
           <div class="dialog-container">
-            <div class="dialog-left">
-              <div class="dialog-left-top">— интересно, кто будет моим</div>
-              <div class="dialog-left-bottom">мужем, когда вырасту?</div>
-            </div>
-            <div class="dialog-right">— им буду я!</div>
+            <div class="dialog-text">— интересно, кто будет моим мужем, когда вырасту?</div>
+            <div class="dialog-text">— им буду я!</div>
           </div>
         </div>
       </div>
@@ -444,36 +431,34 @@
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️';"></div>
   </section>
 
-  <!-- Экран 5: Дресс-код -->
+  <!-- Экран 5: Дресс-код (сокращённый текст) -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
-      <div class="white-rectangle"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="dresscode-text">Мы стараемся сделать праздник красивым и стильным! Будем очень рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div></div>
-      <div class="references-wrapper"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row">
-        <img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=BLACK';">
-        <img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/2a2a2a/ffffff?text=STYLE';">
-        <!-- Заменённое фото -->
-        <img src="изображение_2026-05-28_142828731.png" class="ref-image" onerror="this.src='https://placehold.co/240x380/333333/ffffff?text=NEW';">
-        <img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/222222/ffffff?text=DRESS';">
-      </div></div></div>
+      <div class="white-rectangle">
+        <img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';">
+        <div class="dresscode-text">Будем рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div>
+      </div>
+      <div class="references-wrapper">
+        <div class="ref-subtitle">для вашего удобства подобрали референсы</div>
+        <div class="scroll-container">
+          <div class="images-row">
+            <img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=BLACK';">
+            <img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/2a2a2a/ffffff?text=STYLE';">
+            <img src="изображение_2026-05-28_142828731.png" class="ref-image" onerror="this.src='https://placehold.co/240x380/333333/ffffff?text=NEW';">
+            <img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/222222/ffffff?text=DRESS';">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания (теперь как приветствие) -->
+  <!-- Экран 6: Пожелания (сокращены в один абзац) -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
       <div class="wishes-text">
-        <p>Можете не переживать по поводу подарка,</p>
-        <p>мы будем благодарны вашим пожеланиям</p>
-        <p>в конвертах!</p>
-        <p>Многие считают важной деталью дарить</p>
-        <p>на свадьбу цветы, но у нас дома</p>
-        <p>не найдется столько ваз!</p>
-        <p>Поэтому можете заменить цветы</p>
-        <p>на любую альтернативу (по желанию).</p>
-        <p>И помните, самый ценный подарок</p>
-        <p>для нас – ваше присутствие!</p>
+        <p>Можете не переживать по поводу подарка — мы будем благодарны вашим пожеланиям в конвертах! Цветы можно заменить на любую альтернативу, ведь у нас дома не найдется столько ваз. Самый ценный подарок — ваше присутствие!</p>
       </div>
       <div class="envelope-wrapper">
         <img src="конверт.png" alt="Конверт" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFFDF0?text=✉️';">
@@ -481,15 +466,18 @@
     </div>
   </section>
 
-  <!-- Экран 7: Важно (бордовый) -->
+  <!-- Экран 7: Важно (сокращённый текст) -->
   <section class="screen screen-important">
     <div class="important-container">
       <div class="important-title">Важно</div>
-      <div class="important-white-rectangle"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="important-text">Дорогие гости, вы знаете, что мы очень любим детей, но нашу свадьбу мы видим в формате «для взрослых»: с бокалом игристого и не детскими развлечениями!<br><br>Пожалуйста, оставьте малышей в надежных руках на время нашего торжества. Ведь любому родителю иногда следует отдыхать, забыв на время о повседневных заботах!</div></div>
+      <div class="important-white-rectangle">
+        <img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';">
+        <div class="important-text">Дорогие гости, мы очень любим детей, но нашу свадьбу мы видим в формате «для взрослых»: с бокалом игристого и не детскими развлечениями! Пожалуйста, оставьте малышей в надежных руках на время торжества. Ведь любому родителю иногда следует отдыхать, забыв о повседневных заботах!</div>
+      </div>
     </div>
   </section>
 
-  <!-- Экран 8: Организатор (светлый) -->
+  <!-- Экран 8: Организатор -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
       <div class="organizer-title">Свадебный организатор</div>
@@ -501,7 +489,7 @@
     </div>
   </section>
 
-  <!-- Экран 9: Анкета (бордовый) -->
+  <!-- Экран 9: Анкета -->
   <section class="screen screen-seventh">
     <div class="guestbook-inner">
       <div class="guestbook-title">Анкета гостя</div>
@@ -529,7 +517,6 @@
       </form>
     </div>
 
-    <!-- Бегущая строка с датой -->
     <div class="date-marquee">
       <div class="date-marquee-track">
         <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
