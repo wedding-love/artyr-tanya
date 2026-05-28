@@ -99,7 +99,7 @@
     .screen-sixth { background-color: #FFFDF0; padding: 35px 20px 40px 20px; }
     .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; }
     .screen-organizer { background-color: #FFFDF0; padding: 40px 20px; }
-    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 0 45px 0; }
+    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 0 0 0; } /* убрали нижний паддинг, чтобы картинка прилипла */
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
@@ -277,7 +277,7 @@
       line-height: 1.35;
     }
 
-    /* ============ ОРГАНИЗАТОР (столбик, без слешей) ============ */
+    /* ============ ОРГАНИЗАТОР ============ */
     .organizer-container { text-align: center; max-width: 500px; margin: 0 auto; }
     .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
     .organizer-info {
@@ -356,7 +356,7 @@
       cursor: pointer;
       border-radius: 48px;
       transition: 0.3s;
-      margin-top: 40px; /* Увеличен отступ от последнего поля */
+      margin-top: 40px;
     }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
@@ -365,15 +365,28 @@
       overflow: hidden;
       background: #FFFDF0;
       padding: 8px 0;
-      margin-top: 56px;  /* Увеличен отступ от кнопки */
-      margin-bottom: 32px; /* Увеличен отступ до текста */
+      margin-top: 56px;
+      margin-bottom: 32px;
     }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
 
-    .final-wishes { text-align: center; margin-top: 12px; padding: 0 20px; }
+    .final-wishes { text-align: center; margin-top: 12px; padding: 0 20px 60px; } /* добавили нижний отступ */
     .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
+
+    /* Нижняя картинка – растянута на всю ширину, как сердце */
+    .footer-image-section {
+      width: 100%;
+      margin-top: 20px; /* дополнительный отступ, если нужен */
+    }
+    .footer-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 40vh; /* сохраняем пропорции */
+      filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12));
+    }
 
     /* Адаптивность */
     @media (max-width: 560px) {
@@ -393,9 +406,10 @@
       .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 32px; }
       .organizer-info { font-size: clamp(1.1rem, 4vw, 1.4rem); }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
-      .screen-third, .screen-important, .screen-seventh { padding: 40px 0; }
+      .screen-third, .screen-important, .screen-seventh { padding: 40px 0 0 0; }
       .guestbook-inner { padding: 0 16px; }
       .date-marquee { margin-top: 48px; margin-bottom: 28px; }
+      .final-wishes { padding-bottom: 50px; }
     }
 
     @media (min-width: 768px) {
@@ -516,7 +530,7 @@
     </div>
   </section>
 
-  <!-- Экран 8: Организатор (столбик, без слешей) -->
+  <!-- Экран 8: Организатор -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
       <div class="organizer-title">Свадебный организатор</div>
@@ -565,6 +579,11 @@
     <div class="final-wishes">
       <div class="final-big">Мы вас очень ждем!</div>
       <div class="final-small">Ваши Артур и Таня</div>
+    </div>
+
+    <!-- Нижнее изображение, растянутое на всю ширину -->
+    <div class="footer-image-section">
+      <img src="изображение_2026-05-28_152918648.png" alt="Финальное изображение" class="footer-image" onerror="this.src='https://placehold.co/800x400/8B1A2B/FFFDF0?text=♥';">
     </div>
   </section>
 </main>
