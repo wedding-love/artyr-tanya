@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Исходные шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
@@ -111,10 +110,10 @@
     .title-block { text-align: center; margin: 0 0 2vh; }
     .sub-title { font-family: "Bad Script", cursive; font-size: clamp(1.7rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 2px; }
 
-    /* ✅ Главное исправление: защита от вылезания */
+    /* ✅ Увеличенный шрифт «Мы женимся» и защита от вылезания */
     .primary-title {
       font-family: "Caveat", cursive;
-      font-size: clamp(5rem, 18vw, 8rem);
+      font-size: clamp(6rem, 22vw, 10rem);
       color: #8B1A2B;
       line-height: 0.9;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
@@ -126,8 +125,17 @@
     }
 
     .dialog-area { margin: 2vh 0; }
-    .dialog-container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .dialog-text { font-family: "Marck Script", cursive; font-size: clamp(1.2rem, 5vw, 1.6rem); color: #8B1A2B; }
+
+    /* ✅ Диалог всегда в одну строку с увеличенным отступом */
+    .dialog-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: nowrap;
+    }
+
+    .dialog-text { font-family: "Marck Script", cursive; font-size: clamp(1.2rem, 5vw, 1.6rem); color: #8B1A2B; white-space: nowrap; }
 
     /* ✅ Бегущая строка теперь внутри карточки */
     .marquee-ribbon {
@@ -182,7 +190,6 @@
     .wishes-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
     .wishes-text p { margin-bottom: 8px; }
 
-    /* ✅ Конверт теперь всегда по центру */
     .envelope-wrapper {
       width: 100%;
       text-align: center;
@@ -209,11 +216,17 @@
     .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: none; transition: opacity 0.2s; }
     .organizer-info a:hover { opacity: 0.7; }
 
-    /* ============ АНКЕТА ============ */
-    .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    /* ============ АНКЕТА (исправлено центрирование) ============ */
+    .guestbook-container {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
     .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
-
-    /* ✅ Подзаголовок теперь точно по центру на всех экранах */
     .guestbook-subtitle {
       font-family: "Bad Script", cursive;
       font-size: clamp(0.9rem, 3.8vw, 1.15rem);
@@ -223,8 +236,17 @@
       margin: 0 auto;
     }
 
-    .guest-form { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 24px; }
-    .form-group { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 6px; }
+    /* ✅ Форма теперь ограничена по ширине и надёжно центрирована */
+    .guest-form {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    .form-group { width: 100%; display: flex; flex-direction: column; gap: 6px; }
     .form-label { font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; text-align: left; }
     .form-input, .form-select, .form-textarea { background: transparent; border: none; border-bottom: 1px solid rgba(253,235,216,0.7); padding: 4px 4px 6px; font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; outline: none; width: 100%; transition: 0.2s; }
     .form-input:focus, .form-textarea:focus { border-bottom-color: #FFFDF0; transform: translateY(-1px); }
@@ -241,7 +263,6 @@
     .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 10px 28px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
-    /* ✅ Бегущая строка с датой больше не вылезает за границы */
     .date-marquee {
       width: 100%;
       overflow: hidden;
@@ -258,8 +279,11 @@
 
     /* Адаптивность */
     @media (max-width: 560px) {
-      .primary-title {
-        font-size: clamp(3.2rem, 14vw, 5rem);
+      .dialog-container {
+        gap: 16px;
+      }
+      .dialog-text {
+        font-size: clamp(0.95rem, 4vw, 1.3rem);
       }
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -267,20 +291,12 @@
       .images-row { height: 260px; }
       .envelope-image { width: 170px; }
       .timing-schedule-img { max-width: 100%; }
-      .form-group { max-width: 100%; }
       .drinks-grid { grid-template-columns: 1fr; }
       .submit-btn { min-width: 180px; padding: 8px 24px; }
       .organizer-info { flex-direction: column; gap: 6px; align-items: center; }
       .organizer-info span, .organizer-info a { white-space: normal; }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
-      .guestbook-subtitle { max-width: 100%; }
-    }
-
-    @media (max-width: 420px) {
-      .primary-title {
-        font-size: clamp(2.8rem, 13vw, 4.5rem);
-      }
     }
 
     @media (min-width: 768px) {
@@ -308,8 +324,8 @@
         </div>
         <div class="dialog-area">
           <div class="dialog-container">
-            <div class="dialog-text dialog-left">— интересно, кто будет моим мужем, когда вырасту?</div>
-            <div class="dialog-text dialog-right">— им буду я!</div>
+            <div class="dialog-text">— интересно, кто будет моим мужем, когда вырасту?</div>
+            <div class="dialog-text">— им буду я!</div>
           </div>
         </div>
       </div>
@@ -384,7 +400,7 @@
     </div>
   </section>
 
-  <!-- Экран 8: Организатор (светлый, ровные строки) -->
+  <!-- Экран 8: Организатор (светлый) -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
       <div class="organizer-title">Свадебный организатор</div>
@@ -422,7 +438,6 @@
         <div class="form-group"><label class="form-label">Аллергия / непереносимость</label><textarea class="form-textarea"></textarea></div>
         <button type="submit" class="submit-btn">Отправить</button>
       </form>
-      <!-- ✅ Упрощённая структура: только date-marquee без лишней обёртки -->
       <div class="date-marquee">
         <div class="date-marquee-track">
           <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
@@ -472,7 +487,6 @@
       window.addEventListener('resize', checkAndClone);
     }
     ensureMarquee('.marquee-ribbon', '.marquee-track');
-    // ✅ Используем новый селектор без .date-marquee-wrapper
     ensureMarquee('.date-marquee', '.date-marquee-track', 8);
 
     function setAppHeight() {
