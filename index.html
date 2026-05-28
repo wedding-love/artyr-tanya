@@ -108,13 +108,16 @@
     .heart-image { width: 100%; height: auto; max-height: 32vh; filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); }
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
+
+    /* «наконец‑то» и «мы женимся» – максимально близко, без отступов */
     .sub-title {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.7rem, 6vw, 2.2rem);
       color: #8B1A2B;
       letter-spacing: 2px;
-      margin-bottom: 0.3em; /* отступ перед «мы женимся» */
+      margin-bottom: 0;
       display: block;
+      line-height: 1;
     }
 
     .primary-title {
@@ -127,16 +130,16 @@
       max-width: 100%;
       display: inline-block;
       white-space: nowrap;
-      margin-top: 0.1em; /* небольшой дополнительный отступ */
+      margin-top: 0;
     }
 
     .dialog-area { margin: 2vh 0; }
 
-    /* Диалог в две строки: левая часть — две строки, правая — на нижней строке */
+    /* Диалог: левая часть в две строки, правая – на нижней строке */
     .dialog-container {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end; /* правый блок прижат к низу левого */
+      align-items: flex-end;
       gap: 20px;
       flex-wrap: wrap;
     }
@@ -152,7 +155,7 @@
       font-family: "Marck Script", cursive;
       font-size: clamp(1.2rem, 5vw, 1.6rem);
       color: #8B1A2B;
-      white-space: nowrap; /* фразы не переносятся внутри себя */
+      white-space: nowrap;
     }
 
     .dialog-right {
@@ -171,20 +174,26 @@
     .marquee-track span { font-family: "Marck Script", cursive; color: #FFFDF0; font-size: clamp(0.85rem, 2.8vw, 1.1rem); padding-right: 48px; }
     @keyframes marqueeScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
-    /* ============ ВТОРОЙ ЭКРАН ============ */
+    /* ============ ВТОРОЙ ЭКРАН (приветствие) ============ */
     .invitation-content { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 520px; margin: 0 auto; }
-    .invitation-greeting { font-family: "Bad Script", cursive; font-size: clamp(1.3rem, 4.5vw, 1.9rem); color: #8B1A2B; text-align: center; line-height: 1.35; }
+    .invitation-greeting {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+      color: #8B1A2B;
+      text-align: center;
+      line-height: 1.35;
+    }
     .invitation-greeting p { margin-bottom: 1px; }
     .big-date { font-family: "Caveat", cursive; font-size: clamp(3.5rem, 14vw, 6rem); color: #8B1A2B; letter-spacing: 6px; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.3deg); }
     .calendar-image-wrapper { max-width: 420px; margin: 0 auto; padding: 0 12px; }
     .calendar-img { width: 100%; height: auto; max-height: 42vh; object-fit: contain; }
 
-    /* ============ ТРЕТИЙ ЭКРАН (локация — фото уменьшено) ============ */
+    /* ============ ТРЕТИЙ ЭКРАН (локация) ============ */
     .location-content { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 440px; margin: 0 auto; }
     .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.9rem, 7vw, 2.5rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; }
     .location-photo-wrapper {
       position: relative;
-      max-width: 280px; /* было 390px — уменьшено */
+      max-width: 320px; /* немного увеличено */
       margin: 6px auto 0;
       box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3);
     }
@@ -196,7 +205,7 @@
       filter: grayscale(100%);
       transition: filter 0.7s ease-in-out;
       object-fit: cover;
-      max-height: 250px; /* дополнительное ограничение высоты */
+      max-height: 280px; /* немного увеличено */
     }
     .location-img.colored { filter: grayscale(0%); }
     .paper-clip { position: absolute; top: -12px; left: 12px; width: 36px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
@@ -221,11 +230,19 @@
     .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: 360px; }
     .ref-image { width: 220px; height: 360px; object-fit: cover; flex-shrink: 0; }
 
-    /* ============ ШЕСТОЙ ЭКРАН ============ */
+    /* ============ ШЕСТОЙ ЭКРАН (пожелания) ============ */
     .wishes-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
-    .wishes-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
-    .wishes-text p { margin-bottom: 8px; }
+
+    /* Теперь стиль полностью совпадает с .invitation-greeting */
+    .wishes-text {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+      color: #8B1A2B;
+      text-align: center;
+      line-height: 1.35;
+    }
+    .wishes-text p { margin-bottom: 1px; }
 
     .envelope-wrapper { width: 100%; text-align: center; }
     .envelope-image { display: block; width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
@@ -298,17 +315,17 @@
       cursor: pointer;
       border-radius: 48px;
       transition: 0.3s;
-      margin-top: 24px; /* увеличен отступ сверху, чтобы отодвинуть от ленты */
+      margin-top: 24px;
     }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
-    /* Бегущая строка с датой — от края до края */
+    /* Бегущая строка с датой */
     .date-marquee {
       width: 100%;
       overflow: hidden;
       background: #FFFDF0;
       padding: 8px 0;
-      margin-top: 40px; /* увеличен отступ от кнопки */
+      margin-top: 40px;
       margin-bottom: 20px;
     }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
@@ -320,26 +337,25 @@
 
     /* Адаптивность */
     @media (max-width: 560px) {
-      .dialog-container {
-        gap: 12px;
-        justify-content: center;
-        align-items: flex-end;
-      }
+      /* Диалог: уменьшаем шрифт, чтобы «им буду я» влезла на одной строке */
       .dialog-left-top,
       .dialog-left-bottom,
       .dialog-right {
-        font-size: clamp(1rem, 4.5vw, 1.4rem);
-        white-space: normal; /* разрешаем перенос на маленьких экранах, если не влезает */
+        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
+        white-space: normal; /* разрешаем перенос, если экран очень узкий */
       }
-      .dialog-right {
-        text-align: right;
+      .dialog-container {
+        gap: 12px;
+        justify-content: center;
       }
+
       .location-photo-wrapper {
-        max-width: 240px; /* ещё меньше на мобильных */
+        max-width: 280px; /* чуть меньше, чем на десктопе */
       }
       .location-img {
-        max-height: 200px;
+        max-height: 240px;
       }
+
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
@@ -433,18 +449,31 @@
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
       <div class="white-rectangle"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="dresscode-text">Мы стараемся сделать праздник красивым и стильным! Будем очень рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div></div>
-      <div class="references-wrapper"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row"><img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=BLACK';"><img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/2a2a2a/ffffff?text=STYLE';"><img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=CHIC';"><img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/222222/ffffff?text=DRESS';"></div></div></div>
+      <div class="references-wrapper"><div class="ref-subtitle">для вашего удобства подобрали референсы</div><div class="scroll-container"><div class="images-row">
+        <img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=BLACK';">
+        <img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/2a2a2a/ffffff?text=STYLE';">
+        <!-- Заменённое фото -->
+        <img src="изображение_2026-05-28_142828731.png" class="ref-image" onerror="this.src='https://placehold.co/240x380/333333/ffffff?text=NEW';">
+        <img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/222222/ffffff?text=DRESS';">
+      </div></div></div>
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания (светлый) -->
+  <!-- Экран 6: Пожелания (теперь как приветствие) -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
       <div class="wishes-text">
-        <p>Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах!</p>
-        <p>Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию).</p>
-        <p>И помните, самый ценный подарок для нас – ваше присутствие!</p>
+        <p>Можете не переживать по поводу подарка,</p>
+        <p>мы будем благодарны вашим пожеланиям</p>
+        <p>в конвертах!</p>
+        <p>Многие считают важной деталью дарить</p>
+        <p>на свадьбу цветы, но у нас дома</p>
+        <p>не найдется столько ваз!</p>
+        <p>Поэтому можете заменить цветы</p>
+        <p>на любую альтернативу (по желанию).</p>
+        <p>И помните, самый ценный подарок</p>
+        <p>для нас – ваше присутствие!</p>
       </div>
       <div class="envelope-wrapper">
         <img src="конверт.png" alt="Конверт" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFFDF0?text=✉️';">
@@ -500,7 +529,7 @@
       </form>
     </div>
 
-    <!-- Бегущая строка с датой — от края до края -->
+    <!-- Бегущая строка с датой -->
     <div class="date-marquee">
       <div class="date-marquee-track">
         <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
