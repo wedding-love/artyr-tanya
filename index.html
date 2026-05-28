@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -94,7 +93,6 @@
       transform: none !important;
     }
 
-    /* Порядок блоков */
     .screen-second { background-color: #FFFDF0; padding: 32px 20px 40px; gap: 8px; }
     .screen-third { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 55px 20px; }
     .screen-fourth { background-color: #FFFDF0; padding: 35px 16px 45px; }
@@ -112,11 +110,32 @@
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
     .sub-title { font-family: "Bad Script", cursive; font-size: clamp(1.7rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 2px; }
-    .primary-title { font-family: "Caveat", cursive; font-size: clamp(5rem, 18vw, 8rem); color: #8B1A2B; line-height: 0.9; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.5deg); }
+
+    /* ✅ Главное исправление: защита от вылезания */
+    .primary-title {
+      font-family: "Caveat", cursive;
+      font-size: clamp(5rem, 18vw, 8rem);
+      color: #8B1A2B;
+      line-height: 0.9;
+      text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
+      transform: rotate(-0.5deg);
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      display: inline-block;
+    }
+
     .dialog-area { margin: 2vh 0; }
     .dialog-container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .dialog-text { font-family: "Marck Script", cursive; font-size: clamp(1.2rem, 5vw, 1.6rem); color: #8B1A2B; }
-    .marquee-ribbon { background-color: #8B1A2B; width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; padding: 13px 0; }
+
+    /* ✅ Бегущая строка теперь внутри карточки */
+    .marquee-ribbon {
+      background-color: #8B1A2B;
+      width: 100%;
+      overflow: hidden;
+      padding: 13px 0;
+    }
     .marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 24s linear infinite; width: max-content; }
     .marquee-track span { font-family: "Marck Script", cursive; color: #FFFDF0; font-size: clamp(0.85rem, 2.8vw, 1.1rem); padding-right: 48px; }
     @keyframes marqueeScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
@@ -162,7 +181,19 @@
     .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
     .wishes-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
     .wishes-text p { margin-bottom: 8px; }
-    .envelope-image { width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
+
+    /* ✅ Конверт теперь всегда по центру */
+    .envelope-wrapper {
+      width: 100%;
+      text-align: center;
+    }
+    .envelope-image {
+      display: block;
+      width: 220px;
+      max-width: 62%;
+      height: auto;
+      margin: 6px auto 0;
+    }
 
     /* ============ ВАЖНО ============ */
     .important-container { text-align: center; }
@@ -170,7 +201,7 @@
     .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
     .important-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
 
-    /* ============ ОРГАНИЗАТОР (светлый, без рамок, строки ровно) ============ */
+    /* ============ ОРГАНИЗАТОР ============ */
     .organizer-container { text-align: center; max-width: 500px; margin: 0 auto; }
     .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
     .organizer-info { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #8B1A2B; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 8px 20px; row-gap: 12px; }
@@ -181,7 +212,17 @@
     /* ============ АНКЕТА ============ */
     .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 22px; }
     .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
-    .guestbook-subtitle { font-family: "Bad Script", cursive; font-size: clamp(0.9rem, 3.8vw, 1.15rem); color: #FDEBD8; text-align: center; max-width: 420px; }
+
+    /* ✅ Подзаголовок теперь точно по центру на всех экранах */
+    .guestbook-subtitle {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(0.9rem, 3.8vw, 1.15rem);
+      color: #FDEBD8;
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
     .guest-form { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 24px; }
     .form-group { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 6px; }
     .form-label { font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; text-align: left; }
@@ -199,16 +240,27 @@
     .drink-check { display: flex; align-items: center; gap: 10px; font-family: "Bad Script", cursive; font-size: 0.95rem; color: #FDEBD8; cursor: pointer; }
     .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 10px 28px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
-    .date-marquee-wrapper { width: 100vw; margin-left: calc(-50vw + 50%); margin: 20px 0; overflow: hidden; background: #FFFDF0; }
-    .date-marquee { background: #FFFDF0; padding: 8px 0; overflow: hidden; }
+
+    /* ✅ Бегущая строка с датой больше не вылезает за границы */
+    .date-marquee {
+      width: 100%;
+      overflow: hidden;
+      background: #FFFDF0;
+      padding: 8px 0;
+      margin: 20px 0;
+    }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
+
     .final-wishes { text-align: center; margin-top: 12px; }
     .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
 
     /* Адаптивность */
     @media (max-width: 560px) {
+      .primary-title {
+        font-size: clamp(3.2rem, 14vw, 5rem);
+      }
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
@@ -222,6 +274,13 @@
       .organizer-info span, .organizer-info a { white-space: normal; }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
+      .guestbook-subtitle { max-width: 100%; }
+    }
+
+    @media (max-width: 420px) {
+      .primary-title {
+        font-size: clamp(2.8rem, 13vw, 4.5rem);
+      }
     }
 
     @media (min-width: 768px) {
@@ -311,7 +370,9 @@
         <p>Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию).</p>
         <p>И помните, самый ценный подарок для нас – ваше присутствие!</p>
       </div>
-      <div><img src="конверт.png" alt="Конверт" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFFDF0?text=✉️';"></div>
+      <div class="envelope-wrapper">
+        <img src="конверт.png" alt="Конверт" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFFDF0?text=✉️';">
+      </div>
     </div>
   </section>
 
@@ -361,7 +422,12 @@
         <div class="form-group"><label class="form-label">Аллергия / непереносимость</label><textarea class="form-textarea"></textarea></div>
         <button type="submit" class="submit-btn">Отправить</button>
       </form>
-      <div class="date-marquee-wrapper"><div class="date-marquee"><div class="date-marquee-track"><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span></div></div></div>
+      <!-- ✅ Упрощённая структура: только date-marquee без лишней обёртки -->
+      <div class="date-marquee">
+        <div class="date-marquee-track">
+          <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
+        </div>
+      </div>
       <div class="final-wishes">
         <div class="final-big">Мы вас очень ждем!</div>
         <div class="final-small">Ваши Артур и Таня</div>
@@ -406,6 +472,7 @@
       window.addEventListener('resize', checkAndClone);
     }
     ensureMarquee('.marquee-ribbon', '.marquee-track');
+    // ✅ Используем новый селектор без .date-marquee-wrapper
     ensureMarquee('.date-marquee', '.date-marquee-track', 8);
 
     function setAppHeight() {
