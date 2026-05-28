@@ -634,7 +634,7 @@
       max-height: 26vh;
     }
 
-    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА ============ */
+    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА (исправлена ширина полей и адаптивность) ============ */
     .guestbook-container {
       width: 100%;
       max-width: 520px;
@@ -674,21 +674,23 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      padding: 0 4px;
+      padding: 0 16px;
     }
 
+    /* Общие стили для групп формы — центрирование и умеренная ширина */
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
       width: 100%;
-      max-width: 400px;
+      max-width: 320px;  /* стандартная комфортная ширина */
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Специальный класс для поля аллергии — делаем его уже */
+    /* Поле аллергии делаем уже — аккуратное, не слишком широкое */
     .allergy-group {
       max-width: 280px;
-      margin: 0 auto;
     }
 
     .form-label {
@@ -891,7 +893,7 @@
       margin-top: 9px;
     }
 
-    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
+    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (улучшена адаптивность анкеты) ============ */
     @media (max-width: 480px) {
       .first-content { padding: 0 14px; margin-top: -12px; }
       .dialog-container { gap: 8px; }
@@ -931,7 +933,17 @@
       .full-width-heart { max-width: 300px; }
       .calendar-img { max-height: 38vh; }
       .paper-clip { width: 28px; top: -8px; left: 8px; }
-      .allergy-group { max-width: 240px; }
+      
+      /* Адаптивность полей анкеты на малых экранах: делаем чуть уже, чтобы не прилипали к краям */
+      .form-group {
+        max-width: 280px;
+      }
+      .allergy-group {
+        max-width: 250px;
+      }
+      .guest-form {
+        padding: 0 12px;
+      }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
@@ -943,6 +955,13 @@
       .submit-btn { min-width: 240px; padding: 9px 60px; margin-bottom: 28px; }
       .location-content { gap: 20px; }
       .final-wishes { margin-top: 28px; }
+      
+      .form-group {
+        max-width: 300px;
+      }
+      .allergy-group {
+        max-width: 260px;
+      }
     }
 
     @media (min-width: 768px) {
@@ -965,6 +984,13 @@
       .location-content { gap: 26px; }
       .final-wishes { margin-top: 32px; }
       .paper-clip { width: 40px; }
+      
+      .form-group {
+        max-width: 320px;
+      }
+      .allergy-group {
+        max-width: 280px;
+      }
     }
   </style>
 </head>
@@ -1048,13 +1074,14 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА с изменённым порядком и суженным полем аллергии -->
+  <!-- ЭКРАН 7: АНКЕТА с исправленными полями (имя+фамилия и аллергия уменьшены, адаптивность починена) -->
   <section class="screen screen-seventh">
     <div class="guestbook-container">
       <div class="guestbook-title">Анкета гостя</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
       <form class="guest-form" id="guestForm">
+        <!-- Поле "Имя и фамилия" теперь имеет аккуратную ширину (центрировано, не растянуто) -->
         <div class="form-group">
           <label class="form-label">Имя и фамилия</label>
           <input type="text" class="form-input" placeholder="" required>
@@ -1068,7 +1095,7 @@
           </div>
         </div>
 
-        <!-- Поле аллергии перенесено выше и сделано уже -->
+        <!-- Поле аллергии уменьшено по ширине, как и просили (allergy-group уже, чем обычное поле) -->
         <div class="form-group allergy-group">
           <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
           <textarea class="form-textarea" placeholder=""></textarea>
