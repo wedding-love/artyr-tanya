@@ -137,7 +137,6 @@
     .screen-seventh {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
       padding: 40px 20px 45px 20px;
-      /* Меняем центрирование элементов на прижатие к левому краю */
       justify-content: flex-start;
       align-items: flex-start;
       min-height: auto;
@@ -640,7 +639,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Выравнивание контента анкеты влево */
+      align-items: flex-start;
       gap: 18px;
       margin: 0;
       padding: 0;
@@ -654,7 +653,7 @@
       color: #FDEBD8;
       letter-spacing: 4px;
       text-transform: uppercase;
-      text-align: left; /* Заголовок влево */
+      text-align: left;
     }
 
     .guestbook-subtitle {
@@ -662,7 +661,7 @@
       font-weight: 400;
       font-size: clamp(0.9rem, 3.5vw, 1.2rem);
       color: #FDEBD8;
-      text-align: left; /* Подзаголовок влево */
+      text-align: left;
       line-height: 1.5;
       letter-spacing: 0.4px;
       padding: 0;
@@ -673,12 +672,11 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Элементы формы прижаты влево */
+      align-items: flex-start;
       gap: 20px;
       padding: 0;
     }
 
-    /* Базовые группы формы выравниваем по левому краю без маргинов */
     .form-group {
       display: flex;
       flex-direction: column;
@@ -688,11 +686,11 @@
       margin-right: 0;
     }
 
-    /* Конкретные поля (Имя и Аллергия) уменьшены вдвое */
+    /* Уменьшенные поля (примерно вдвое) */
     .half-width-group {
       width: 50%;
-      max-width: 240px; /* Четкое ограничение максимальной ширины */
-      min-width: 160px; /* Защита от избыточного сжатия на маленьких смартфонах */
+      max-width: 240px;
+      min-width: 160px;
     }
 
     .form-label {
@@ -813,7 +811,7 @@
     .submit-btn {
       background: #FFFDF0;
       border: 2px solid #FDEBD8;
-      padding: 10px 70px;
+      padding: 10px 40px;
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
@@ -823,11 +821,10 @@
       cursor: pointer;
       transition: all 0.3s ease;
       width: auto;
-      min-width: 260px;
-      max-width: 360px;
-      margin: 10px 0 30px 0; /* Кнопку выравниваем по левому краю */
+      min-width: 200px;
+      margin: 10px 0 20px 0;
       border-radius: 40px;
-      display: block;
+      display: inline-block;
     }
 
     .submit-btn:hover {
@@ -839,8 +836,8 @@
     .date-marquee-wrapper {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      margin-top: 0;
-      margin-bottom: 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
       overflow: hidden;
       background-color: #FFFDF0;
     }
@@ -872,8 +869,8 @@
     }
 
     .final-wishes {
-      text-align: left; /* Финальный текст тоже влево */
-      margin-top: 30px;
+      text-align: left;
+      margin-top: 10px;
       width: 100%;
     }
 
@@ -908,7 +905,7 @@
       .screen-fourth { padding: 28px 12px 38px; }
       .screen-fifth { padding: 45px 0 0 0; }
       .screen-sixth { padding: 28px 14px 33px 14px; }
-      .screen-seventh { padding: 30px 16px 35px 16px; } /* Небольшие внутренние паддинги для эстетики */
+      .screen-seventh { padding: 30px 16px 35px 16px; }
       .location-content { gap: 18px; }
       .white-rectangle { margin: 0 16px; padding: 32px 20px 30px 20px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -917,7 +914,7 @@
       .dresscode-container { gap: 20px; }
       .envelope-image { width: 170px; }
       .drinks-grid { grid-template-columns: 1fr; gap: 8px; }
-      .submit-btn { min-width: 200px; padding: 8px 40px; margin-bottom: 25px; font-size: 0.95rem; }
+      .submit-btn { min-width: 180px; padding: 8px 30px; margin-bottom: 15px; font-size: 0.9rem; }
       .guestbook-container { gap: 15px; }
       .big-date { font-size: clamp(2.8rem, 12vw, 4.2rem); }
       .hero-image-section { padding-top: 20px; }
@@ -928,7 +925,7 @@
       .marquee-track span { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
       .heart-image { max-height: 28vh; }
       .location-label, .location-name { font-size: clamp(1.5rem, 6vw, 2rem); }
-      .final-wishes { margin-top: 25px; }
+      .final-wishes { margin-top: 15px; }
       .guestbook-subtitle { font-size: 0.85rem; }
       .form-label { font-size: 0.87rem; }
       .radio-label { font-size: 0.87rem; }
@@ -936,10 +933,9 @@
       .full-width-heart { max-width: 300px; }
       .calendar-img { max-height: 38vh; }
       .paper-clip { width: 28px; top: -8px; left: 8px; }
-      
       .half-width-group {
-        width: 50%;
-        max-width: 160px;
+        width: 60%;
+        max-width: 180px;
       }
       .guest-form {
         padding: 0;
@@ -952,9 +948,12 @@
       .white-rectangle { margin: 0 20px; padding: 35px 24px 32px 24px; }
       .ref-image { width: 180px; height: 290px; }
       .images-row { height: 290px; }
-      .submit-btn { min-width: 240px; padding: 9px 60px; margin-bottom: 28px; }
+      .submit-btn { min-width: 220px; padding: 9px 40px; margin-bottom: 20px; }
       .location-content { gap: 20px; }
-      .final-wishes { margin-top: 28px; }
+      .final-wishes { margin-top: 20px; }
+      .half-width-group {
+        max-width: 220px;
+      }
     }
 
     @media (min-width: 768px) {
@@ -973,10 +972,13 @@
       .envelope-image { width: 240px; }
       .screen-second { padding: 32px 24px 40px; gap: 10px; }
       .white-rectangle { margin: 0 32px; padding: 42px 36px 38px 36px; }
-      .submit-btn { min-width: 280px; padding: 10px 80px; margin-bottom: 32px; font-size: 1.1rem; }
+      .submit-btn { min-width: 260px; padding: 10px 60px; margin-bottom: 25px; font-size: 1.1rem; }
       .location-content { gap: 26px; }
-      .final-wishes { margin-top: 32px; }
+      .final-wishes { margin-top: 25px; }
       .paper-clip { width: 40px; }
+      .half-width-group {
+        max-width: 240px;
+      }
     }
   </style>
 </head>
@@ -1059,10 +1061,10 @@
       <div class="guestbook-title">Анкета гостя</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
-      <form class="guest-form" id="guestForm">
+      <form class="guest-form" id="guestForm" onsubmit="return submitForm(event)">
         <div class="form-group half-width-group">
           <label class="form-label">Имя и фамилия</label>
-          <input type="text" class="form-input" placeholder="" required>
+          <input type="text" class="form-input" required>
         </div>
 
         <div class="form-group">
@@ -1075,7 +1077,7 @@
 
         <div class="form-group half-width-group">
           <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
-          <textarea class="form-textarea" placeholder=""></textarea>
+          <textarea class="form-textarea"></textarea>
         </div>
 
         <div class="form-group">
@@ -1085,11 +1087,22 @@
             <label class="drink-check"><input type="checkbox" value="вино белое"> Вино белое</label>
             <label class="drink-check"><input type="checkbox" value="вино красное"> Вино красное</label>
             <label class="drink-check"><input type="checkbox" value="коньяк"> Коньяк</label>
+            <label class="drink-check"><input type="checkbox" value="виски"> Виски</label>
+            <label class="drink-check"><input type="checkbox" value="водка"> Водка</label>
+            <label class="drink-check"><input type="checkbox" value="не пью алкоголь"> Не пью алкоголь</label>
           </div>
         </div>
 
         <button type="submit" class="submit-btn">Отправить</button>
       </form>
+
+      <div class="date-marquee-wrapper">
+        <div class="date-marquee">
+          <div class="date-marquee-track">
+            <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
+          </div>
+        </div>
+      </div>
 
       <div class="final-wishes">
         <div class="final-big">До встречи!</div>
@@ -1099,5 +1112,70 @@
   </section>
 </main>
 
+<script>
+  (function() {
+    const screens = document.querySelectorAll('.screen:not(.screen-first)');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+    screens.forEach(screen => observer.observe(screen));
+
+    function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+      const track = container.querySelector(trackSelector);
+      if (!track) return;
+      const checkAndClone = () => {
+        const trackWidth = track.scrollWidth;
+        const containerWidth = container.clientWidth;
+        if (trackWidth < containerWidth * 1.8 || track.children.length < minChildren) {
+          const children = Array.from(track.children);
+          const clonesNeeded = Math.ceil((containerWidth * 2) / trackWidth) + 2;
+          for (let i = 0; i < clonesNeeded; i++) {
+            children.forEach(child => {
+              const clone = child.cloneNode(true);
+              track.appendChild(clone);
+            });
+          }
+        }
+      };
+      checkAndClone();
+      window.addEventListener('resize', checkAndClone);
+    }
+    ensureMarquee('.marquee-ribbon', '.marquee-track');
+    ensureMarquee('.date-marquee', '.date-marquee-track', 8);
+
+    function setAppHeight() {
+      document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+    }
+    window.addEventListener('resize', setAppHeight);
+    window.addEventListener('orientationchange', setAppHeight);
+    setAppHeight();
+    const style = document.createElement('style');
+    style.textContent = `.screen-first { min-height: var(--app-height, 100vh); }`;
+    document.head.appendChild(style);
+  })();
+
+  function submitForm(event) {
+    event.preventDefault();
+    const name = document.querySelector('.guest-form .form-input')?.value.trim();
+    const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
+    if (!name) {
+      alert('Пожалуйста, укажите имя и фамилию');
+      return false;
+    }
+    if (!attendance) {
+      alert('Пожалуйста, выберите вариант присутствия');
+      return false;
+    }
+    alert('Спасибо! Ваш ответ сохранён. Ждём вас на свадьбе!');
+    // Здесь можно добавить реальную отправку данных
+    return false;
+  }
+</script>
 </body>
 </html>
