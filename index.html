@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Подключаем тонкий маркерный шрифт Shadows Into Light -->
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <!-- Тонкий маркерный + лёгкий рукописный -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -28,7 +28,7 @@
 
     body {
       background-color: #FFFDF0;
-      font-family: "Bad Script", "Cormorant Garamond", cursive;
+      font-family: "Caveat", "Cormorant Garamond", cursive;
       font-weight: 400;
       display: flex;
       justify-content: center;
@@ -194,9 +194,10 @@
       margin: 0 0 2vh;
     }
 
+    /* "наконец-то" - лёгкий рукописный Caveat */
     .sub-title {
       display: block;
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(1.7rem, 6vw, 2.2rem);
       color: #8B1A2B;
@@ -206,19 +207,20 @@
       line-height: 1;
     }
 
-    /* Тонкий маркерный шрифт для главного заголовка "мы женимся" */
+    /* "мы женимся" - тонкий маркер, строго одна строка */
     .primary-title {
       display: block;
       font-family: "Shadows Into Light", "Caveat", cursive;
       font-weight: 400;
-      font-size: clamp(5rem, 18vw, 8rem);
+      font-size: clamp(3.8rem, 14vw, 7rem);
       color: #8B1A2B;
-      line-height: 0.9;
+      line-height: 1;
       letter-spacing: 2px;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
       transform: rotate(-0.5deg);
       margin-top: -8px;
-      word-break: break-word;
+      word-break: keep-all;
+      white-space: nowrap;
     }
 
     .dialog-area {
@@ -311,8 +313,9 @@
       flex-shrink: 0;
     }
 
+    /* Рукописный Caveat для приветствия */
     .invitation-greeting {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
       color: #8B1A2B;
@@ -328,7 +331,7 @@
       line-height: 1.35;
     }
 
-    /* Тонкий маркерный шрифт для даты */
+    /* Маркерный шрифт для даты */
     .big-date {
       font-family: "Shadows Into Light", "Caveat", cursive;
       font-weight: 400;
@@ -375,7 +378,7 @@
       margin: 0 auto;
     }
 
-    /* Тонкий маркерный шрифт для заголовков Локация и названия */
+    /* Маркерный шрифт для заголовков Локация и названия */
     .location-label,
     .location-name {
       font-family: "Shadows Into Light", "Playfair Display", serif;
@@ -432,8 +435,9 @@
       pointer-events: none;
     }
 
+    /* Адрес — лёгкий рукописный Caveat */
     .location-address {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(1.1rem, 4.3vw, 1.45rem);
       color: #FDEBD8;
@@ -451,7 +455,7 @@
       margin-bottom: 14px;
     }
 
-    /* Тонкий маркерный шрифт для "Тайминг" */
+    /* Маркерный шрифт для "Тайминг" */
     .timing-main-title {
       font-family: "Shadows Into Light", "Playfair Display", serif;
       font-weight: 400;
@@ -492,7 +496,7 @@
       padding: 0;
     }
 
-    /* Тонкий маркерный шрифт для "Дресс-код" */
+    /* Маркерный шрифт для "Дресс-код" */
     .dresscode-title {
       font-family: "Shadows Into Light", "Playfair Display", serif;
       font-weight: 400;
@@ -527,8 +531,9 @@
       opacity: 0.92;
     }
 
+    /* Текст дресс-кода — рукописный Caveat */
     .dresscode-text {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(1rem, 4vw, 1.4rem);
       color: #8B1A2B;
@@ -544,7 +549,7 @@
     }
 
     .ref-subtitle {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(0.95rem, 3.8vw, 1.3rem);
       color: #FDEBD8;
@@ -604,7 +609,7 @@
       gap: 16px;
     }
 
-    /* Тонкий маркерный шрифт для "Пожелания" */
+    /* Маркерный шрифт для "Пожелания" */
     .wishes-title {
       font-family: "Shadows Into Light", "Playfair Display", serif;
       font-weight: 400;
@@ -615,8 +620,9 @@
       text-align: center;
     }
 
+    /* Текст пожеланий — рукописный Caveat */
     .wishes-text {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(0.95rem, 3.8vw, 1.3rem);
       color: #8B1A2B;
@@ -649,7 +655,7 @@
       max-width: 520px;
     }
 
-    /* Тонкий маркерный шрифт для "Анкета гостя" */
+    /* Маркерный шрифт для "Анкета гостя" */
     .guestbook-title {
       font-family: "Shadows Into Light", "Playfair Display", serif;
       font-weight: 400;
@@ -661,8 +667,9 @@
       width: 100%;
     }
 
+    /* Подзаголовок анкеты — рукописный Caveat */
     .guestbook-subtitle {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(0.9rem, 3.8vw, 1.15rem);
       color: #FDEBD8;
@@ -694,7 +701,7 @@
     }
 
     .form-label {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: 1rem;
       color: #FDEBD8;
@@ -707,7 +714,7 @@
       border: none;
       border-bottom: 1px solid rgba(253, 235, 216, 0.7);
       padding: 4px 4px 6px 4px;
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: 1rem;
       color: #FDEBD8;
@@ -738,7 +745,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: 1rem;
       color: #FDEBD8;
@@ -810,7 +817,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: 0.95rem;
       color: #FDEBD8;
@@ -896,7 +903,7 @@
       width: 100%;
     }
 
-    /* Тонкий маркерный шрифт для "До встречи!" */
+    /* Маркерный шрифт для "До встречи!" */
     .final-big {
       font-family: "Shadows Into Light", "Playfair Display", serif;
       font-weight: 400;
@@ -906,8 +913,9 @@
       line-height: 1.3;
     }
 
+    /* Финальная подпись — рукописный Caveat */
     .final-small {
-      font-family: "Bad Script", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
       font-size: clamp(1.1rem, 4.3vw, 1.45rem);
       color: #FDEBD8;
@@ -915,7 +923,15 @@
       margin-top: 9px;
     }
 
-    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
+    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (улучшены для одной строки "мы женимся") ============ */
+    @media (max-width: 500px) {
+      .primary-title {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+        letter-spacing: 1px;
+        white-space: nowrap;
+      }
+    }
+
     @media (max-width: 480px) {
       .first-content { padding: 0 14px; margin-top: -12px; }
       .dialog-container { gap: 8px; }
