@@ -634,7 +634,7 @@
       max-height: 26vh;
     }
 
-    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА (исправлена ширина полей и адаптивность) ============ */
+    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА (поля уменьшены вдвое, отступы сбоку убраны) ============ */
     .guestbook-container {
       width: 100%;
       max-width: 520px;
@@ -668,29 +668,30 @@
       margin-bottom: 0;
     }
 
+    /* Убираем боковые отступы у формы */
     .guest-form {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      padding: 0 16px;
+      padding: 0; /* Убраны отступы сбоку */
     }
 
-    /* Общие стили для групп формы — центрирование и умеренная ширина */
+    /* Общие стили для групп формы — центрирование, ширина значительно уменьшена */
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
       width: 100%;
-      max-width: 320px;  /* стандартная комфортная ширина */
+      max-width: 240px;  /* Уменьшено примерно вдвое от предыдущих 320-400px */
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* Поле аллергии делаем уже — аккуратное, не слишком широкое */
+    /* Поле аллергии делаем ещё чуть уже для изящества */
     .allergy-group {
-      max-width: 280px;
+      max-width: 220px;
     }
 
     .form-label {
@@ -893,7 +894,7 @@
       margin-top: 9px;
     }
 
-    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (улучшена адаптивность анкеты) ============ */
+    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (сохраняем узкие поля без отступов) ============ */
     @media (max-width: 480px) {
       .first-content { padding: 0 14px; margin-top: -12px; }
       .dialog-container { gap: 8px; }
@@ -934,15 +935,15 @@
       .calendar-img { max-height: 38vh; }
       .paper-clip { width: 28px; top: -8px; left: 8px; }
       
-      /* Адаптивность полей анкеты на малых экранах: делаем чуть уже, чтобы не прилипали к краям */
+      /* На малых экранах поля становятся ещё чуть уже, чтобы не прилипали, но отступы сбоку отсутствуют */
       .form-group {
-        max-width: 280px;
+        max-width: 210px;
       }
       .allergy-group {
-        max-width: 250px;
+        max-width: 190px;
       }
       .guest-form {
-        padding: 0 12px;
+        padding: 0;
       }
     }
 
@@ -957,10 +958,10 @@
       .final-wishes { margin-top: 28px; }
       
       .form-group {
-        max-width: 300px;
+        max-width: 230px;
       }
       .allergy-group {
-        max-width: 260px;
+        max-width: 210px;
       }
     }
 
@@ -986,10 +987,10 @@
       .paper-clip { width: 40px; }
       
       .form-group {
-        max-width: 320px;
+        max-width: 240px;
       }
       .allergy-group {
-        max-width: 280px;
+        max-width: 220px;
       }
     }
   </style>
@@ -1074,14 +1075,14 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА с исправленными полями (имя+фамилия и аллергия уменьшены, адаптивность починена) -->
+  <!-- ЭКРАН 7: АНКЕТА с полями уменьшенной ширины и без боковых отступов -->
   <section class="screen screen-seventh">
     <div class="guestbook-container">
       <div class="guestbook-title">Анкета гостя</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
       <form class="guest-form" id="guestForm">
-        <!-- Поле "Имя и фамилия" теперь имеет аккуратную ширину (центрировано, не растянуто) -->
+        <!-- Поле "Имя и фамилия" уменьшено вдвое (max-width 240px) -->
         <div class="form-group">
           <label class="form-label">Имя и фамилия</label>
           <input type="text" class="form-input" placeholder="" required>
@@ -1095,7 +1096,7 @@
           </div>
         </div>
 
-        <!-- Поле аллергии уменьшено по ширине, как и просили (allergy-group уже, чем обычное поле) -->
+        <!-- Поле аллергии сужено ещё сильнее (max-width 220px) -->
         <div class="form-group allergy-group">
           <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
           <textarea class="form-textarea" placeholder=""></textarea>
