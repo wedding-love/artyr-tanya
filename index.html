@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
+  <!-- Исходные шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
@@ -99,22 +101,17 @@
     .screen-fifth { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 0 0 0; }
     .screen-sixth { background-color: #FFFDF0; padding: 40px 20px 45px 20px; }
     .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; }
-    .screen-timer { background-color: #FFFDF0; padding: 50px 20px; text-align: center; }
+    .screen-organizer { background-color: #FFFDF0; padding: 50px 20px; text-align: center; }
     .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 45px 20px 50px 20px; }
-    .screen-contacts { background-color: #FFFDF0; padding: 45px 20px 50px 20px; }
 
-    /* Общие стили для читаемости и адаптивности */
-    p, .invitation-greeting, .dresscode-text, .wishes-text, .important-text, .timer-text, .contacts-text, .form-label, .radio-label, .drink-check {
-      word-break: break-word;
-      hyphens: auto;
-    }
-
-    .invitation-greeting, .dresscode-text, .wishes-text, .important-text, .timer-text, .contacts-text {
+    /* Общие стили для читаемости */
+    .invitation-greeting, .dresscode-text, .wishes-text, .important-text, .organizer-text {
       font-size: clamp(1.2rem, 4.5vw, 1.6rem);
       line-height: 1.65;
       text-align: justify;
       text-align-last: center;
       letter-spacing: 0.4px;
+      word-break: break-word;
     }
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
@@ -148,7 +145,7 @@
     .location-img { width: 100%; display: block; aspect-ratio: 4/3; border: 5px solid #ffffff; filter: grayscale(100%); transition: filter 0.7s ease-in-out; object-fit: cover; }
     .location-img.colored { filter: grayscale(0%); }
     .paper-clip { position: absolute; top: -12px; left: 12px; width: 40px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
-    .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #FDEBD8; text-align: center; margin-top: 6px; word-break: break-word; }
+    .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #FDEBD8; text-align: center; margin-top: 6px; }
 
     /* ============ ЧЕТВЕРТЫЙ ЭКРАН (тайминг) ============ */
     .timing-section-title { text-align: center; margin-bottom: 18px; }
@@ -172,7 +169,7 @@
     /* ============ ШЕСТОЙ ЭКРАН (пожелания) ============ */
     .wishes-container { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
     .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #8B1A2B; letter-spacing: 5px; text-transform: uppercase; text-align: center; }
-    .wishes-text { text-align: justify; text-align-last: center; }
+    .wishes-text p { margin-bottom: 12px; }
     .envelope-image { width: 260px; max-width: 70%; height: auto; margin: 8px auto 0; }
 
     /* ============ ВАЖНО ============ */
@@ -181,13 +178,11 @@
     .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); width: auto; }
     .important-text { color: #8B1A2B; text-align: justify; text-align-last: center; }
 
-    /* ============ ТАЙМЕР ============ */
-    .timer-container { text-align: center; width: 100%; }
-    .timer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.6rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 3px; margin-bottom: 20px; word-break: break-word; hyphens: auto; }
-    .countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; row-gap: 15px; }
-    .countdown-item { background: none; border: none; padding: 0 8px; text-align: center; }
-    .countdown-number { font-family: "Bad Script", cursive; font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 400; color: #8B1A2B; line-height: 1; display: block; margin-bottom: 5px; }
-    .countdown-label { font-family: "Bad Script", cursive; font-size: clamp(0.9rem, 3.5vw, 1.2rem); color: #8B1A2B; text-transform: lowercase; letter-spacing: 1px; }
+    /* ============ ОРГАНИЗАТОР (светлый фон, без рамок) ============ */
+    .organizer-container { text-align: center; max-width: 480px; margin: 0 auto; width: 100%; }
+    .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6vw, 2.4rem); color: #8B1A2B; letter-spacing: 4px; margin-bottom: 24px; }
+    .organizer-info { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #8B1A2B; line-height: 1.8; word-break: break-word; }
+    .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: 1px dashed #8B1A2B; transition: 0.2s; }
 
     /* ============ АНКЕТА ============ */
     .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; }
@@ -218,20 +213,12 @@
     .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem,6vw,2.4rem); color: #FDEBD8; letter-spacing: 3px; word-break: break-word; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #FDEBD8; margin-top: 12px; word-break: break-word; }
 
-    /* ============ КОНТАКТЫ ============ */
-    .contacts-container { text-align: center; max-width: 480px; margin: 0 auto; width: 100%; }
-    .contacts-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem,6vw,2.4rem); color: #8B1A2B; letter-spacing: 4px; margin-bottom: 24px; }
-    .contacts-info { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #8B1A2B; line-height: 1.8; word-break: break-word; }
-    .contacts-info a { color: #8B1A2B; text-decoration: none; border-bottom: 1px dashed #8B1A2B; transition: 0.2s; }
-
-    /* Адаптивность для маленьких экранов */
+    /* Адаптивность */
     @media (max-width: 560px) {
       .white-rectangle, .important-white-rectangle { margin: 0 12px; padding: 36px 20px 32px; }
       .tape-sticker { width: 70px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
       .images-row { height: auto; }
-      .countdown { gap: 12px; }
-      .countdown-number { font-size: 2rem; }
       .envelope-image { width: 200px; }
       .timing-schedule-img { max-width: 100%; }
       .form-group { max-width: 100%; }
@@ -239,7 +226,7 @@
       .submit-btn { min-width: 180px; padding: 8px 24px; font-size: 1rem; }
       .calendar-image-wrapper { padding: 0; }
       .big-date { letter-spacing: 4px; }
-      .screen-second, .screen-sixth, .screen-timer, .screen-contacts { padding: 30px 16px 36px; }
+      .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 36px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
     }
 
@@ -325,7 +312,7 @@
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания (светлый) с красивыми абзацами -->
+  <!-- Экран 6: Пожелания (светлый) -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
@@ -346,15 +333,14 @@
     </div>
   </section>
 
-  <!-- Экран 8: Таймер (светлый) -->
-  <section class="screen screen-timer">
-    <div class="timer-container">
-      <div class="timer-title">до нашей свадьбы</div>
-      <div class="countdown" id="countdown">
-        <div class="countdown-item"><span class="countdown-number" id="days">0</span><span class="countdown-label">дней</span></div>
-        <div class="countdown-item"><span class="countdown-number" id="hours">0</span><span class="countdown-label">часов</span></div>
-        <div class="countdown-item"><span class="countdown-number" id="minutes">0</span><span class="countdown-label">минут</span></div>
-        <div class="countdown-item"><span class="countdown-number" id="seconds">0</span><span class="countdown-label">секунд</span></div>
+  <!-- Экран 8: Организатор (светлый фон, без рамок) -->
+  <section class="screen screen-organizer">
+    <div class="organizer-container">
+      <div class="organizer-title">Свадебный организатор</div>
+      <div class="organizer-info">
+        Светлана Латош<br>
+        <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a><br>
+        <a href="tel:+375295826262">+375 29 582 62 62</a>
       </div>
     </div>
   </section>
@@ -389,18 +375,6 @@
       <div class="final-wishes">
         <div class="final-big">Мы вас очень ждем!</div>
         <div class="final-small">Ваши Артур и Таня</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Экран 10: Контакты (светлый) -->
-  <section class="screen screen-contacts">
-    <div class="contacts-container">
-      <div class="contacts-title">Свадебный организатор</div>
-      <div class="contacts-info">
-        Светлана Латош<br>
-        <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a><br>
-        <a href="tel:+375295826262">+375 29 582 62 62</a>
       </div>
     </div>
   </section>
@@ -454,30 +428,6 @@
     style.textContent = `.screen-first { min-height: var(--app-height, 100vh); }`;
     document.head.appendChild(style);
   })();
-
-  // Таймер обратного отсчёта до 26 августа 2026
-  function updateTimer() {
-    const weddingDate = new Date(2026, 7, 26, 0, 0, 0);
-    const now = new Date();
-    const diff = weddingDate - now;
-    if (diff <= 0) {
-      document.getElementById('days').textContent = '0';
-      document.getElementById('hours').textContent = '0';
-      document.getElementById('minutes').textContent = '0';
-      document.getElementById('seconds').textContent = '0';
-      return;
-    }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (86400000)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (3600000)) / (1000 * 60));
-    const seconds = Math.floor((diff % (60000)) / 1000);
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-  }
-  updateTimer();
-  setInterval(updateTimer, 1000);
 
   function submitForm(event) {
     event.preventDefault();
