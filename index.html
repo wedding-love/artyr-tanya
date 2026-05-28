@@ -99,7 +99,8 @@
     .screen-sixth { background-color: #FFFDF0; padding: 35px 20px 40px 20px; }
     .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; }
     .screen-organizer { background-color: #FFFDF0; padding: 40px 20px; }
-    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 20px 45px 20px; }
+    /* Убираем горизонтальные паддинги, чтобы бегущая строка была от края до края */
+    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 0 45px 0; }
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
@@ -110,34 +111,40 @@
     .title-block { text-align: center; margin: 0 0 2vh; }
     .sub-title { font-family: "Bad Script", cursive; font-size: clamp(1.7rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 2px; }
 
-    /* ✅ Увеличенный шрифт «Мы женимся» и защита от вылезания */
+    /* «Мы женимся» — всегда в одну строку, без разрыва слов */
     .primary-title {
       font-family: "Caveat", cursive;
-      font-size: clamp(6rem, 22vw, 10rem);
+      font-size: clamp(4.5rem, 18vw, 10rem);
       color: #8B1A2B;
       line-height: 0.9;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
       transform: rotate(-0.5deg);
-      word-break: break-word;
-      overflow-wrap: break-word;
       max-width: 100%;
       display: inline-block;
+      white-space: nowrap;
     }
 
     .dialog-area { margin: 2vh 0; }
 
-    /* ✅ Диалог всегда в одну строку с увеличенным отступом */
+    /* Диалог — разрешён перенос текста, не вылезает */
     .dialog-container {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: nowrap;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
     }
 
-    .dialog-text { font-family: "Marck Script", cursive; font-size: clamp(1.2rem, 5vw, 1.6rem); color: #8B1A2B; white-space: nowrap; }
+    .dialog-text {
+      font-family: "Marck Script", cursive;
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      color: #8B1A2B;
+      max-width: 45%;
+      min-width: 0;
+      word-break: break-word;
+    }
 
-    /* ✅ Бегущая строка теперь внутри карточки */
+    /* Бегущая строка «вы приглашены» */
     .marquee-ribbon {
       background-color: #8B1A2B;
       width: 100%;
@@ -190,17 +197,8 @@
     .wishes-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
     .wishes-text p { margin-bottom: 8px; }
 
-    .envelope-wrapper {
-      width: 100%;
-      text-align: center;
-    }
-    .envelope-image {
-      display: block;
-      width: 220px;
-      max-width: 62%;
-      height: auto;
-      margin: 6px auto 0;
-    }
+    .envelope-wrapper { width: 100%; text-align: center; }
+    .envelope-image { display: block; width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
 
     /* ============ ВАЖНО ============ */
     .important-container { text-align: center; }
@@ -216,16 +214,15 @@
     .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: none; transition: opacity 0.2s; }
     .organizer-info a:hover { opacity: 0.7; }
 
-    /* ============ АНКЕТА (исправлено центрирование) ============ */
-    .guestbook-container {
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
+    /* ============ АНКЕТА (обёртка с отступами) ============ */
+    .guestbook-inner {
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 22px;
     }
+
     .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
     .guestbook-subtitle {
       font-family: "Bad Script", cursive;
@@ -236,7 +233,6 @@
       margin: 0 auto;
     }
 
-    /* ✅ Форма теперь ограничена по ширине и надёжно центрирована */
     .guest-form {
       width: 100%;
       max-width: 420px;
@@ -263,6 +259,7 @@
     .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 10px 28px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
+    /* Бегущая строка с датой — от края до края */
     .date-marquee {
       width: 100%;
       overflow: hidden;
@@ -273,7 +270,8 @@
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
 
-    .final-wishes { text-align: center; margin-top: 12px; }
+    /* Финальные пожелания */
+    .final-wishes { text-align: center; margin-top: 12px; padding: 0 20px; }
     .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
 
@@ -283,7 +281,7 @@
         gap: 16px;
       }
       .dialog-text {
-        font-size: clamp(0.95rem, 4vw, 1.3rem);
+        max-width: 100%;
       }
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -296,7 +294,8 @@
       .organizer-info { flex-direction: column; gap: 6px; align-items: center; }
       .organizer-info span, .organizer-info a { white-space: normal; }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
-      .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
+      .screen-third, .screen-important, .screen-seventh { padding: 40px 0; }
+      .guestbook-inner { padding: 0 16px; }
     }
 
     @media (min-width: 768px) {
@@ -414,7 +413,8 @@
 
   <!-- Экран 9: Анкета (бордовый) -->
   <section class="screen screen-seventh">
-    <div class="guestbook-container">
+    <!-- Обёртка с отступами для всего, кроме бегущей строки -->
+    <div class="guestbook-inner">
       <div class="guestbook-title">Анкета гостя</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
       <form class="guest-form" id="guestForm" onsubmit="return submitForm(event)">
@@ -438,15 +438,18 @@
         <div class="form-group"><label class="form-label">Аллергия / непереносимость</label><textarea class="form-textarea"></textarea></div>
         <button type="submit" class="submit-btn">Отправить</button>
       </form>
-      <div class="date-marquee">
-        <div class="date-marquee-track">
-          <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
-        </div>
+    </div>
+
+    <!-- Бегущая строка с датой — от края до края экрана (без отступов) -->
+    <div class="date-marquee">
+      <div class="date-marquee-track">
+        <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
       </div>
-      <div class="final-wishes">
-        <div class="final-big">Мы вас очень ждем!</div>
-        <div class="final-small">Ваши Артур и Таня</div>
-      </div>
+    </div>
+
+    <div class="final-wishes">
+      <div class="final-big">Мы вас очень ждем!</div>
+      <div class="final-small">Ваши Артур и Таня</div>
     </div>
   </section>
 </main>
