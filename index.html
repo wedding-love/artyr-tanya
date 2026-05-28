@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Возвращаем исходные шрифты: Bad Script, Caveat, Playfair Display, Marck Script -->
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <!-- Подключаем шрифты: Bad Script (акценты), Caveat (заголовок и дата), Playfair Display (заголовки разделов), Alice (основной текст) -->
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -28,7 +28,7 @@
 
     body {
       background-color: #FFFDF0;
-      font-family: "Bad Script", "Cormorant Garamond", cursive;
+      font-family: "Alice", "Cormorant Garamond", serif;
       font-weight: 400;
       display: flex;
       justify-content: center;
@@ -98,13 +98,13 @@
       justify-content: center;
       align-items: center;
       background-color: #FFFDF0;
-      padding: 32px 20px 40px;
-      gap: 8px;
+      padding: 36px 20px 44px;
+      gap: 12px;
     }
 
     .screen-third {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 55px 20px;
+      padding: 60px 20px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -112,7 +112,7 @@
 
     .screen-fourth {
       background-color: #FFFDF0;
-      padding: 35px 16px 45px;
+      padding: 40px 16px 50px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -120,7 +120,7 @@
 
     .screen-fifth {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 55px 0 0 0;
+      padding: 60px 0 0 0;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -128,7 +128,7 @@
 
     .screen-sixth {
       background-color: #FFFDF0;
-      padding: 35px 20px 40px 20px;
+      padding: 40px 20px 45px 20px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -136,7 +136,7 @@
 
     .screen-seventh {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
-      padding: 40px 20px 45px 20px;
+      padding: 45px 20px 50px 20px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -164,7 +164,7 @@
 
     .full-width-heart {
       width: 100%;
-      max-width: 360px;
+      max-width: 380px;
       margin: 0 auto;
       padding: 0 16px;
     }
@@ -174,7 +174,7 @@
       height: auto;
       display: block;
       object-fit: contain;
-      max-height: 32vh;
+      max-height: 34vh;
       filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12));
     }
 
@@ -184,7 +184,7 @@
       justify-content: center;
       width: 100%;
       padding: 0 20px;
-      margin-top: -8px;
+      margin-top: -4px;
     }
 
     .title-block {
@@ -193,12 +193,11 @@
       margin: 0 0 2vh;
     }
 
-    /* Исходный шрифт Bad Script для "наконец-то" */
     .sub-title {
       display: block;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      font-size: clamp(1.9rem, 6.5vw, 2.5rem);
       color: #8B1A2B;
       text-transform: none;
       letter-spacing: 2px;
@@ -206,15 +205,14 @@
       line-height: 1;
     }
 
-    /* Исходный шрифт Caveat для "мы женимся" */
     .primary-title {
       display: block;
-      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
-      font-size: clamp(5rem, 18vw, 8rem);
+      font-size: clamp(5.5rem, 19vw, 9rem);
       color: #8B1A2B;
       line-height: 0.9;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
       transform: rotate(-0.5deg);
       margin-top: -8px;
@@ -240,10 +238,10 @@
     }
 
     .dialog-text {
-      font-family: "Marck Script", "Brush Script MT", cursive;
+      font-family: "Marck Script", cursive;
       font-weight: 400;
       font-style: italic;
-      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      font-size: clamp(1.3rem, 5.5vw, 1.8rem);
       color: #8B1A2B;
       line-height: 1.45;
       letter-spacing: 0.3px;
@@ -268,7 +266,7 @@
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       overflow: hidden;
-      padding: 13px 0;
+      padding: 15px 0;
       flex-shrink: 0;
       position: relative;
     }
@@ -282,10 +280,10 @@
     }
 
     .marquee-track span {
-      font-family: "Marck Script", "Brush Script MT", cursive;
+      font-family: "Marck Script", cursive;
       font-weight: 400;
       color: #FFFDF0;
-      font-size: clamp(0.85rem, 2.8vw, 1.1rem);
+      font-size: clamp(0.95rem, 3.2vw, 1.25rem);
       text-transform: none;
       letter-spacing: 1px;
       padding-right: 48px;
@@ -303,52 +301,50 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
       padding: 0 10px;
       flex-shrink: 0;
     }
 
-    /* Исходный Bad Script для приветствия */
     .invitation-greeting {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+      font-size: clamp(1.5rem, 5vw, 2.1rem);
       color: #8B1A2B;
       text-align: center;
-      line-height: 1.35;
+      line-height: 1.4;
       width: 100%;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.5px;
       padding: 0 12px;
     }
 
     .invitation-greeting p {
-      margin-bottom: 1px;
-      line-height: 1.35;
+      margin-bottom: 4px;
+      line-height: 1.4;
     }
 
-    /* Исходный Caveat для даты */
     .big-date {
-      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-family: "Caveat", cursive;
       font-weight: 400;
-      font-size: clamp(3.5rem, 14vw, 6rem);
+      font-size: clamp(4rem, 15vw, 6.5rem);
       color: #8B1A2B;
       text-align: center;
-      letter-spacing: 6px;
+      letter-spacing: 8px;
       line-height: 1;
       text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
       transform: rotate(-0.3deg);
-      margin: 0;
+      margin: 4px 0;
       word-break: break-word;
     }
 
     .calendar-image-wrapper {
       width: 100%;
       padding: 0 12px;
-      max-width: 420px;
-      margin: 0 auto;
+      max-width: 450px;
+      margin: 8px auto 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -361,7 +357,7 @@
       display: block;
       border-radius: 0;
       object-fit: contain;
-      max-height: 42vh;
+      max-height: 45vh;
     }
 
     /* ============ ТРЕТИЙ ЭКРАН ============ */
@@ -370,19 +366,18 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 28px;
       width: 100%;
-      max-width: 440px;
+      max-width: 460px;
       margin: 0 auto;
     }
 
-    /* Исходный Playfair Display для заголовка Локация и названия */
     .location-label,
     .location-name {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.9rem, 7vw, 2.5rem);
+      font-size: clamp(2.2rem, 7.5vw, 2.8rem);
       color: #FDEBD8;
       text-align: center;
       letter-spacing: 3px;
@@ -393,8 +388,8 @@
     .location-photo-wrapper {
       position: relative;
       width: 100%;
-      max-width: 390px;
-      margin: 6px auto 0;
+      max-width: 420px;
+      margin: 8px auto 0;
       border-radius: 0;
       box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
       background: transparent;
@@ -419,14 +414,14 @@
       border-radius: 0;
       border: 4px solid rgba(255, 245, 230, 0.95);
       box-sizing: border-box;
-      max-height: 40vh;
+      max-height: 42vh;
     }
 
     .paper-clip {
       position: absolute;
       top: -12px;
       left: 12px;
-      width: 36px;
+      width: 40px;
       height: auto;
       z-index: 12;
       transform: rotate(-15deg);
@@ -434,34 +429,32 @@
       pointer-events: none;
     }
 
-    /* Исходный Bad Script для адреса */
     .location-address {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(1.1rem, 4.3vw, 1.45rem);
+      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
       color: #FDEBD8;
       text-align: center;
       letter-spacing: 0.5px;
       line-height: 1.5;
       max-width: 90%;
       padding: 0 8px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     /* ============ ЧЕТВЕРТЫЙ ЭКРАН ============ */
     .timing-section-title {
       text-align: center;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    /* Исходный Playfair Display для "Тайминг" */
     .timing-main-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+      font-size: clamp(2rem, 7vw, 2.6rem);
       color: #8B1A2B;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
     }
 
@@ -470,18 +463,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 6px;
+      margin-top: 10px;
       padding: 0 8px;
     }
 
     .timing-schedule-img {
       width: 100%;
-      max-width: 560px;
+      max-width: 580px;
       height: auto;
       display: block;
       object-fit: contain;
       margin: 0 auto;
-      max-height: 65vh;
+      max-height: 68vh;
     }
 
     /* ============ ПЯТЫЙ ЭКРАН ============ */
@@ -490,20 +483,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
       max-width: 100%;
       margin: 0 auto;
       padding: 0;
     }
 
-    /* Исходный Playfair Display для "Дресс-код" */
     .dresscode-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+      font-size: clamp(2rem, 7vw, 2.6rem);
       color: #FDEBD8;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       text-align: center;
       width: 100%;
@@ -515,7 +507,7 @@
       background-color: #ffffff;
       width: auto;
       margin: 0 24px;
-      padding: 40px 30px 36px 30px;
+      padding: 44px 34px 40px 34px;
       border-radius: 0;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
     }
@@ -525,18 +517,17 @@
       top: -35px;
       left: 50%;
       transform: translateX(-50%);
-      width: 85px;
+      width: 90px;
       height: auto;
       z-index: 10;
       pointer-events: none;
       opacity: 0.92;
     }
 
-    /* Исходный Bad Script для текста дресс-кода */
     .dresscode-text {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(1rem, 4vw, 1.4rem);
+      font-size: clamp(1.1rem, 4.2vw, 1.5rem);
       color: #8B1A2B;
       line-height: 1.65;
       text-align: center;
@@ -550,13 +541,13 @@
     }
 
     .ref-subtitle {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(0.95rem, 3.8vw, 1.3rem);
+      font-size: clamp(1rem, 4vw, 1.4rem);
       color: #FDEBD8;
       text-align: center;
       letter-spacing: 1px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       padding: 0 20px;
     }
 
@@ -583,12 +574,12 @@
       gap: 0;
       padding: 0;
       margin: 0;
-      height: 360px;
+      height: 380px;
     }
 
     .ref-image {
-      width: 220px;
-      height: 360px;
+      width: 240px;
+      height: 380px;
       object-fit: cover;
       flex-shrink: 0;
       display: block;
@@ -602,47 +593,45 @@
     /* ============ ШЕСТОЙ ЭКРАН ============ */
     .wishes-container {
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
 
-    /* Исходный Playfair Display для "Пожелания" */
     .wishes-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+      font-size: clamp(2rem, 7vw, 2.6rem);
       color: #8B1A2B;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       text-align: center;
     }
 
-    /* Исходный Bad Script для текста пожеланий */
     .wishes-text {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(0.95rem, 3.8vw, 1.3rem);
+      font-size: clamp(1.05rem, 4.2vw, 1.45rem);
       color: #8B1A2B;
       line-height: 1.65;
       text-align: center;
       letter-spacing: 0.4px;
       padding: 0 20px;
-      max-width: 480px;
+      max-width: 500px;
     }
 
     .envelope-image {
-      width: 220px;
-      max-width: 62%;
+      width: 240px;
+      max-width: 65%;
       height: auto;
       display: block;
-      margin: 6px auto 0;
+      margin: 8px auto 0;
       opacity: 0.95;
-      max-height: 26vh;
+      max-height: 28vh;
     }
 
     /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА ============ */
@@ -651,37 +640,35 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 22px;
+      gap: 26px;
       margin: 0 auto;
       padding: 0;
-      max-width: 520px;
+      max-width: 540px;
     }
 
-    /* Исходный Playfair Display для "Анкета гостя" */
     .guestbook-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+      font-size: clamp(2rem, 7vw, 2.6rem);
       color: #FDEBD8;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       text-align: center;
       width: 100%;
     }
 
-    /* Исходный Bad Script для подзаголовка анкеты */
     .guestbook-subtitle {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(0.9rem, 3.8vw, 1.15rem);
+      font-size: clamp(1rem, 4vw, 1.35rem);
       color: #FDEBD8;
       text-align: center;
       line-height: 1.5;
-      letter-spacing: 0.4px;
-      padding: 0 8px;
+      letter-spacing: 0.5px;
+      padding: 0 12px;
       margin-bottom: 0;
-      max-width: 420px;
+      max-width: 460px;
     }
 
     .guest-form {
@@ -689,24 +676,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
       padding: 0;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .form-label {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #FDEBD8;
       letter-spacing: 0.5px;
       text-align: left;
@@ -715,11 +702,11 @@
     .form-input, .form-select, .form-textarea {
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(253, 235, 216, 0.7);
-      padding: 4px 4px 6px 4px;
-      font-family: "Bad Script", cursive;
+      border-bottom: 1px solid rgba(253, 235, 216, 0.8);
+      padding: 6px 4px 8px 4px;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #FDEBD8;
       outline: none;
       transition: border-color 0.2s ease, transform 0.2s;
@@ -728,8 +715,8 @@
 
     .form-textarea {
       resize: vertical;
-      min-height: 60px;
-      padding: 6px 4px;
+      min-height: 70px;
+      padding: 8px 4px;
     }
 
     .form-input:focus, .form-select:focus, .form-textarea:focus {
@@ -740,17 +727,17 @@
     .radio-group {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       width: 100%;
     }
 
     .radio-label {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-family: "Bad Script", cursive;
+      gap: 14px;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #FDEBD8;
       cursor: pointer;
       transition: opacity 0.2s;
@@ -764,8 +751,8 @@
     .drink-check input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border: 1.5px solid #FDEBD8;
       border-radius: 50%;
       background: transparent;
@@ -783,8 +770,8 @@
     .radio-label input[type="radio"]:checked::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
+      top: 4px;
+      left: 4px;
       width: 10px;
       height: 10px;
       background-color: #FDEBD8;
@@ -792,7 +779,7 @@
     }
 
     .drink-check input[type="checkbox"] {
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .drink-check input[type="checkbox"]:checked {
@@ -804,25 +791,25 @@
       content: '✓';
       position: absolute;
       top: 0px;
-      left: 3px;
-      font-size: 13px;
+      left: 4px;
+      font-size: 14px;
       color: #FDEBD8;
     }
 
     .drinks-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px 16px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px 18px;
       width: 100%;
     }
 
     .drink-check {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-family: "Bad Script", cursive;
+      gap: 12px;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #FDEBD8;
       cursor: pointer;
       transition: opacity 0.2s;
@@ -835,18 +822,18 @@
     .submit-btn {
       background: #FFFDF0;
       border: 2px solid #FDEBD8;
-      padding: 10px 28px;
+      padding: 12px 32px;
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 4px;
       color: #8B1A2B;
       cursor: pointer;
       transition: all 0.3s ease;
       width: auto;
-      min-width: 200px;
-      margin: 8px 0 0 0;
+      min-width: 220px;
+      margin: 12px 0 0 0;
       border-radius: 48px;
       display: inline-block;
       text-align: center;
@@ -868,8 +855,8 @@
     .date-marquee-wrapper {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 24px;
+      margin-bottom: 24px;
       overflow: hidden;
       background-color: #FFFDF0;
     }
@@ -878,7 +865,7 @@
       background-color: #FFFDF0;
       width: 100%;
       overflow: hidden;
-      padding: 8px 0;
+      padding: 10px 0;
     }
 
     .date-marquee-track {
@@ -891,102 +878,101 @@
 
     .date-marquee-track span {
       font-family: "Cormorant Garamond", serif;
-      font-weight: 500;
+      font-weight: 600;
       color: #8B1A2B;
-      font-size: clamp(0.9rem, 3.2vw, 1.1rem);
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
       text-transform: uppercase;
-      letter-spacing: 5px;
+      letter-spacing: 6px;
       padding-right: 50px;
       display: inline-block;
     }
 
     .final-wishes {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 16px;
       width: 100%;
     }
 
-    /* Исходный Playfair Display для "До встречи!" */
     .final-big {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.5rem, 6vw, 2.2rem);
+      font-size: clamp(1.8rem, 6.5vw, 2.5rem);
       color: #FDEBD8;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       line-height: 1.3;
     }
 
-    /* Исходный Bad Script для подписи */
     .final-small {
-      font-family: "Bad Script", cursive;
+      font-family: "Alice", serif;
       font-weight: 400;
-      font-size: clamp(1.1rem, 4.3vw, 1.45rem);
+      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
       color: #FDEBD8;
       letter-spacing: 1px;
-      margin-top: 9px;
+      margin-top: 12px;
     }
 
-    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (сохранены все улучшения) ============ */
+    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (увеличенные шрифты) ============ */
     @media (max-width: 480px) {
       .first-content { padding: 0 14px; margin-top: -12px; }
       .dialog-container { gap: 8px; }
-      .calendar-image-wrapper { max-width: 290px; }
-      .location-photo-wrapper { max-width: 280px; }
-      .screen-second { padding: 20px 14px 28px; gap: 6px; }
-      .invitation-content { gap: 6px; padding: 0 6px; }
-      .screen-third { padding: 45px 14px; }
-      .screen-fourth { padding: 28px 12px 38px; }
-      .screen-fifth { padding: 45px 0 0 0; }
-      .screen-sixth { padding: 28px 14px 33px 14px; }
-      .screen-seventh { padding: 30px 16px 35px 16px; }
-      .location-content { gap: 18px; }
-      .white-rectangle { margin: 0 16px; padding: 32px 20px 30px 20px; }
-      .tape-sticker { width: 65px; top: -30px; }
-      .ref-image { width: 160px; height: 260px; }
-      .images-row { height: 260px; }
-      .dresscode-container { gap: 20px; }
-      .envelope-image { width: 170px; }
-      .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
-      .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 6px; font-size: 0.9rem; letter-spacing: 3px; }
-      .guestbook-container { gap: 18px; }
-      .big-date { font-size: clamp(2.8rem, 12vw, 4.2rem); }
+      .calendar-image-wrapper { max-width: 310px; }
+      .location-photo-wrapper { max-width: 300px; }
+      .screen-second { padding: 24px 14px 32px; gap: 8px; }
+      .invitation-content { gap: 8px; padding: 0 6px; }
+      .screen-third { padding: 48px 14px; }
+      .screen-fourth { padding: 32px 12px 42px; }
+      .screen-fifth { padding: 48px 0 0 0; }
+      .screen-sixth { padding: 32px 14px 38px; }
+      .screen-seventh { padding: 35px 16px 40px; }
+      .location-content { gap: 20px; }
+      .white-rectangle { margin: 0 16px; padding: 36px 20px 32px; }
+      .tape-sticker { width: 70px; top: -30px; }
+      .ref-image { width: 170px; height: 280px; }
+      .images-row { height: 280px; }
+      .dresscode-container { gap: 22px; }
+      .envelope-image { width: 180px; }
+      .drinks-grid { grid-template-columns: 1fr; gap: 12px; }
+      .submit-btn { min-width: 190px; padding: 10px 26px; margin-top: 8px; font-size: 1rem; letter-spacing: 3px; }
+      .guestbook-container { gap: 20px; }
+      .big-date { font-size: clamp(3rem, 13vw, 4.5rem); letter-spacing: 4px; }
       .hero-image-section { padding-top: 20px; }
-      .invitation-greeting { font-size: clamp(1.1rem, 4.3vw, 1.5rem); }
-      .dresscode-text { font-size: clamp(0.9rem, 3.8vw, 1.2rem); }
-      .wishes-text { font-size: clamp(0.85rem, 3.6vw, 1.1rem); padding: 0 14px; }
-      .marquee-ribbon { padding: 11px 0; }
-      .marquee-track span { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
-      .heart-image { max-height: 28vh; }
-      .location-label, .location-name { font-size: clamp(1.5rem, 6vw, 2rem); }
-      .final-wishes { margin-top: 12px; }
-      .guestbook-subtitle { font-size: 0.85rem; }
-      .form-label { font-size: 0.9rem; }
-      .radio-label { font-size: 0.9rem; }
-      .drink-check { font-size: 0.85rem; }
-      .full-width-heart { max-width: 300px; }
-      .calendar-img { max-height: 38vh; }
-      .paper-clip { width: 28px; top: -8px; left: 8px; }
+      .invitation-greeting { font-size: clamp(1.3rem, 4.5vw, 1.7rem); }
+      .dresscode-text { font-size: clamp(1rem, 4vw, 1.3rem); }
+      .wishes-text { font-size: clamp(0.95rem, 4vw, 1.2rem); padding: 0 14px; }
+      .marquee-ribbon { padding: 12px 0; }
+      .marquee-track span { font-size: clamp(0.85rem, 3vw, 1rem); }
+      .heart-image { max-height: 30vh; }
+      .location-label, .location-name { font-size: clamp(1.7rem, 6.5vw, 2.2rem); }
+      .final-wishes { margin-top: 14px; }
+      .guestbook-subtitle { font-size: 0.95rem; }
+      .form-label { font-size: 1rem; }
+      .radio-label { font-size: 1rem; }
+      .drink-check { font-size: 0.95rem; }
+      .full-width-heart { max-width: 320px; }
+      .calendar-img { max-height: 40vh; }
+      .paper-clip { width: 30px; top: -8px; left: 8px; }
       .form-group { max-width: 100%; padding: 0 4px; }
-      .form-input, .form-select, .form-textarea { padding: 4px 2px 5px 2px; font-size: 0.9rem; }
+      .form-input, .form-select, .form-textarea { padding: 5px 4px 7px; font-size: 1rem; }
+      .timing-main-title, .dresscode-title, .wishes-title, .guestbook-title, .final-big { font-size: clamp(1.7rem, 6vw, 2.2rem); }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
-      .screen-second { padding: 25px 18px 32px; gap: 8px; }
-      .invitation-content { gap: 8px; padding: 0 8px; }
-      .white-rectangle { margin: 0 20px; padding: 35px 24px 32px 24px; }
-      .ref-image { width: 180px; height: 290px; }
-      .images-row { height: 290px; }
-      .submit-btn { min-width: 210px; padding: 9px 32px; font-size: 0.95rem; margin-top: 8px; }
-      .location-content { gap: 20px; }
-      .final-wishes { margin-top: 16px; }
-      .form-group { max-width: 380px; }
-      .drinks-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .screen-second { padding: 28px 18px 36px; gap: 10px; }
+      .invitation-content { gap: 10px; padding: 0 8px; }
+      .white-rectangle { margin: 0 20px; padding: 38px 26px 34px; }
+      .ref-image { width: 190px; height: 310px; }
+      .images-row { height: 310px; }
+      .submit-btn { min-width: 220px; padding: 10px 34px; font-size: 1rem; margin-top: 10px; }
+      .location-content { gap: 22px; }
+      .final-wishes { margin-top: 18px; }
+      .form-group { max-width: 400px; }
+      .drinks-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     }
 
     @media (min-width: 768px) {
       .invitation-card { 
-        max-width: 620px; 
+        max-width: 640px; 
         box-shadow: 0 0 50px rgba(139, 26, 43, 0.05); 
         border-radius: 32px;
         height: 95vh;
@@ -995,18 +981,20 @@
         background: #FFFDF0; 
         padding: 20px 0; 
       }
-      .ref-image { width: 240px; height: 380px; }
-      .images-row { height: 380px; }
-      .envelope-image { width: 240px; }
-      .screen-second { padding: 32px 24px 40px; gap: 10px; }
-      .white-rectangle { margin: 0 32px; padding: 42px 36px 38px 36px; }
-      .submit-btn { min-width: 260px; padding: 10px 44px; font-size: 1.05rem; margin-top: 10px; }
-      .location-content { gap: 26px; }
-      .final-wishes { margin-top: 20px; }
-      .paper-clip { width: 40px; }
-      .form-group { max-width: 420px; }
-      .guestbook-title { font-size: 2rem; }
-      .guestbook-subtitle { font-size: 1.05rem; }
+      .ref-image { width: 250px; height: 400px; }
+      .images-row { height: 400px; }
+      .envelope-image { width: 260px; }
+      .screen-second { padding: 36px 24px 44px; gap: 12px; }
+      .white-rectangle { margin: 0 32px; padding: 46px 38px 42px; }
+      .submit-btn { min-width: 280px; padding: 12px 48px; font-size: 1.15rem; margin-top: 12px; }
+      .location-content { gap: 28px; }
+      .final-wishes { margin-top: 22px; }
+      .paper-clip { width: 44px; }
+      .form-group { max-width: 440px; }
+      .guestbook-title { font-size: 2.2rem; }
+      .guestbook-subtitle { font-size: 1.1rem; }
+      .form-label, .form-input, .radio-label { font-size: 1.15rem; }
+      .drink-check { font-size: 1.05rem; }
     }
   </style>
 </head>
