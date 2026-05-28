@@ -137,8 +137,9 @@
     .screen-seventh {
       background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%);
       padding: 40px 20px 45px 20px;
-      justify-content: center;
-      align-items: center;
+      /* Меняем центрирование элементов на прижатие к левому краю */
+      justify-content: flex-start;
+      align-items: flex-start;
       min-height: auto;
     }
 
@@ -634,15 +635,15 @@
       max-height: 26vh;
     }
 
-    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА (поля уменьшены вдвое, отступы сбоку убраны) ============ */
+    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА (выровнена влево, поля уменьшены) ============ */
     .guestbook-container {
       width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start; /* Выравнивание контента анкеты влево */
       gap: 18px;
+      margin: 0;
+      padding: 0;
     }
 
     .guestbook-title {
@@ -653,7 +654,7 @@
       color: #FDEBD8;
       letter-spacing: 4px;
       text-transform: uppercase;
-      text-align: center;
+      text-align: left; /* Заголовок влево */
     }
 
     .guestbook-subtitle {
@@ -661,37 +662,37 @@
       font-weight: 400;
       font-size: clamp(0.9rem, 3.5vw, 1.2rem);
       color: #FDEBD8;
-      text-align: center;
+      text-align: left; /* Подзаголовок влево */
       line-height: 1.5;
       letter-spacing: 0.4px;
-      padding: 0 8px;
+      padding: 0;
       margin-bottom: 0;
     }
 
-    /* Убираем боковые отступы у формы */
     .guest-form {
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start; /* Элементы формы прижаты влево */
       gap: 20px;
-      padding: 0; /* Убраны отступы сбоку */
+      padding: 0;
     }
 
-    /* Общие стили для групп формы — центрирование, ширина значительно уменьшена */
+    /* Базовые группы формы выравниваем по левому краю без маргинов */
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
       width: 100%;
-      max-width: 240px;  /* Уменьшено примерно вдвое от предыдущих 320-400px */
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0;
+      margin-right: 0;
     }
 
-    /* Поле аллергии делаем ещё чуть уже для изящества */
-    .allergy-group {
-      max-width: 220px;
+    /* Конкретные поля (Имя и Аллергия) уменьшены вдвое */
+    .half-width-group {
+      width: 50%;
+      max-width: 240px; /* Четкое ограничение максимальной ширины */
+      min-width: 160px; /* Защита от избыточного сжатия на маленьких смартфонах */
     }
 
     .form-label {
@@ -700,6 +701,7 @@
       font-size: 0.95rem;
       color: #FDEBD8;
       letter-spacing: 0.5px;
+      text-align: left;
     }
 
     .form-input, .form-select, .form-textarea {
@@ -823,7 +825,7 @@
       width: auto;
       min-width: 260px;
       max-width: 360px;
-      margin: 10px auto 30px auto;
+      margin: 10px 0 30px 0; /* Кнопку выравниваем по левому краю */
       border-radius: 40px;
       display: block;
     }
@@ -870,7 +872,7 @@
     }
 
     .final-wishes {
-      text-align: center;
+      text-align: left; /* Финальный текст тоже влево */
       margin-top: 30px;
       width: 100%;
     }
@@ -894,7 +896,7 @@
       margin-top: 9px;
     }
 
-    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ (сохраняем узкие поля без отступов) ============ */
+    /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
     @media (max-width: 480px) {
       .first-content { padding: 0 14px; margin-top: -12px; }
       .dialog-container { gap: 8px; }
@@ -906,7 +908,7 @@
       .screen-fourth { padding: 28px 12px 38px; }
       .screen-fifth { padding: 45px 0 0 0; }
       .screen-sixth { padding: 28px 14px 33px 14px; }
-      .screen-seventh { padding: 30px 14px 35px 14px; }
+      .screen-seventh { padding: 30px 16px 35px 16px; } /* Небольшие внутренние паддинги для эстетики */
       .location-content { gap: 18px; }
       .white-rectangle { margin: 0 16px; padding: 32px 20px 30px 20px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -915,7 +917,7 @@
       .dresscode-container { gap: 20px; }
       .envelope-image { width: 170px; }
       .drinks-grid { grid-template-columns: 1fr; gap: 8px; }
-      .submit-btn { min-width: 220px; padding: 8px 50px; margin-bottom: 25px; font-size: 0.95rem; }
+      .submit-btn { min-width: 200px; padding: 8px 40px; margin-bottom: 25px; font-size: 0.95rem; }
       .guestbook-container { gap: 15px; }
       .big-date { font-size: clamp(2.8rem, 12vw, 4.2rem); }
       .hero-image-section { padding-top: 20px; }
@@ -935,12 +937,9 @@
       .calendar-img { max-height: 38vh; }
       .paper-clip { width: 28px; top: -8px; left: 8px; }
       
-      /* На малых экранах поля становятся ещё чуть уже, чтобы не прилипали, но отступы сбоку отсутствуют */
-      .form-group {
-        max-width: 210px;
-      }
-      .allergy-group {
-        max-width: 190px;
+      .half-width-group {
+        width: 50%;
+        max-width: 160px;
       }
       .guest-form {
         padding: 0;
@@ -956,13 +955,6 @@
       .submit-btn { min-width: 240px; padding: 9px 60px; margin-bottom: 28px; }
       .location-content { gap: 20px; }
       .final-wishes { margin-top: 28px; }
-      
-      .form-group {
-        max-width: 230px;
-      }
-      .allergy-group {
-        max-width: 210px;
-      }
     }
 
     @media (min-width: 768px) {
@@ -985,20 +977,12 @@
       .location-content { gap: 26px; }
       .final-wishes { margin-top: 32px; }
       .paper-clip { width: 40px; }
-      
-      .form-group {
-        max-width: 240px;
-      }
-      .allergy-group {
-        max-width: 220px;
-      }
     }
   </style>
 </head>
 <body>
 
 <main class="invitation-card">
-  <!-- ЭКРАН 1 -->
   <section class="screen screen-first">
     <div class="hero-top-wrapper">
       <div class="hero-image-section">
@@ -1024,7 +1008,6 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 2 -->
   <section class="screen screen-second">
     <div class="invitation-content">
       <div class="invitation-greeting">
@@ -1038,7 +1021,6 @@
     <div class="calendar-image-wrapper"><img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FFFDF0/8B1A2B?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 3 -->
   <section class="screen screen-third">
     <div class="location-content">
       <div class="location-label">Локация</div>
@@ -1051,13 +1033,11 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 4 -->
   <section class="screen screen-fourth">
     <div class="timing-section-title"><div class="timing-main-title">Тайминг</div></div>
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 5 -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
@@ -1066,7 +1046,6 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 6 -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
@@ -1075,15 +1054,13 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА с полями уменьшенной ширины и без боковых отступов -->
   <section class="screen screen-seventh">
     <div class="guestbook-container">
       <div class="guestbook-title">Анкета гостя</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
       <form class="guest-form" id="guestForm">
-        <!-- Поле "Имя и фамилия" уменьшено вдвое (max-width 240px) -->
-        <div class="form-group">
+        <div class="form-group half-width-group">
           <label class="form-label">Имя и фамилия</label>
           <input type="text" class="form-input" placeholder="" required>
         </div>
@@ -1096,8 +1073,7 @@
           </div>
         </div>
 
-        <!-- Поле аллергии сужено ещё сильнее (max-width 220px) -->
-        <div class="form-group allergy-group">
+        <div class="form-group half-width-group">
           <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
           <textarea class="form-textarea" placeholder=""></textarea>
         </div>
@@ -1109,101 +1085,19 @@
             <label class="drink-check"><input type="checkbox" value="вино белое"> Вино белое</label>
             <label class="drink-check"><input type="checkbox" value="вино красное"> Вино красное</label>
             <label class="drink-check"><input type="checkbox" value="коньяк"> Коньяк</label>
-            <label class="drink-check"><input type="checkbox" value="виски"> Виски</label>
-            <label class="drink-check"><input type="checkbox" value="водка"> Водка</label>
-            <label class="drink-check"><input type="checkbox" value="не пью алкоголь"> Не пью алкоголь</label>
           </div>
         </div>
 
-        <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
+        <button type="submit" class="submit-btn">Отправить</button>
       </form>
 
-      <div class="date-marquee-wrapper">
-        <div class="date-marquee">
-          <div class="date-marquee-track">
-            <span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span><span>26.08.2026</span>
-          </div>
-        </div>
-      </div>
-
       <div class="final-wishes">
-        <div class="final-big">Мы вас очень ждём</div>
-        <div class="final-small">Ваши Артур и Таня</div>
+        <div class="final-big">До встречи!</div>
+        <div class="final-small">С любовью, ваши молодожёны</div>
       </div>
     </div>
   </section>
 </main>
 
-<script>
-  (function() {
-    const screens = document.querySelectorAll('.screen:not(.screen-first)');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
-    
-    screens.forEach(screen => {
-      observer.observe(screen);
-    });
-    
-    function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
-      const container = document.querySelector(containerSelector);
-      if (!container) return;
-      const track = container.querySelector(trackSelector);
-      if (!track) return;
-      
-      const checkAndClone = () => {
-        const trackWidth = track.scrollWidth;
-        const containerWidth = container.clientWidth;
-        if (trackWidth < containerWidth * 1.8 || track.children.length < minChildren) {
-          const children = Array.from(track.children);
-          const clonesNeeded = Math.ceil((containerWidth * 2) / trackWidth) + 2;
-          for (let i = 0; i < clonesNeeded; i++) {
-            children.forEach(child => {
-              const clone = child.cloneNode(true);
-              track.appendChild(clone);
-            });
-          }
-        }
-      };
-      
-      checkAndClone();
-      window.addEventListener('resize', checkAndClone);
-    }
-
-    ensureMarquee('.marquee-ribbon', '.marquee-track');
-    ensureMarquee('.date-marquee', '.date-marquee-track', 8);
-
-    function setAppHeight() {
-      const doc = document.documentElement;
-      doc.style.setProperty('--app-height', `${window.innerHeight}px`);
-    }
-    window.addEventListener('resize', setAppHeight);
-    window.addEventListener('orientationchange', setAppHeight);
-    setAppHeight();
-    
-    const style = document.createElement('style');
-    style.textContent = `
-      .screen-first {
-        min-height: var(--app-height, 100vh);
-      }
-    `;
-    document.head.appendChild(style);
-  })();
-
-  function submitForm() {
-    const name = document.querySelector('.guest-form .form-input')?.value;
-    const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
-    if (!name || !attendance) {
-      alert('Пожалуйста, заполните имя и выберите вариант присутствия');
-      return;
-    }
-    alert('Спасибо! Ваш ответ сохранён. Ждём вас на свадьбе!');
-  }
-</script>
 </body>
 </html>
