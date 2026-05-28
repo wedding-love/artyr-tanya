@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Возвращаем исходные шрифты -->
+  <!-- Исходные шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <style>
@@ -127,6 +127,15 @@
     }
 
     .screen-sixth {
+      background-color: #FFFDF0;
+      padding: 35px 20px 40px 20px;
+      justify-content: center;
+      align-items: center;
+      min-height: auto;
+    }
+
+    /* Новый блок Важно будет на светлом фоне, добавим отдельный экран */
+    .screen-important {
       background-color: #FFFDF0;
       padding: 35px 20px 40px 20px;
       justify-content: center;
@@ -410,15 +419,14 @@
       display: block;
       object-fit: cover;
       aspect-ratio: 4 / 3;
-      transition: filter 0.7s ease, transform 0.5s ease;
+      transition: filter 0.7s ease-in-out, transform 0.5s ease;
       border-radius: 0;
-      border: 5px solid #ffffff; /* белая рамка, чуть толще */
+      border: 5px solid #ffffff;
       box-sizing: border-box;
       max-height: 40vh;
-      filter: grayscale(100%); /* изначально серое */
+      filter: grayscale(100%);
     }
 
-    /* Когда изображение получает класс .colored, становится цветным */
     .location-img.colored {
       filter: grayscale(0%);
     }
@@ -473,14 +481,15 @@
       padding: 0 8px;
     }
 
+    /* Увеличили картинку тайминга */
     .timing-schedule-img {
       width: 100%;
-      max-width: 560px;
+      max-width: 620px;
       height: auto;
       display: block;
       object-fit: contain;
       margin: 0 auto;
-      max-height: 65vh;
+      max-height: 70vh;
     }
 
     /* ============ ПЯТЫЙ ЭКРАН ============ */
@@ -530,14 +539,18 @@
       opacity: 0.92;
     }
 
-    .dresscode-text {
+    /* Улучшенная читаемость текстов */
+    .dresscode-text,
+    .wishes-text,
+    .important-text {
       font-family: "Bad Script", cursive;
       font-weight: 400;
       font-size: clamp(1rem, 4vw, 1.4rem);
       color: #8B1A2B;
       line-height: 1.65;
-      text-align: center;
+      text-align: justify;
       letter-spacing: 0.3px;
+      text-align-last: center;
     }
 
     .references-wrapper {
@@ -619,15 +632,8 @@
     }
 
     .wishes-text {
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
-      font-size: clamp(0.95rem, 3.8vw, 1.3rem);
-      color: #8B1A2B;
-      line-height: 1.65;
-      text-align: center;
-      letter-spacing: 0.4px;
-      padding: 0 20px;
-      max-width: 480px;
+      text-align: justify;
+      text-align-last: center;
     }
 
     .envelope-image {
@@ -638,6 +644,36 @@
       margin: 6px auto 0;
       opacity: 0.95;
       max-height: 26vh;
+    }
+
+    /* ============ НОВЫЙ БЛОК ВАЖНО ============ */
+    .important-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .important-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+      color: #8B1A2B;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .important-white-rectangle {
+      position: relative;
+      background-color: #ffffff;
+      width: auto;
+      margin: 0 24px;
+      padding: 40px 30px 36px 30px;
+      border-radius: 0;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
     }
 
     /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА ============ */
@@ -825,14 +861,14 @@
       opacity: 0.85;
     }
 
+    /* Новая кнопка со шрифтом как в бегущей строке даты */
     .submit-btn {
       background: #FFFDF0;
       border: 2px solid #FDEBD8;
       padding: 10px 28px;
-      font-family: "Playfair Display", serif;
+      font-family: "Cormorant Garamond", serif;
       font-weight: 600;
-      font-style: italic;
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 4px;
       color: #8B1A2B;
       cursor: pointer;
@@ -918,6 +954,17 @@
       margin-top: 9px;
     }
 
+    /* Дополнительная фраза */
+    .final-warm {
+      font-family: "Bad Script", cursive;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 4.3vw, 1.4rem);
+      color: #FDEBD8;
+      text-align: center;
+      margin-top: 16px;
+      letter-spacing: 1px;
+    }
+
     /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
     @media (max-width: 480px) {
       .first-content { padding: 0 14px; margin-top: -12px; }
@@ -930,22 +977,22 @@
       .screen-fourth { padding: 28px 12px 38px; }
       .screen-fifth { padding: 45px 0 0 0; }
       .screen-sixth { padding: 28px 14px 33px 14px; }
+      .screen-important { padding: 28px 14px 33px 14px; }
       .screen-seventh { padding: 30px 16px 35px 16px; }
       .location-content { gap: 18px; }
-      .white-rectangle { margin: 0 16px; padding: 32px 20px 30px 20px; }
+      .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px 20px; }
       .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
       .images-row { height: 260px; }
       .dresscode-container { gap: 20px; }
       .envelope-image { width: 170px; }
       .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
-      .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 6px; font-size: 0.9rem; letter-spacing: 3px; }
+      .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 6px; font-size: 1rem; letter-spacing: 3px; }
       .guestbook-container { gap: 18px; }
       .big-date { font-size: clamp(2.8rem, 12vw, 4.2rem); }
       .hero-image-section { padding-top: 20px; }
       .invitation-greeting { font-size: clamp(1.1rem, 4.3vw, 1.5rem); }
-      .dresscode-text { font-size: clamp(0.9rem, 3.8vw, 1.2rem); }
-      .wishes-text { font-size: clamp(0.85rem, 3.6vw, 1.1rem); padding: 0 14px; }
+      .dresscode-text, .wishes-text, .important-text { font-size: clamp(0.9rem, 3.8vw, 1.2rem); }
       .marquee-ribbon { padding: 11px 0; }
       .marquee-track span { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
       .heart-image { max-height: 28vh; }
@@ -960,15 +1007,16 @@
       .paper-clip { width: 28px; top: -8px; left: 8px; }
       .form-group { max-width: 100%; padding: 0 4px; }
       .form-input, .form-select, .form-textarea { padding: 4px 2px 5px 2px; font-size: 0.9rem; }
+      .timing-schedule-img { max-width: 100%; }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
       .screen-second { padding: 25px 18px 32px; gap: 8px; }
       .invitation-content { gap: 8px; padding: 0 8px; }
-      .white-rectangle { margin: 0 20px; padding: 35px 24px 32px 24px; }
+      .white-rectangle, .important-white-rectangle { margin: 0 20px; padding: 35px 24px 32px 24px; }
       .ref-image { width: 180px; height: 290px; }
       .images-row { height: 290px; }
-      .submit-btn { min-width: 210px; padding: 9px 32px; font-size: 0.95rem; margin-top: 8px; }
+      .submit-btn { min-width: 210px; padding: 9px 32px; font-size: 1rem; margin-top: 8px; }
       .location-content { gap: 20px; }
       .final-wishes { margin-top: 16px; }
       .form-group { max-width: 380px; }
@@ -990,8 +1038,8 @@
       .images-row { height: 380px; }
       .envelope-image { width: 240px; }
       .screen-second { padding: 32px 24px 40px; gap: 10px; }
-      .white-rectangle { margin: 0 32px; padding: 42px 36px 38px 36px; }
-      .submit-btn { min-width: 260px; padding: 10px 44px; font-size: 1.05rem; margin-top: 10px; }
+      .white-rectangle, .important-white-rectangle { margin: 0 32px; padding: 42px 36px 38px 36px; }
+      .submit-btn { min-width: 260px; padding: 10px 44px; font-size: 1.1rem; margin-top: 10px; }
       .location-content { gap: 26px; }
       .final-wishes { margin-top: 20px; }
       .paper-clip { width: 40px; }
@@ -1058,7 +1106,7 @@
 
   <section class="screen screen-fourth">
     <div class="timing-section-title"><div class="timing-main-title">Тайминг</div></div>
-    <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
+    <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/620x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
   <section class="screen screen-fifth">
@@ -1074,6 +1122,14 @@
       <div class="wishes-title">Пожелания</div>
       <div class="wishes-text">Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах! Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). И помните, самый ценный подарок для нас – ваше присутствие!</div>
       <div><img src="конверт.png" alt="Конверт для пожеланий" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFFDF0?text=✉️';"></div>
+    </div>
+  </section>
+
+  <!-- НОВЫЙ БЛОК ВАЖНО -->
+  <section class="screen screen-important">
+    <div class="important-container">
+      <div class="important-title">Важно</div>
+      <div class="important-white-rectangle"><img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';"><div class="important-text">Дорогие гости, вы знаете, что мы очень любим детей, но нашу свадьбу мы видим в формате «для взрослых»: с бокалом игристого и не детскими развлечениями!<br><br>Пожалуйста, оставьте малышей в надежных руках на время нашего торжества. Ведь любому родителю иногда следует отдыхать, забыв на время о повседневных заботах!</div></div>
     </div>
   </section>
 
@@ -1097,11 +1153,6 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
-          <textarea class="form-textarea"></textarea>
-        </div>
-
-        <div class="form-group">
           <label class="form-label">Меню напитков (выберите предпочтения)</label>
           <div class="drinks-grid">
             <label class="drink-check"><input type="checkbox" value="игристое"> Игристое</label>
@@ -1112,6 +1163,12 @@
             <label class="drink-check"><input type="checkbox" value="водка"> Водка</label>
             <label class="drink-check"><input type="checkbox" value="не пью алкоголь"> Не пью алкоголь</label>
           </div>
+        </div>
+
+        <!-- Аллергия теперь последняя -->
+        <div class="form-group">
+          <label class="form-label">Аллергия / непереносимость продуктов (если есть)</label>
+          <textarea class="form-textarea"></textarea>
         </div>
 
         <button type="submit" class="submit-btn">Отправить</button>
@@ -1128,6 +1185,7 @@
       <div class="final-wishes">
         <div class="final-big">До встречи!</div>
         <div class="final-small">С любовью, ваши молодожёны</div>
+        <div class="final-warm">Мы вас очень ждем! Ваши Артур и Таня</div>
       </div>
     </div>
   </section>
