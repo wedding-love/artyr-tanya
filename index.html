@@ -95,24 +95,14 @@
     }
 
     /* Порядок блоков */
-    .screen-second { background-color: #FFFDF0; padding: 36px 20px 44px; gap: 12px; }
-    .screen-third { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 20px; }
-    .screen-fourth { background-color: #FFFDF0; padding: 40px 16px 50px; }
-    .screen-fifth { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 60px 0 0 0; }
-    .screen-sixth { background-color: #FFFDF0; padding: 40px 20px 45px 20px; }
+    .screen-second { background-color: #FFFDF0; padding: 32px 20px 40px; gap: 8px; }
+    .screen-third { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 55px 20px; }
+    .screen-fourth { background-color: #FFFDF0; padding: 35px 16px 45px; }
+    .screen-fifth { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 55px 0 0 0; }
+    .screen-sixth { background-color: #FFFDF0; padding: 35px 20px 40px 20px; }
     .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px; }
-    .screen-organizer { background-color: #FFFDF0; padding: 50px 20px; text-align: center; }
-    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 45px 20px 50px 20px; }
-
-    /* Общие стили для читаемости */
-    .invitation-greeting, .dresscode-text, .wishes-text, .important-text, .organizer-text {
-      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
-      line-height: 1.65;
-      text-align: justify;
-      text-align-last: center;
-      letter-spacing: 0.4px;
-      word-break: break-word;
-    }
+    .screen-organizer { background-color: #FFFDF0; padding: 40px 20px; }
+    .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 20px 45px 20px; }
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
@@ -121,117 +111,117 @@
     .heart-image { width: 100%; height: auto; max-height: 32vh; filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); }
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
-    .sub-title { font-family: "Bad Script", cursive; font-size: clamp(1.9rem, 6.5vw, 2.5rem); color: #8B1A2B; letter-spacing: 2px; }
-    .primary-title { font-family: "Caveat", cursive; font-size: clamp(5.5rem, 19vw, 9rem); color: #8B1A2B; line-height: 0.9; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.5deg); }
+    .sub-title { font-family: "Bad Script", cursive; font-size: clamp(1.7rem, 6vw, 2.2rem); color: #8B1A2B; letter-spacing: 2px; }
+    .primary-title { font-family: "Caveat", cursive; font-size: clamp(5rem, 18vw, 8rem); color: #8B1A2B; line-height: 0.9; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.5deg); }
     .dialog-area { margin: 2vh 0; }
     .dialog-container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .dialog-text { font-family: "Marck Script", cursive; font-size: clamp(1.3rem, 5.5vw, 1.8rem); color: #8B1A2B; }
-    .marquee-ribbon { background-color: #8B1A2B; width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; padding: 15px 0; }
+    .dialog-text { font-family: "Marck Script", cursive; font-size: clamp(1.2rem, 5vw, 1.6rem); color: #8B1A2B; }
+    .marquee-ribbon { background-color: #8B1A2B; width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; padding: 13px 0; }
     .marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 24s linear infinite; width: max-content; }
-    .marquee-track span { font-family: "Marck Script", cursive; color: #FFFDF0; font-size: clamp(0.95rem, 3.2vw, 1.25rem); padding-right: 48px; }
+    .marquee-track span { font-family: "Marck Script", cursive; color: #FFFDF0; font-size: clamp(0.85rem, 2.8vw, 1.1rem); padding-right: 48px; }
     @keyframes marqueeScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
     /* ============ ВТОРОЙ ЭКРАН ============ */
-    .invitation-content { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 540px; margin: 0 auto; }
-    .invitation-greeting p { margin-bottom: 6px; }
-    .big-date { font-family: "Caveat", cursive; font-size: clamp(4rem, 15vw, 6.5rem); color: #8B1A2B; letter-spacing: 8px; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.3deg); word-break: break-word; text-align: center; }
-    .calendar-image-wrapper { max-width: 450px; margin: 8px auto 0; width: 100%; padding: 0 12px; }
-    .calendar-img { width: 100%; height: auto; max-height: 45vh; object-fit: contain; }
+    .invitation-content { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 520px; margin: 0 auto; }
+    .invitation-greeting { font-family: "Bad Script", cursive; font-size: clamp(1.3rem, 4.5vw, 1.9rem); color: #8B1A2B; text-align: center; line-height: 1.35; }
+    .invitation-greeting p { margin-bottom: 1px; }
+    .big-date { font-family: "Caveat", cursive; font-size: clamp(3.5rem, 14vw, 6rem); color: #8B1A2B; letter-spacing: 6px; text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08); transform: rotate(-0.3deg); }
+    .calendar-image-wrapper { max-width: 420px; margin: 0 auto; padding: 0 12px; }
+    .calendar-img { width: 100%; height: auto; max-height: 42vh; object-fit: contain; }
 
-    /* ============ ТРЕТИЙ ЭКРАН (локация) ============ */
-    .location-content { display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 460px; margin: 0 auto; width: 100%; }
-    .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2.2rem, 7.5vw, 2.8rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; word-break: break-word; }
-    .location-photo-wrapper { position: relative; max-width: 420px; margin: 8px auto 0; width: 100%; box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3); }
+    /* ============ ТРЕТИЙ ЭКРАН ============ */
+    .location-content { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 440px; margin: 0 auto; }
+    .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.9rem, 7vw, 2.5rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; }
+    .location-photo-wrapper { position: relative; max-width: 390px; margin: 6px auto 0; box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3); }
     .location-img { width: 100%; display: block; aspect-ratio: 4/3; border: 5px solid #ffffff; filter: grayscale(100%); transition: filter 0.7s ease-in-out; object-fit: cover; }
     .location-img.colored { filter: grayscale(0%); }
-    .paper-clip { position: absolute; top: -12px; left: 12px; width: 40px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
-    .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #FDEBD8; text-align: center; margin-top: 6px; }
+    .paper-clip { position: absolute; top: -12px; left: 12px; width: 36px; z-index: 12; transform: rotate(-15deg); pointer-events: none; }
+    .location-address { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; text-align: center; margin-top: 4px; }
 
-    /* ============ ЧЕТВЕРТЫЙ ЭКРАН (тайминг) ============ */
-    .timing-section-title { text-align: center; margin-bottom: 18px; }
-    .timing-main-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #8B1A2B; letter-spacing: 5px; text-transform: uppercase; }
-    .timing-image-container { text-align: center; margin-top: 10px; width: 100%; padding: 0 8px; }
-    .timing-schedule-img { width: 100%; max-width: 660px; height: auto; margin: 0 auto; max-height: 72vh; object-fit: contain; }
+    /* ============ ЧЕТВЕРТЫЙ ЭКРАН ============ */
+    .timing-section-title { text-align: center; margin-bottom: 14px; }
+    .timing-main-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; }
+    .timing-image-container { text-align: center; margin-top: 6px; padding: 0 8px; }
+    .timing-schedule-img { width: 100%; max-width: 560px; height: auto; margin: 0 auto; max-height: 65vh; object-fit: contain; }
 
-    /* ============ ПЯТЫЙ ЭКРАН (дресс-код) ============ */
-    .dresscode-container { display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; }
-    .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; text-align: center; padding: 0 20px; }
-    .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); width: auto; }
-    .tape-sticker { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); width: 90px; opacity: 0.92; pointer-events: none; }
-    .dresscode-text { text-align: justify; text-align-last: center; }
+    /* ============ ПЯТЫЙ ЭКРАН ============ */
+    .dresscode-container { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
+    .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+    .tape-sticker { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); width: 85px; opacity: 0.92; pointer-events: none; }
+    .dresscode-text { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
     .references-wrapper { width: 100%; }
-    .ref-subtitle { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #FDEBD8; text-align: center; margin-bottom: 16px; }
+    .ref-subtitle { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #FDEBD8; text-align: center; margin-bottom: 14px; }
     .scroll-container { overflow-x: auto; scrollbar-width: none; width: 100%; }
     .scroll-container::-webkit-scrollbar { display: none; }
-    .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: auto; gap: 0; }
+    .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: 360px; }
     .ref-image { width: 220px; height: 360px; object-fit: cover; flex-shrink: 0; }
 
-    /* ============ ШЕСТОЙ ЭКРАН (пожелания) ============ */
-    .wishes-container { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
-    .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #8B1A2B; letter-spacing: 5px; text-transform: uppercase; text-align: center; }
-    .wishes-text p { margin-bottom: 12px; }
-    .envelope-image { width: 260px; max-width: 70%; height: auto; margin: 8px auto 0; }
+    /* ============ ШЕСТОЙ ЭКРАН ============ */
+    .wishes-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
+    .wishes-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
+    .wishes-text p { margin-bottom: 8px; }
+    .envelope-image { width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
 
     /* ============ ВАЖНО ============ */
-    .important-container { text-align: center; width: 100%; }
-    .important-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 24px; }
-    .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 44px 34px 40px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); width: auto; }
-    .important-text { color: #8B1A2B; text-align: justify; text-align-last: center; }
+    .important-container { text-align: center; }
+    .important-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 24px; }
+    .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+    .important-text { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #8B1A2B; text-align: justify; text-align-last: center; line-height: 1.65; }
 
-    /* ============ ОРГАНИЗАТОР (светлый фон, без рамок) ============ */
-    .organizer-container { text-align: center; max-width: 480px; margin: 0 auto; width: 100%; }
-    .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6vw, 2.4rem); color: #8B1A2B; letter-spacing: 4px; margin-bottom: 24px; }
-    .organizer-info { font-family: "Bad Script", cursive; font-size: clamp(1.2rem, 4.5vw, 1.6rem); color: #8B1A2B; line-height: 1.8; word-break: break-word; }
-    .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: 1px dashed #8B1A2B; transition: 0.2s; }
+    /* ============ ОРГАНИЗАТОР (светлый, без рамок, строки ровно) ============ */
+    .organizer-container { text-align: center; max-width: 500px; margin: 0 auto; }
+    .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+    .organizer-info { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #8B1A2B; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 8px 20px; row-gap: 12px; }
+    .organizer-info span, .organizer-info a { display: inline-block; white-space: nowrap; }
+    .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: none; transition: opacity 0.2s; }
+    .organizer-info a:hover { opacity: 0.7; }
 
     /* ============ АНКЕТА ============ */
-    .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; }
-    .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(2rem, 7vw, 2.6rem); color: #FDEBD8; letter-spacing: 5px; text-transform: uppercase; text-align: center; }
-    .guestbook-subtitle { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.35rem); color: #FDEBD8; text-align: center; max-width: 460px; word-break: break-word; }
-    .guest-form { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
-    .form-group { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 8px; }
-    .form-label { font-family: "Bad Script", cursive; font-size: 1.1rem; color: #FDEBD8; text-align: left; }
-    .form-input, .form-select, .form-textarea { background: transparent; border: none; border-bottom: 1px solid rgba(253,235,216,0.8); padding: 6px 4px 8px; font-family: "Bad Script", cursive; font-size: 1.1rem; color: #FDEBD8; outline: none; width: 100%; transition: 0.2s; }
+    .guestbook-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
+    .guestbook-subtitle { font-family: "Bad Script", cursive; font-size: clamp(0.9rem, 3.8vw, 1.15rem); color: #FDEBD8; text-align: center; max-width: 420px; }
+    .guest-form { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .form-group { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; text-align: left; }
+    .form-input, .form-select, .form-textarea { background: transparent; border: none; border-bottom: 1px solid rgba(253,235,216,0.7); padding: 4px 4px 6px; font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; outline: none; width: 100%; transition: 0.2s; }
     .form-input:focus, .form-textarea:focus { border-bottom-color: #FFFDF0; transform: translateY(-1px); }
-    .form-textarea { resize: vertical; min-height: 70px; }
-    .radio-group { display: flex; flex-direction: column; gap: 14px; width: 100%; }
-    .radio-label { display: flex; align-items: center; gap: 14px; font-family: "Bad Script", cursive; font-size: 1.1rem; color: #FDEBD8; cursor: pointer; }
-    .radio-label input, .drink-check input { appearance: none; width: 20px; height: 20px; border: 1.5px solid #FDEBD8; background: transparent; cursor: pointer; flex-shrink: 0; }
+    .form-textarea { resize: vertical; min-height: 60px; }
+    .radio-group { display: flex; flex-direction: column; gap: 12px; }
+    .radio-label { display: flex; align-items: center; gap: 12px; font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; cursor: pointer; }
+    .radio-label input, .drink-check input { appearance: none; width: 18px; height: 18px; border: 1.5px solid #FDEBD8; background: transparent; cursor: pointer; flex-shrink: 0; }
     .radio-label input { border-radius: 50%; }
-    .radio-label input:checked::after { content: ''; display: block; width: 10px; height: 10px; background: #FDEBD8; border-radius: 50%; margin: 3px; }
-    .drink-check input { border-radius: 3px; }
-    .drink-check input:checked::after { content: '✓'; display: block; font-size: 14px; color: #FDEBD8; text-align: center; line-height: 16px; }
-    .drinks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 14px 18px; width: 100%; }
-    .drink-check { display: flex; align-items: center; gap: 12px; font-family: "Bad Script", cursive; font-size: 1rem; color: #FDEBD8; cursor: pointer; word-break: break-word; }
-    .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 12px 32px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1.15rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
+    .radio-label input:checked::after { content: ''; display: block; width: 10px; height: 10px; background: #FDEBD8; border-radius: 50%; margin: 2px; }
+    .drink-check input { border-radius: 2px; }
+    .drink-check input:checked::after { content: '✓'; display: block; font-size: 13px; color: #FDEBD8; text-align: center; line-height: 15px; }
+    .drinks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 12px 16px; width: 100%; }
+    .drink-check { display: flex; align-items: center; gap: 10px; font-family: "Bad Script", cursive; font-size: 0.95rem; color: #FDEBD8; cursor: pointer; }
+    .submit-btn { background: #FFFDF0; border: 2px solid #FDEBD8; padding: 10px 28px; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1rem; letter-spacing: 4px; color: #8B1A2B; cursor: pointer; border-radius: 48px; transition: 0.3s; margin-top: 8px; }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
-    .date-marquee-wrapper { width: 100vw; margin-left: calc(-50vw + 50%); margin: 24px 0; overflow: hidden; background: #FFFDF0; }
-    .date-marquee { background: #FFFDF0; padding: 10px 0; overflow: hidden; }
+    .date-marquee-wrapper { width: 100vw; margin-left: calc(-50vw + 50%); margin: 20px 0; overflow: hidden; background: #FFFDF0; }
+    .date-marquee { background: #FFFDF0; padding: 8px 0; overflow: hidden; }
     .date-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 20s linear infinite; width: max-content; }
-    .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 600; color: #8B1A2B; font-size: clamp(1rem,3.5vw,1.2rem); text-transform: uppercase; letter-spacing: 6px; padding-right: 50px; }
-    .final-wishes { text-align: center; margin-top: 12px; width: 100%; }
-    .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem,6vw,2.4rem); color: #FDEBD8; letter-spacing: 3px; word-break: break-word; }
-    .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.2rem,4.5vw,1.6rem); color: #FDEBD8; margin-top: 12px; word-break: break-word; }
+    .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
+    .final-wishes { text-align: center; margin-top: 12px; }
+    .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
+    .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
 
     /* Адаптивность */
     @media (max-width: 560px) {
-      .white-rectangle, .important-white-rectangle { margin: 0 12px; padding: 36px 20px 32px; }
-      .tape-sticker { width: 70px; top: -30px; }
+      .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
+      .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
-      .images-row { height: auto; }
-      .envelope-image { width: 200px; }
+      .images-row { height: 260px; }
+      .envelope-image { width: 170px; }
       .timing-schedule-img { max-width: 100%; }
       .form-group { max-width: 100%; }
-      .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
-      .submit-btn { min-width: 180px; padding: 8px 24px; font-size: 1rem; }
-      .calendar-image-wrapper { padding: 0; }
-      .big-date { letter-spacing: 4px; }
-      .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 36px; }
+      .drinks-grid { grid-template-columns: 1fr; }
+      .submit-btn { min-width: 180px; padding: 8px 24px; }
+      .organizer-info { flex-direction: column; gap: 6px; align-items: center; }
+      .organizer-info span, .organizer-info a { white-space: normal; }
+      .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 16px; }
-    }
-
-    @media (min-width: 561px) and (max-width: 767px) {
-      .ref-image { width: 190px; height: 300px; }
     }
 
     @media (min-width: 768px) {
@@ -300,7 +290,7 @@
   <!-- Экран 4: Тайминг -->
   <section class="screen screen-fourth">
     <div class="timing-section-title"><div class="timing-main-title">Тайминг</div></div>
-    <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг" class="timing-schedule-img" onerror="this.src='https://placehold.co/660x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️';"></div>
+    <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️';"></div>
   </section>
 
   <!-- Экран 5: Дресс-код -->
@@ -333,13 +323,13 @@
     </div>
   </section>
 
-  <!-- Экран 8: Организатор (светлый фон, без рамок) -->
+  <!-- Экран 8: Организатор (светлый, ровные строки) -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
       <div class="organizer-title">Свадебный организатор</div>
       <div class="organizer-info">
-        Светлана Латош<br>
-        <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a><br>
+        <span>Светлана Латош</span>
+        <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a>
         <a href="tel:+375295826262">+375 29 582 62 62</a>
       </div>
     </div>
