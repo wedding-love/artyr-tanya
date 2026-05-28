@@ -109,13 +109,13 @@
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
 
-    /* «наконец‑то» и «мы женимся» – единый блок, минимальный зазор */
+    /* «наконец‑то» и «мы женимся» – слитно */
     .sub-title {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.7rem, 6vw, 2.2rem);
       color: #8B1A2B;
       letter-spacing: 2px;
-      margin-bottom: -0.1em; /* почти вплотную */
+      margin-bottom: -0.1em; /* вплотную */
       display: block;
       line-height: 1;
     }
@@ -135,23 +135,29 @@
 
     .dialog-area { margin: 2vh 0; }
 
-    /* Диалог строго в одну строку */
+    /* Диалог: левая часть в две строки, правая – на уровне нижней строки */
     .dialog-container {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: flex-end;
       gap: 16px;
-      flex-wrap: nowrap; /* ни за что не переносить */
     }
 
-    .dialog-text {
+    .dialog-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dialog-left-top,
+    .dialog-left-bottom,
+    .dialog-right {
       font-family: "Marck Script", cursive;
-      font-size: clamp(0.95rem, 3.8vw, 1.3rem); /* уменьшен, чтобы влезало */
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
       color: #8B1A2B;
       white-space: nowrap;
     }
 
-    .dialog-text:last-child {
+    .dialog-right {
       text-align: right;
       flex-shrink: 0;
     }
@@ -215,7 +221,7 @@
     .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
     .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
     .tape-sticker { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); width: 85px; opacity: 0.92; pointer-events: none; }
-    /* Теперь текст дресс-кода как приветствие */
+    /* Стиль как у приветствия */
     .dresscode-text {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
@@ -234,7 +240,6 @@
     .wishes-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
 
-    /* Теперь стиль полностью совпадает с .invitation-greeting */
     .wishes-text {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
@@ -250,7 +255,6 @@
     .important-container { text-align: center; }
     .important-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 24px; }
     .important-white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
-    /* Текст «Важно» теперь как приветствие */
     .important-text {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
@@ -259,13 +263,31 @@
       line-height: 1.35;
     }
 
-    /* ============ ОРГАНИЗАТОР ============ */
+    /* ============ ОРГАНИЗАТОР (теперь в едином стиле) ============ */
     .organizer-container { text-align: center; max-width: 500px; margin: 0 auto; }
     .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
-    .organizer-info { font-family: "Bad Script", cursive; font-size: clamp(1rem, 4vw, 1.4rem); color: #8B1A2B; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 8px 20px; row-gap: 12px; }
-    .organizer-info span, .organizer-info a { display: inline-block; white-space: nowrap; }
-    .organizer-info a { color: #8B1A2B; text-decoration: none; border-bottom: none; transition: opacity 0.2s; }
+    .organizer-info {
+      font-family: "Bad Script", cursive;
+      font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+      color: #8B1A2B;
+      line-height: 1.35;
+    }
+    .organizer-info span,
+    .organizer-info a {
+      display: inline;
+      white-space: nowrap;
+    }
+    .organizer-info a {
+      color: #8B1A2B;
+      text-decoration: none;
+      border-bottom: none;
+      transition: opacity 0.2s;
+    }
     .organizer-info a:hover { opacity: 0.7; }
+    /* Добавим мягкие разделители, если нужно */
+    .organizer-info .sep {
+      margin: 0 8px;
+    }
 
     /* ============ АНКЕТА ============ */
     .guestbook-inner {
@@ -343,8 +365,11 @@
 
     /* Адаптивность */
     @media (max-width: 560px) {
-      .dialog-text {
-        font-size: clamp(0.8rem, 3.5vw, 1.1rem); /* еще меньше для мобильных */
+      .dialog-left-top,
+      .dialog-left-bottom,
+      .dialog-right {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        white-space: normal; /* на узких экранах разрешаем перенос */
       }
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -354,8 +379,7 @@
       .timing-schedule-img { max-width: 100%; }
       .drinks-grid { grid-template-columns: 1fr; }
       .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 20px; }
-      .organizer-info { flex-direction: column; gap: 6px; align-items: center; }
-      .organizer-info span, .organizer-info a { white-space: normal; }
+      .organizer-info { font-size: clamp(1.1rem, 4vw, 1.4rem); }
       .screen-second, .screen-sixth, .screen-organizer { padding: 30px 16px 35px; }
       .screen-third, .screen-important, .screen-seventh { padding: 40px 0; }
       .guestbook-inner { padding: 0 16px; }
@@ -387,8 +411,11 @@
         </div>
         <div class="dialog-area">
           <div class="dialog-container">
-            <div class="dialog-text">— интересно, кто будет моим мужем, когда вырасту?</div>
-            <div class="dialog-text">— им буду я!</div>
+            <div class="dialog-left">
+              <div class="dialog-left-top">— интересно, кто будет моим</div>
+              <div class="dialog-left-bottom">мужем, когда вырасту?</div>
+            </div>
+            <div class="dialog-right">— им буду я!</div>
           </div>
         </div>
       </div>
@@ -431,7 +458,7 @@
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️';"></div>
   </section>
 
-  <!-- Экран 5: Дресс-код (сокращённый текст) -->
+  <!-- Экран 5: Дресс-код -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
@@ -453,7 +480,7 @@
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания (сокращены в один абзац) -->
+  <!-- Экран 6: Пожелания -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
@@ -466,7 +493,7 @@
     </div>
   </section>
 
-  <!-- Экран 7: Важно (сокращённый текст) -->
+  <!-- Экран 7: Важно -->
   <section class="screen screen-important">
     <div class="important-container">
       <div class="important-title">Важно</div>
@@ -477,13 +504,15 @@
     </div>
   </section>
 
-  <!-- Экран 8: Организатор -->
+  <!-- Экран 8: Организатор (в едином стиле) -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
       <div class="organizer-title">Свадебный организатор</div>
       <div class="organizer-info">
         <span>Светлана Латош</span>
+        <span class="sep">|</span>
         <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a>
+        <span class="sep">|</span>
         <a href="tel:+375295826262">+375 29 582 62 62</a>
       </div>
     </div>
