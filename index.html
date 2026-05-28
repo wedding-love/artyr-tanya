@@ -103,10 +103,10 @@
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
-    .hero-image-section { width: 100%; display: flex; justify-content: center; padding-top: max(30px, 6vh); }
+    .hero-image-section { width: 100%; display: flex; justify-content: center; padding-top: 0; } /* фото приклеено к верху */
     .full-width-heart { max-width: 360px; margin: 0 auto; padding: 0 16px; }
     .heart-image { width: 100%; height: auto; max-height: 32vh; filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); }
-    .first-content { padding: 0 20px; margin-top: -8px; }
+    .first-content { padding: 0 20px; margin-top: clamp(4vh, 10vh, 12vh); } /* текст смещён к центру */
     .title-block { text-align: center; margin: 0 0 2vh; }
 
     .sub-title {
