@@ -94,9 +94,7 @@
     .screen-second { background-color: #FFF5E1; padding: 32px 20px 40px; gap: 8px; }
     .screen-third { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 55px 20px 65px; }
     .screen-fourth { background-color: #FFF5E1; padding: 35px 16px 45px; }
-    /* Убрали нижний паддинг, чтобы референсы прилипали к низу */
     .screen-fifth { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 55px 0 0 0; }
-    /* Увеличен верхний отступ, чтобы отделить от дресс-кода */
     .screen-sixth { background-color: #FFF5E1; padding: 60px 20px 40px 20px; }
     .screen-important { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 50px 20px 70px; }
     .screen-organizer { background-color: #FFF5E1; padding: 40px 20px; }
@@ -264,7 +262,13 @@
       line-height: 1.35;
     }
     .envelope-wrapper { width: 100%; text-align: center; }
-    .envelope-image { display: block; width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
+    /* Увеличенный конверт с сохранением адаптивности */
+    .envelope-image {
+      display: block;
+      width: min(320px, 85%);
+      height: auto;
+      margin: 8px auto 0;
+    }
 
     /* ============ ВАЖНО ============ */
     .important-container { text-align: center; }
@@ -376,18 +380,15 @@
     .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
 
-    /* Нижнее изображение – без обводки и фона, прямо на бордовом */
     .footer-image-section {
       width: 100%;
-      margin-top: 0; /* убрали отступ, он уже есть в final-wishes */
+      margin-top: 0;
     }
     .footer-image {
       width: 100%;
       height: auto;
       display: block;
       max-height: 40vh;
-      /* без теней и рамок */
-      filter: none;
     }
 
     /* Адаптивность */
@@ -402,7 +403,8 @@
       .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
       .images-row { height: 260px; }
-      .envelope-image { width: 170px; }
+      /* на мобильных конверт тоже увеличен, но не вылезает */
+      .envelope-image { width: min(280px, 85%); }
       .timing-schedule-img { max-width: 100%; }
       .drinks-grid { grid-template-columns: 1fr; }
       .submit-btn { min-width: 180px; padding: 8px 24px; margin-top: 32px; }
@@ -489,7 +491,7 @@
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFF5E1?text=❤️+ТАЙМИНГ+❤️';"></div>
   </section>
 
-  <!-- Экран 5: Дресс-код (референсы прижаты к низу) -->
+  <!-- Экран 5: Дресс-код -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
@@ -511,7 +513,7 @@
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания -->
+  <!-- Экран 6: Пожелания (увеличен конверт) -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
       <div class="wishes-title">Пожелания</div>
@@ -586,7 +588,6 @@
       <div class="final-small">Ваши Артур и Таня</div>
     </div>
 
-    <!-- Последнее изображение – никакой обводки, прямо на бордовом фоне -->
     <div class="footer-image-section">
       <img src="изображение_2026-05-28_152918648.png" alt="Финальное изображение" class="footer-image" onerror="this.src='https://placehold.co/800x400/8B1A2B/FFF5E1?text=♥';">
     </div>
