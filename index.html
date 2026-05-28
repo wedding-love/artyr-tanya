@@ -22,7 +22,6 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
       height: 100%;
-      /* Очень светлый лимонно-желтый фон */
       background-color: #FFFDF0;
     }
 
@@ -63,6 +62,18 @@
       display: none;
     }
 
+    /* Анимация для блоков, кроме первого */
+    .screen:not(.screen-first) {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+    }
+
+    .screen.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .screen {
       width: 100%;
       display: flex;
@@ -78,6 +89,8 @@
       justify-content: space-between;
       background-color: #FFFDF0;
       padding-bottom: 0;
+      opacity: 1 !important;
+      transform: none !important;
     }
 
     .screen-second {
@@ -347,13 +360,13 @@
       max-height: 42vh;
     }
 
-    /* ============ ТРЕТИЙ ЭКРАН (ЛОКАЦИЯ) — увеличены отступы ============ */
+    /* ============ ТРЕТИЙ ЭКРАН (ЛОКАЦИЯ) — скрепка поверх фото ============ */
     .location-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 24px;        /* увеличен gap между элементами */
+      gap: 24px;
       width: 100%;
       max-width: 440px;
       margin: 0 auto;
@@ -380,7 +393,7 @@
       border-radius: 0;
       box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
       background: transparent;
-      padding: 0 8px;
+      padding: 0;
       transition: transform 0.3s ease;
     }
 
@@ -404,6 +417,19 @@
       max-height: 40vh;
     }
 
+    /* Скрепка теперь поверх фото, небольшого размера */
+    .paper-clip {
+      position: absolute;
+      top: -12px;
+      left: 12px;
+      width: 36px;
+      height: auto;
+      z-index: 12;
+      transform: rotate(-15deg);
+      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.25));
+      pointer-events: none;
+    }
+
     .location-address {
       font-family: "Bad Script", cursive;
       font-weight: 400;
@@ -414,7 +440,7 @@
       line-height: 1.5;
       max-width: 90%;
       padding: 0 8px;
-      margin-top: 4px;   /* дополнительный отступ сверху */
+      margin-top: 4px;
     }
 
     /* ============ ЧЕТВЕРТЫЙ ЭКРАН ============ */
@@ -452,7 +478,7 @@
       max-height: 65vh;
     }
 
-    /* ============ ПЯТЫЙ ЭКРАН: ДРЕСС-КОД (увеличены фото и отступы) ============ */
+    /* ============ ПЯТЫЙ ЭКРАН: ДРЕСС-КОД (белый блок уже, больше отступов) ============ */
     .dresscode-container {
       width: 100%;
       display: flex;
@@ -480,10 +506,9 @@
     .white-rectangle {
       position: relative;
       background-color: #ffffff;
-      width: calc(100% - 16px);
-      max-width: calc(100% - 16px);
-      margin: 0 8px;
-      padding: 40px 36px 36px 36px;   /* увеличены боковые отступы */
+      width: auto;
+      margin: 0 24px;           /* увеличены боковые отступы → больше бордового фона */
+      padding: 40px 30px 36px 30px;
       border-radius: 0;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
     }
@@ -542,7 +567,6 @@
       display: none;
     }
 
-    /* Увеличенные фото-референсы: больше высота и ширина, вытянуты */
     .images-row {
       display: flex;
       flex-direction: row;
@@ -551,12 +575,12 @@
       gap: 0;
       padding: 0;
       margin: 0;
-      height: 360px;     /* увеличено */
+      height: 360px;
     }
 
     .ref-image {
-      width: 220px;      /* шире */
-      height: 360px;     /* выше */
+      width: 220px;
+      height: 360px;
       object-fit: cover;
       flex-shrink: 0;
       display: block;
@@ -773,11 +797,11 @@
       cursor: pointer;
     }
 
-    /* Кнопка: уже по вертикали, длиннее по горизонтали */
+    /* Кнопка: уже по вертикали, длиннее, плюс отступ снизу для увеличения расстояния до ленты */
     .submit-btn {
       background: #FFFDF0;
       border: 2px solid #FDEBD8;
-      padding: 10px 70px;      /* уменьшен вертикальный паддинг, увеличен горизонтальный */
+      padding: 10px 70px;
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
@@ -787,9 +811,9 @@
       cursor: pointer;
       transition: all 0.3s ease;
       width: auto;
-      min-width: 260px;        /* шире */
+      min-width: 260px;
       max-width: 360px;
-      margin: 10px auto 0;
+      margin: 10px auto 30px auto;   /* увеличен нижний отступ (30px) */
       border-radius: 40px;
       display: block;
     }
@@ -800,19 +824,21 @@
       transform: scale(1.02);
     }
 
-    /* Лента с датой: уже по ширине, цвет как у светлого фона */
+    /* Лента с датой: на всю ширину экрана, без отступов */
     .date-marquee-wrapper {
-      width: 90%;              /* стала уже, не на всю ширину */
-      margin: 22px auto;      /* выравнивание по центру */
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-top: 0;
+      margin-bottom: 0;
       overflow: hidden;
-      border-radius: 30px;
+      background-color: #FFFDF0;
     }
 
     .date-marquee {
-      background-color: #FFFDF0;  /* теперь такой же светлый лимонный, как фон */
+      background-color: #FFFDF0;
       width: 100%;
       overflow: hidden;
-      padding: 8px 0;            /* чуть ниже высота ленты */
+      padding: 8px 0;
     }
 
     .date-marquee-track {
@@ -834,9 +860,10 @@
       display: inline-block;
     }
 
+    /* Отступ после ленты такой же, как перед финальными словами */
     .final-wishes {
       text-align: center;
-      margin-top: 18px;
+      margin-top: 30px;    /* такой же отступ, как от кнопки до ленты */
       width: 100%;
     }
 
@@ -873,15 +900,14 @@
       .screen-sixth { padding: 28px 14px 33px 14px; }
       .screen-seventh { padding: 30px 14px 35px 14px; }
       .location-content { gap: 18px; }
-      .white-rectangle { padding: 32px 20px 30px 20px; width: calc(100% - 12px); margin: 0 6px; }
+      .white-rectangle { margin: 0 16px; padding: 32px 20px 30px 20px; }
       .tape-sticker { width: 65px; top: -30px; }
-      /* увеличенные фото на мобильных чуть меньше, но сохраняем пропорции */
       .ref-image { width: 160px; height: 260px; }
       .images-row { height: 260px; }
       .dresscode-container { gap: 20px; }
       .envelope-image { width: 170px; }
       .drinks-grid { grid-template-columns: 1fr; gap: 8px; }
-      .submit-btn { min-width: 220px; padding: 8px 50px; font-size: 0.95rem; }
+      .submit-btn { min-width: 220px; padding: 8px 50px; margin-bottom: 25px; font-size: 0.95rem; }
       .guestbook-container { gap: 15px; }
       .big-date { font-size: clamp(2.8rem, 12vw, 4.2rem); }
       .hero-image-section { padding-top: 20px; }
@@ -892,25 +918,25 @@
       .marquee-track span { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
       .heart-image { max-height: 28vh; }
       .location-label, .location-name { font-size: clamp(1.5rem, 6vw, 2rem); }
-      .date-marquee-wrapper { width: 95%; margin: 18px auto; }
-      .final-wishes { margin-top: 18px; }
+      .final-wishes { margin-top: 25px; }
       .guestbook-subtitle { font-size: 0.85rem; }
       .form-label { font-size: 0.87rem; }
       .radio-label { font-size: 0.87rem; }
       .drink-check { font-size: 0.82rem; }
       .full-width-heart { max-width: 300px; }
       .calendar-img { max-height: 38vh; }
+      .paper-clip { width: 28px; top: -8px; left: 8px; }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
       .screen-second { padding: 25px 18px 32px; gap: 8px; }
       .invitation-content { gap: 8px; padding: 0 8px; }
-      .white-rectangle { padding: 35px 28px 32px 28px; }
+      .white-rectangle { margin: 0 20px; padding: 35px 24px 32px 24px; }
       .ref-image { width: 180px; height: 290px; }
       .images-row { height: 290px; }
-      .submit-btn { min-width: 240px; padding: 9px 60px; }
-      .date-marquee-wrapper { width: 92%; }
+      .submit-btn { min-width: 240px; padding: 9px 60px; margin-bottom: 28px; }
       .location-content { gap: 20px; }
+      .final-wishes { margin-top: 28px; }
     }
 
     @media (min-width: 768px) {
@@ -928,17 +954,18 @@
       .images-row { height: 380px; }
       .envelope-image { width: 240px; }
       .screen-second { padding: 32px 24px 40px; gap: 10px; }
-      .white-rectangle { padding: 42px 40px 38px 40px; }
-      .submit-btn { min-width: 280px; padding: 10px 80px; font-size: 1.1rem; }
-      .date-marquee-wrapper { width: 85%; margin: 26px auto; }
+      .white-rectangle { margin: 0 32px; padding: 42px 36px 38px 36px; }
+      .submit-btn { min-width: 280px; padding: 10px 80px; margin-bottom: 32px; font-size: 1.1rem; }
       .location-content { gap: 26px; }
+      .final-wishes { margin-top: 32px; }
+      .paper-clip { width: 40px; }
     }
   </style>
 </head>
 <body>
 
 <main class="invitation-card">
-  <!-- ЭКРАН 1 -->
+  <!-- ЭКРАН 1 (без анимации) -->
   <section class="screen screen-first">
     <div class="hero-top-wrapper">
       <div class="hero-image-section">
@@ -964,7 +991,7 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 2: Приглашение -->
+  <!-- ЭКРАН 2 -->
   <section class="screen screen-second">
     <div class="invitation-content">
       <div class="invitation-greeting">
@@ -978,7 +1005,7 @@
     <div class="calendar-image-wrapper"><img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/FFFDF0/8B1A2B?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 3: Локация (отступы увеличены) -->
+  <!-- ЭКРАН 3: Локация (скрепка поверх фото) -->
   <section class="screen screen-third">
     <div class="location-content">
       <div class="location-label">Локация</div>
@@ -997,7 +1024,7 @@
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг свадебного дня" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFFDF0?text=❤️+ТАЙМИНГ+❤️'; this.onerror=null;"></div>
   </section>
 
-  <!-- ЭКРАН 5: ДРЕСС-КОД (больше фото, шире белый блок) -->
+  <!-- ЭКРАН 5: ДРЕСС-КОД (белый блок уже по бокам) -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
       <div class="dresscode-title">Дресс-код</div>
@@ -1056,7 +1083,7 @@
         <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
       </form>
 
-      <!-- Лента с датой: уже, светлая -->
+      <!-- Лента с датой на всю ширину, без отступов -->
       <div class="date-marquee-wrapper">
         <div class="date-marquee">
           <div class="date-marquee-track">
@@ -1075,6 +1102,23 @@
 
 <script>
   (function() {
+    // Анимация для всех экранов, кроме первого
+    const screens = document.querySelectorAll('.screen:not(.screen-first)');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Можно продолжить наблюдение или отключить: оставляем, чтобы не убирать класс
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+    
+    screens.forEach(screen => {
+      observer.observe(screen);
+    });
+    
+    // Для лент бегущей строки, если нужно дублирование
     function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
       const container = document.querySelector(containerSelector);
       if (!container) return;
