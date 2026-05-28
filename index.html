@@ -109,13 +109,12 @@
     .first-content { padding: 0 20px; margin-top: -8px; }
     .title-block { text-align: center; margin: 0 0 2vh; }
 
-    /* «наконец‑то» и «мы женимся» – слитно */
     .sub-title {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.7rem, 6vw, 2.2rem);
       color: #8B1A2B;
       letter-spacing: 2px;
-      margin-bottom: -0.1em; /* вплотную */
+      margin-bottom: -0.1em;
       display: block;
       line-height: 1;
     }
@@ -135,7 +134,6 @@
 
     .dialog-area { margin: 2vh 0; }
 
-    /* Диалог: левая часть в две строки, правая – на уровне нижней строки */
     .dialog-container {
       display: flex;
       justify-content: space-between;
@@ -162,7 +160,6 @@
       flex-shrink: 0;
     }
 
-    /* Бегущая строка «вы приглашены» */
     .marquee-ribbon {
       background-color: #8B1A2B;
       width: 100%;
@@ -173,7 +170,7 @@
     .marquee-track span { font-family: "Marck Script", cursive; color: #FFFDF0; font-size: clamp(0.85rem, 2.8vw, 1.1rem); padding-right: 48px; }
     @keyframes marqueeScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
-    /* ============ ВТОРОЙ ЭКРАН (приветствие) ============ */
+    /* ============ ВТОРОЙ ЭКРАН ============ */
     .invitation-content { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 520px; margin: 0 auto; }
     .invitation-greeting {
       font-family: "Bad Script", cursive;
@@ -187,7 +184,7 @@
     .calendar-image-wrapper { max-width: 420px; margin: 0 auto; padding: 0 12px; }
     .calendar-img { width: 100%; height: auto; max-height: 42vh; object-fit: contain; }
 
-    /* ============ ТРЕТИЙ ЭКРАН (локация) ============ */
+    /* ============ ТРЕТИЙ ЭКРАН ============ */
     .location-content { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 440px; margin: 0 auto; }
     .location-label, .location-name { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.9rem, 7vw, 2.5rem); color: #FDEBD8; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.15); text-align: center; }
     .location-photo-wrapper {
@@ -216,12 +213,11 @@
     .timing-image-container { text-align: center; margin-top: 6px; padding: 0 8px; }
     .timing-schedule-img { width: 100%; max-width: 560px; height: auto; margin: 0 auto; max-height: 65vh; object-fit: contain; }
 
-    /* ============ ПЯТЫЙ ЭКРАН (дресс-код) ============ */
+    /* ============ ПЯТЫЙ ЭКРАН ============ */
     .dresscode-container { display: flex; flex-direction: column; align-items: center; gap: 24px; }
     .dresscode-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
     .white-rectangle { position: relative; background: #ffffff; margin: 0 24px; padding: 40px 30px 36px; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
     .tape-sticker { position: absolute; top: -35px; left: 50%; transform: translateX(-50%); width: 85px; opacity: 0.92; pointer-events: none; }
-    /* Стиль как у приветствия */
     .dresscode-text {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
@@ -236,10 +232,9 @@
     .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: 360px; }
     .ref-image { width: 220px; height: 360px; object-fit: cover; flex-shrink: 0; }
 
-    /* ============ ШЕСТОЙ ЭКРАН (пожелания) ============ */
+    /* ============ ШЕСТОЙ ЭКРАН ============ */
     .wishes-container { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .wishes-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
-
     .wishes-text {
       font-family: "Bad Script", cursive;
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
@@ -247,7 +242,6 @@
       text-align: center;
       line-height: 1.35;
     }
-
     .envelope-wrapper { width: 100%; text-align: center; }
     .envelope-image { display: block; width: 220px; max-width: 62%; height: auto; margin: 6px auto 0; }
 
@@ -263,7 +257,7 @@
       line-height: 1.35;
     }
 
-    /* ============ ОРГАНИЗАТОР (теперь в едином стиле) ============ */
+    /* ============ ОРГАНИЗАТОР (столбик, без слешей) ============ */
     .organizer-container { text-align: center; max-width: 500px; margin: 0 auto; }
     .organizer-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #8B1A2B; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
     .organizer-info {
@@ -271,10 +265,14 @@
       font-size: clamp(1.3rem, 4.5vw, 1.9rem);
       color: #8B1A2B;
       line-height: 1.35;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
     }
     .organizer-info span,
     .organizer-info a {
-      display: inline;
+      display: block;
       white-space: nowrap;
     }
     .organizer-info a {
@@ -284,10 +282,6 @@
       transition: opacity 0.2s;
     }
     .organizer-info a:hover { opacity: 0.7; }
-    /* Добавим мягкие разделители, если нужно */
-    .organizer-info .sep {
-      margin: 0 8px;
-    }
 
     /* ============ АНКЕТА ============ */
     .guestbook-inner {
@@ -297,7 +291,6 @@
       align-items: center;
       gap: 22px;
     }
-
     .guestbook-title { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.8rem, 6.5vw, 2.3rem); color: #FDEBD8; letter-spacing: 4px; text-transform: uppercase; text-align: center; }
     .guestbook-subtitle {
       font-family: "Bad Script", cursive;
@@ -347,7 +340,6 @@
     }
     .submit-btn:hover { background: #ffffff; transform: scale(1.02); }
 
-    /* Бегущая строка с датой */
     .date-marquee {
       width: 100%;
       overflow: hidden;
@@ -369,7 +361,7 @@
       .dialog-left-bottom,
       .dialog-right {
         font-size: clamp(0.9rem, 4vw, 1.2rem);
-        white-space: normal; /* на узких экранах разрешаем перенос */
+        white-space: normal;
       }
       .white-rectangle, .important-white-rectangle { margin: 0 16px; padding: 32px 20px 30px; }
       .tape-sticker { width: 65px; top: -30px; }
@@ -401,7 +393,7 @@
     <div class="hero-top-wrapper">
       <div class="hero-image-section">
         <div class="full-width-heart">
-          <img src="сердце.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FFFDF0/8B1A2B?text=❤️'; this.onerror=null;">
+          <img src="изображение_2026-05-28_145142067.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FFFDF0/8B1A2B?text=❤️'; this.onerror=null;">
         </div>
       </div>
       <div class="first-content">
@@ -504,15 +496,13 @@
     </div>
   </section>
 
-  <!-- Экран 8: Организатор (в едином стиле) -->
+  <!-- Экран 8: Организатор (столбик, без слешей) -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
       <div class="organizer-title">Свадебный организатор</div>
       <div class="organizer-info">
         <span>Светлана Латош</span>
-        <span class="sep">|</span>
         <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a>
-        <span class="sep">|</span>
         <a href="tel:+375295826262">+375 29 582 62 62</a>
       </div>
     </div>
