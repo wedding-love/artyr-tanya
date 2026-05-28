@@ -103,10 +103,32 @@
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
-    .hero-image-section { width: 100%; display: flex; justify-content: center; padding-top: 0; } /* фото приклеено к верху */
-    .full-width-heart { max-width: 360px; margin: 0 auto; padding: 0 16px; }
-    .heart-image { width: 100%; height: auto; max-height: 32vh; filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); }
-    .first-content { padding: 0 20px; margin-top: clamp(4vh, 10vh, 12vh); } /* текст смещён к центру */
+
+    /* Фото сердца — растянуто на всю ширину, красные линии от края до края */
+    .hero-image-section { 
+      width: 100%; 
+      display: flex; 
+      justify-content: center; 
+      padding-top: 0; 
+    }
+
+    .full-width-heart { 
+      width: 100%;          /* на всю ширину */
+      max-width: 100%;      /* без ограничений */
+      margin: 0; 
+      padding: 0; 
+    }
+
+    .heart-image { 
+      width: 100%; 
+      height: auto; 
+      max-height: 40vh;     /* немного увеличена высота */
+      display: block;
+      filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); 
+    }
+
+    /* Текстовый блок опущен ближе к центру */
+    .first-content { padding: 0 20px; margin-top: clamp(4vh, 10vh, 12vh); }
     .title-block { text-align: center; margin: 0 0 2vh; }
 
     .sub-title {
