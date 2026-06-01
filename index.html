@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -22,7 +23,7 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
       height: 100%;
-      background-color: #FFF5E1; /* мягкий кремовый */
+      background-color: #FFF5E1;
     }
 
     body {
@@ -101,7 +102,42 @@
     .screen-seventh { background: linear-gradient(145deg, #8B1A2B 0%, #6B1420 100%); padding: 40px 0 0 0; }
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
-    .hero-top-wrapper { display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
+    .hero-top-wrapper { 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: flex-start; 
+      flex: 1; 
+    }
+
+    /* Новый блок для имен и даты, перемещенный вверх */
+    .hero-couple-names {
+      text-align: center;
+      padding: 5vh 20px 0;
+      order: -1; /* гарантирует, что блок будет выше картинки */
+      margin-bottom: 1.5vh;
+    }
+
+    .couple-name {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(2.2rem, 8vw, 3.2rem);
+      color: #8B1A2B;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-shadow: 1.5px 1.5px 0px rgba(139, 26, 43, 0.08);
+    }
+
+    .couple-date {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: #8B1A2B;
+      letter-spacing: 6px;
+      margin-top: 0.8vh;
+      display: block;
+    }
 
     .hero-image-section { 
       width: 100%; 
@@ -120,12 +156,12 @@
     .heart-image { 
       width: 100%; 
       height: auto; 
-      max-height: 40vh;
+      max-height: 35vh;
       display: block;
       filter: drop-shadow(0 6px 12px rgba(139, 26, 43, 0.12)); 
     }
 
-    .first-content { padding: 0 20px; margin-top: clamp(4vh, 10vh, 12vh); }
+    .first-content { padding: 0 20px; margin-top: clamp(3vh, 8vh, 10vh); }
     .title-block { text-align: center; margin: 0 0 2vh; }
 
     .sub-title {
@@ -245,7 +281,7 @@
       line-height: 1.35;
     }
     .references-wrapper { width: 100%; }
-    .ref-subtitle { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #FDEBD8; text-align: center; margin-bottom: 14px; }
+    .ref-subtitle { font-family: "Bad Script", cursive; font-size: clamp(0.95rem, 3.8vw, 1.3rem); color: #FDEBD8; text-align: center; margin-bottom: 14px; text-transform: uppercase; }
     .scroll-container { overflow-x: auto; scrollbar-width: none; width: 100%; }
     .scroll-container::-webkit-scrollbar { display: none; }
     .images-row { display: flex; flex-wrap: nowrap; width: max-content; height: 360px; }
@@ -262,7 +298,6 @@
       line-height: 1.35;
     }
     .envelope-wrapper { width: 100%; text-align: center; }
-    /* Увеличенный конверт с сохранением адаптивности */
     .envelope-image {
       display: block;
       width: min(320px, 85%);
@@ -377,7 +412,7 @@
     .date-marquee-track span { font-family: "Cormorant Garamond", serif; font-weight: 500; color: #8B1A2B; font-size: clamp(0.9rem, 3.2vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; padding-right: 50px; }
 
     .final-wishes { text-align: center; margin-top: 12px; padding: 0 20px 60px; }
-    .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; }
+    .final-big { font-family: "Playfair Display", serif; font-weight: 600; font-style: italic; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FDEBD8; letter-spacing: 3px; text-transform: uppercase; }
     .final-small { font-family: "Bad Script", cursive; font-size: clamp(1.1rem, 4.3vw, 1.45rem); color: #FDEBD8; margin-top: 9px; }
 
     .footer-image-section {
@@ -403,7 +438,6 @@
       .tape-sticker { width: 65px; top: -30px; }
       .ref-image { width: 160px; height: 260px; }
       .images-row { height: 260px; }
-      /* на мобильных конверт тоже увеличен, но не вылезает */
       .envelope-image { width: min(280px, 85%); }
       .timing-schedule-img { max-width: 100%; }
       .drinks-grid { grid-template-columns: 1fr; }
@@ -417,6 +451,7 @@
       .guestbook-inner { padding: 0 16px; }
       .date-marquee { margin-top: 48px; margin-bottom: 28px; }
       .final-wishes { padding-bottom: 50px; }
+      .hero-couple-names { padding: 3vh 16px 0; }
     }
 
     @media (min-width: 768px) {
@@ -432,6 +467,12 @@
   <!-- Экран 1 -->
   <section class="screen screen-first">
     <div class="hero-top-wrapper">
+      <!-- ИМЕНА И ДАТА ПЕРЕНЕСЕНЫ ВВЕРХ -->
+      <div class="hero-couple-names">
+        <div class="couple-name">Артур & Таня</div>
+        <span class="couple-date">26 . 08 . 2026</span>
+      </div>
+
       <div class="hero-image-section">
         <div class="full-width-heart">
           <img src="изображение_2026-05-28_145617414.png" alt="Символ любви" class="heart-image" onerror="this.src='https://placehold.co/600x500/FFF5E1/8B1A2B?text=❤️'; this.onerror=null;">
@@ -475,32 +516,32 @@
   <!-- Экран 3: Локация -->
   <section class="screen screen-third">
     <div class="location-content">
-      <div class="location-label">Локация</div>
+      <div class="location-label">ЛОКАЦИЯ</div>
       <div class="location-photo-wrapper">
         <svg class="paper-clip" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 43C16.5 43 19.5 39.5 19.5 34V12.5C19.5 7.5 16 4 11.5 4C7 4 4 7.5 4 12.5V31.5C4 35 6 37.5 9 37.5C12 37.5 14 35 14 31.5V13C14 11 12.5 9.5 11 9.5C9.5 9.5 8.5 11 8.5 13V31C8.5 32 9 32.5 9.5 32.5C10 32.5 10.5 32 10.5 31V13C10.5 12.3 10.7 11.5 11 11.5C11.3 11.5 12 12.3 12 13V31.5C12 33.5 10.8 35.5 9 35.5C7.2 35.5 6 33.5 6 31.5V12.5C6 9 8.5 6 11.5 6C14.5 6 17.5 9 17.5 12.5V34C17.5 38 15 41 12 41C9 41 6.5 38 6.5 35V17C6.5 16.2 5.9 15.6 5.2 15.6C4.5 15.6 4 16.2 4 17V35C4 40 7.5 43 12 43Z" fill="#FFF5E1" stroke="#DBC5B0" stroke-width="0.6"/></svg>
         <div class="location-img-container"><img src="image.png" alt="Шато Мари" class="location-img" onerror="this.src='https://placehold.co/800x600/FFF5E1/8B1A2B?text=🏰+Château+Marie';"></div>
       </div>
-      <div class="location-name">Шато Мари</div>
+      <div class="location-name">ШАТО МАРИ</div>
       <div class="location-address">Гродно, улица Домбровского, 58</div>
     </div>
   </section>
 
   <!-- Экран 4: Тайминг -->
   <section class="screen screen-fourth">
-    <div class="timing-section-title"><div class="timing-main-title">Тайминг</div></div>
+    <div class="timing-section-title"><div class="timing-main-title">ТАЙМИНГ</div></div>
     <div class="timing-image-container"><img src="тайминг.png" alt="Тайминг" class="timing-schedule-img" onerror="this.src='https://placehold.co/560x700/8B1A2B/FFF5E1?text=❤️+ТАЙМИНГ+❤️';"></div>
   </section>
 
   <!-- Экран 5: Дресс-код -->
   <section class="screen screen-fifth">
     <div class="dresscode-container">
-      <div class="dresscode-title">Дресс-код</div>
+      <div class="dresscode-title">ДРЕСС-КОД</div>
       <div class="white-rectangle">
         <img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';">
         <div class="dresscode-text">Будем рады, если вы поддержите дресс-код нашей свадьбы и выберете чёрный цвет для своих нарядов.</div>
       </div>
       <div class="references-wrapper">
-        <div class="ref-subtitle">для вашего удобства подобрали референсы</div>
+        <div class="ref-subtitle">ДЛЯ ВАШЕГО УДОБСТВА ПОДОБРАЛИ РЕФЕРЕНСЫ</div>
         <div class="scroll-container">
           <div class="images-row">
             <img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/240x380/1a1a1a/ffffff?text=BLACK';">
@@ -513,12 +554,12 @@
     </div>
   </section>
 
-  <!-- Экран 6: Пожелания (увеличен конверт) -->
+  <!-- Экран 6: Пожелания -->
   <section class="screen screen-sixth">
     <div class="wishes-container">
-      <div class="wishes-title">Пожелания</div>
+      <div class="wishes-title">ПОЖЕЛАНИЯ</div>
       <div class="wishes-text">
-        <p>Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах . Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). Самый ценный подарок — ваше присутствие!</p>
+        <p>Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах. Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). Самый ценный подарок — ваше присутствие!</p>
       </div>
       <div class="envelope-wrapper">
         <img src="изображение_2026-05-28_162740817.png" alt="Конверт" class="envelope-image" onerror="this.src='https://placehold.co/400x300/8B1A2B/FFF5E1?text=✉️';">
@@ -529,7 +570,7 @@
   <!-- Экран 7: Важно -->
   <section class="screen screen-important">
     <div class="important-container">
-      <div class="important-title">Важно</div>
+      <div class="important-title">ВАЖНО</div>
       <div class="important-white-rectangle">
         <img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';">
         <div class="important-text">Дорогие гости, мы очень любим детей, но нашу свадьбу мы видим в формате «для взрослых»: с бокалом игристого и не детскими развлечениями! Пожалуйста, оставьте малышей в надежных руках на время торжества. Ведь любому родителю иногда следует отдыхать, забыв о повседневных заботах!</div>
@@ -540,7 +581,7 @@
   <!-- Экран 8: Организатор -->
   <section class="screen screen-organizer">
     <div class="organizer-container">
-      <div class="organizer-title">Свадебный организатор</div>
+      <div class="organizer-title">СВАДЕБНЫЙ ОРГАНИЗАТОР</div>
       <div class="organizer-info">
         <span>Светлана Латош</span>
         <a href="https://instagram.com/svetlana_latosh" target="_blank">@svetlana_latosh</a>
@@ -552,7 +593,7 @@
   <!-- Экран 9: Анкета -->
   <section class="screen screen-seventh">
     <div class="guestbook-inner">
-      <div class="guestbook-title">Анкета гостя</div>
+      <div class="guestbook-title">АНКЕТА ГОСТЯ</div>
       <div class="guestbook-subtitle">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
       <form class="guest-form" id="guestForm" onsubmit="return submitForm(event)">
         <div class="form-group"><label class="form-label">Имя и фамилия</label><input type="text" class="form-input" required></div>
@@ -573,7 +614,7 @@
           </div>
         </div>
         <div class="form-group"><label class="form-label">Аллергия / непереносимость</label><textarea class="form-textarea"></textarea></div>
-        <button type="submit" class="submit-btn">Отправить</button>
+        <button type="submit" class="submit-btn">ОТПРАВИТЬ</button>
       </form>
     </div>
 
@@ -584,7 +625,7 @@
     </div>
 
     <div class="final-wishes">
-      <div class="final-big">Мы вас очень ждем!</div>
+      <div class="final-big">МЫ ВАС ОЧЕНЬ ЖДЕМ!</div>
       <div class="final-small">Ваши Артур и Таня</div>
     </div>
 
